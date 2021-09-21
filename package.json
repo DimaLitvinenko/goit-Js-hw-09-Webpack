@@ -1,0 +1,27 @@
+{
+  "name": "goit-js-hw-09-webpack",
+  "version": "1.0.0",
+  "description": "practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DimaLitvinenko/goit-Js-hw-09-Webpack.git"
+  },
+  "author": "dimaly",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DimaLitvinenko/goit-Js-hw-09-Webpack/issues"
+  },
+  "homepage": "https://github.com/DimaLitvinenko/goit-Js-hw-09-Webpack#readme",
+  "devDependencies": {},
+  "publishConfig": {
+    "registry": "https://github.com/DimaLitvinenko/goit-Js-hw-09-Webpack.git"
+  },
+  "dependencies": {
+    "save": "^2.4.0",
+    "webpack": "^5.53.0"
+  }
+}
