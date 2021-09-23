@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -13,14 +13,6 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-                type: 'asset/resource',     // изображения
-            },
-            {
-                test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-                type: 'asset/inline',       // шрифты и SVG
-            },
             {
                 test: /\.s[ac]ss$/i,
                 use: 
@@ -35,6 +27,13 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: ['babel-loader'],
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/i,
+                type: 'asset/resource',
+                generator: {
+                  filename: 'images/[name][ext]',
+                },
             },
         ],
     },

@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --mode=development",
     "dev": "webpack --mode=development",
     "prod": "webpack --mode=production",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "predeploy": "npm run prod"
   },
   "repository": {
@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/DimaLitvinenko/goit-Js-hw-09-Webpack/issues"
   },
-  "homepage": "https://github.com/DimaLitvinenko/goit-Js-hw-09-Webpack",
+  "homepage": "https://github.com/DimaLitvinenko/goit-Js-hw-09-Webpack/",
   "publishConfig": {
     "registry": "https://github.com/DimaLitvinenko/goit-Js-hw-09-Webpack.git"
   },
