@@ -1,6 +1,10 @@
 # Webpack starter kit &middot; [![Build Status](https://img.shields.io/travis/npm/npm/latest.svg?style=flat-square)](https://travis-ci.org/npm/npm) [![npm](https://img.shields.io/npm/v/npm.svg?style=flat-square)](https://www.npmjs.com/package/npm) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
 
+
 ## Developing
+
+### • [Настройка Webpack 5 с нуля](https://habr.com/ru/post/524260/)
+### • [How to use Webpack 5](https://www.taniarascia.com/how-to-use-webpack/)
 
 ### Prerequisites
 
@@ -138,7 +142,7 @@ npm run deploy
             ▴ (rm -rf src) - удаление со всем комплектующим 
         ▪ информация о команде (man) (man mkdir)
 
-## + [Node.js и npm:](https://nodejs.org/en/about/):
+## + [Node.js и npm:](https://nodejs.org/en/about/)
    ### • [npmjs.com](https://www.npmjs.com/) - сайт с документацией о пакетах
    ### • работа с пакетами:
         ▪ установка (npm install namePackage)
@@ -156,8 +160,6 @@ npm run deploy
 ## + [Сборщик Parcel](https://parceljs.org/)
 
 ## + [Сборщик Webpack](https://webpack.js.org/):
-   ### • [Настройка Webpack 5 с нуля](https://habr.com/ru/post/524260/)
-   ### • [How to use Webpack 5](https://www.taniarascia.com/how-to-use-webpack/)
 
 ## + [ECMAScript модули](https://exploringjs.com/es6/ch_modules.html):
    ### • Дефолтный (default) експорт и импорт
