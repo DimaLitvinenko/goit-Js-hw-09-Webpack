@@ -1,5 +1,29 @@
 # Webpack starter kit &middot; [![Build Status](https://img.shields.io/travis/npm/npm/latest.svg?style=flat-square)](https://travis-ci.org/npm/npm) [![npm](https://img.shields.io/npm/v/npm.svg?style=flat-square)](https://www.npmjs.com/package/npm) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
 
+<p align="center">
+ <a href="https://github.com/dimalitvinenko/goit-Js-hw-09-Webpack/blob/main/LICENSE?screen_name=shields_io">
+        <img src="https://img.shields.io/static/v1?labelColor=lightgrey&logoColor=black&color=grey&message=License&label=MIT&style=plastic&logo=monster&url=https://github.com/dimalitvinenko/goit-Js-hw-09-Webpack/blob/main/LICENSE"
+             alt="GitHub license">
+</a> 
+<a href="https://https://webpack.js.org/?screen_name=shields_io">
+  <img alt="AppVeyor" src="https://img.shields.io/appveyor/build/DimaLitvinenko/goit-Js-hw-09-Webpack?color=darkblue&label=Webpack&logo=webpack&style=plastic">
+ </a> 
+<a href="https://nodejs.org/en/about/?screen_name=shields_io">
+        <img src="https://img.shields.io/static/v1?labelColor=purple&color=darkorchid&message=v14.17.6&label=Node.js&style=plastic&logo=nodedotjs&url=https://nodejs.org/en/about"
+             alt="Node.js">
+</a>
+<a href="https://www.npmjs.com/?screen_name=shields_io">
+        <img src="https://img.shields.io/static/v1?label=npm&logo=npm&message=v6.14.13&labelColor=olive&color=darkkhaki&style=plastic" 
+             alt="NPM version">
+</a>
+  
+<a href="https://github.com/simple-icons/simple-icons/actions?query=workflow%3AVerify+branch%3Adevelop">
+  <img src="https://img.shields.io/github/workflow/status/simple-icons/simple-icons/Verify/develop?logo=github" alt="Build status"/>
+</a>
+<a href="https://www.npmjs.com/package/simple-icons">
+  <img src="https://img.shields.io/npm/v/simple-icons.svg?logo=npm" alt="NPM version"/>
+</a>
+</p>
 
 ## Developing
 
