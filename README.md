@@ -1,4 +1,4 @@
-# Webpack starter kit  
+<h1 align="center">Webpack kit</h1>  
 
 <p align="center">
  <a href="https://github.com/dimalitvinenko/goit-Js-hw-09-Webpack/blob/main/LICENSE?screen_name=shields_io">
@@ -6,8 +6,11 @@
              alt="GitHub license">
 </a> 
 <a href="https://https://webpack.js.org/?screen_name=shields_io">
-  <img alt="AppVeyor" src="https://img.shields.io/appveyor/build/DimaLitvinenko/goit-Js-hw-09-Webpack?color=darkblue&label=Webpack&logo=webpack&style=plastic">
- </a> 
+  <img alt="Webpack" src="https://img.shields.io/static/v1?labelColor=darkblue&color=blue&message=v5.53.0&label=Webpack&style=plastic&logo=webpack&url=https://webpack.js.org">
+</a> 
+ <a href="https://sass-lang.com//?screen_name=shields_io">
+  <img alt="SASS" src="https://img.shields.io/static/v1?labelColor=darkviolet&color=violet&message=v1.42.1&label=sass&style=plastic&logo=sass&url=https://sass-lang.com">
+</a> 
 <a href="https://nodejs.org/en/about/?screen_name=shields_io">
         <img src="https://img.shields.io/static/v1?labelColor=purple&color=darkorchid&message=v14.17.6&label=Node.js&style=plastic&logo=nodedotjs&url=https://nodejs.org/en/about"
              alt="Node.js">
@@ -18,7 +21,7 @@
 </a>
   
 <a href="https://github.com/simple-icons/simple-icons/actions?query=workflow%3AVerify+branch%3Adevelop">
-  <img src="https://img.shields.io/github/workflow/status/simple-icons/simple-icons/Verify/develop?logo=github" alt="Build status"/>
+  <img src="https://img.shields.io/github/workflow/status/simple-icons/simple-icons/Verify/develop?logo=github&style=plastic" alt="Build status"/>
 </a>
 
 </p>
