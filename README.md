@@ -20,9 +20,7 @@
 <a href="https://github.com/simple-icons/simple-icons/actions?query=workflow%3AVerify+branch%3Adevelop">
   <img src="https://img.shields.io/github/workflow/status/simple-icons/simple-icons/Verify/develop?logo=github" alt="Build status"/>
 </a>
-<a href="https://www.npmjs.com/package/simple-icons">
-  <img src="https://img.shields.io/npm/v/simple-icons.svg?logo=npm" alt="NPM version"/>
-</a>
+
 </p>
 
 ## Developing
