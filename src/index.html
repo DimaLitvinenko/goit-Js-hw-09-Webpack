@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,39 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-    <h1>Это наш HTML-файл</h1>
+    <header></header>
+
+    <main>
+        <h1>Хуторок</h1>
+        <h2>Снежные горки</h2>
+        <ul class="button-list">
+            <li class="button-item">
+                <button class="button-filter" type="button">
+                    Белый
+                </button>
+            </li>
+            <li class="button-item">
+                <button class="button-filter" type="button">
+                    Зеленый
+                </button>
+            </li>
+            <li class="button-item">
+                <button class="button-filter" type="button">
+                    Оранжевый 
+                </button>
+            </li>
+            <li class="button-item">
+                <button class="button-filter" type="button">
+                    Красный
+                </button>
+            </li>
+        </ul>
+
+        <ul class="filter-list" id="filter"></ul>
+    </main>
+
+    <footer></footer>
+    
     <!-- <img src="./images/commands.png" alt="npm commands"> -->
 </body>
 </html>

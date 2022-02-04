@@ -23,6 +23,7 @@ module.exports = {
                     'sass-loader'           // Компилирует Sass в CSS
                 ],                  
             },
+            { test: /\.handlebars$/, loader: "handlebars-loader" },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -45,6 +46,7 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({ filename: 'styles.css' }),
         new CleanWebpackPlugin(),
+
     ],
     devServer: {
         port: 4444,
