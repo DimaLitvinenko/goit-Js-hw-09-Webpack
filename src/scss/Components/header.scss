@@ -1,0 +1,196 @@
+.header {
+    position: absolute;
+    top: 18px;
+    right: 30px;
+    display: flex;
+    min-height: 75px;
+    margin-inline: auto;
+    margin-top: 0px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    box-shadow: none;
+    background: none;
+    filter: none;
+    backdrop-filter: none;
+    border-color: rgb(0 0 0 / 0%);
+    border-width: 1.5px;
+    border-radius: 16px;
+    border-style: solid;
+    line-height: 25.6px;
+    transition-delay: 0s, 0s, 0s, 0s;
+    transition-duration: 0.25s, 0.25s, 0.25s, 0s;
+    transition-timing-function: linear, linear, linear, linear;
+}
+
+.header-wrapper {
+    display: flex;
+    width: 100%;
+}
+// .wrapp-navigation {
+// }
+//  ----------------------- NAVIGATION ----------------------
+.navigation-link {
+    cursor: pointer;
+    text-decoration: none;
+    outline: rgb(0 0 0 / 0%) solid 2px;
+    outline-offset: 2px;
+    color: white;
+    transition-property: background-color, border-color, color, fill, stroke,
+        opacity, box-shadow, transform;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.outnav-link {
+    cursor: pointer;
+    text-decoration: none;
+    outline: rgb(0 0 0 / 0%) solid 2px;
+    outline-offset: 2px;
+    color: white;
+    background: inherit;
+    border-radius: inherit;
+    font-weight: bold;
+    transition-property: background-color, border-color, color, fill, stroke,
+        opacity, box-shadow, transform;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+//  -------------------- SEARCH FORM -------------------------
+.wrapp-right-side {
+    margin-inline-start: auto;
+}
+
+.wrapp-search-form {
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.wrapp-search-input {
+    width: 200px;
+    display: flex;
+    position: relative;
+    border-radius: 8px;
+    margin-inline-end: 18px;
+}
+
+.search-input-elem {
+    left: 0px;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+}
+.search-input {
+    width: 100%;
+    min-width: 0px;
+    outline: rgb(0 0 0 / 0%) solid 2px;
+    outline-offset: 2px;
+    position: relative;
+    appearance: none;
+    transition-property: background-color, border-color, color, fill, stroke,
+        opacity, box-shadow, transform;
+    transition-duration: 250ms;
+    font-weight: 400;
+    font-size: 0.75rem;
+    padding-inline-start: 2.5rem;
+    padding-inline-end: 1rem;
+    height: 2.5rem;
+    border-radius: inherit;
+    border: none;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    background: white;
+}
+
+// .sing-link {
+// }
+.sing-link-btn {
+    display: inline-flex;
+    appearance: none;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: rgb(0 0 0 / 0%) solid 2px;
+    outline-offset: 2px;
+    width: auto;
+    line-height: 1.2;
+    border-radius: 8px;
+    font-weight: bold;
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    font-size: var(--chakra-fontSizes-md);
+    height: 2.5rem;
+    min-width: 2.5rem;
+    padding-inline: 0px;
+    margin-inline-start: 0px;
+    color: white;
+}
+.sing-link-icon-wrapp {
+    display: inline-flex;
+    align-self: center;
+    flex-shrink: 0;
+    margin-inline-end: 0.5rem;
+}
+// .sing-link-text {
+// }
+// --------------------- MEDIA-QUERY ---------------------------
+
+@media screen and (min-width: 768px) {
+    .header {
+        padding-inline: 30px;
+    }
+    .header-wrapper {
+        flex-direction: row;
+    }
+    .wrapp-navigation {
+        margin-bottom: 0;
+    }
+
+    .wrapp-right-side {
+        width: unset;
+    }
+    .wrapp-search-form {
+        padding-inline-end: 16px;
+        width: auto;
+    }
+    .sing-link-text {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .header {
+        padding-inline: 15px;
+        width: calc(100vw - 30px);
+    }
+    .header-wrapper {
+        flex-direction: column;
+    }
+    .wrapp-navigation {
+        margin-bottom: 8px;
+    }
+    .wrapp-right-side {
+        width: 100%;
+    }
+    .wrapp-search-form {
+        padding-inline-end: 0px;
+        width: 100%;
+    }
+    .sing-link-text {
+        display: none;
+    }
+}

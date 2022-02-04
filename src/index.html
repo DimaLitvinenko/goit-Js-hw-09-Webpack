@@ -4,42 +4,93 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/modern-normalize/modern-normalize.css">
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-    <header></header>
+    <header class="header">
+        <div class="header-wrapper">
+            <div class="wrapp-navigation">
+                <nav class="navigation">
+                    <ol class="navigation-list">
+                        <li class="navigation-item">
+                            <a class="navigation-link" href="#">Хуторок</a>
+                            <span>/</span>
+                        </li>
+                        <li class="navigation-item">
+                            <a class="navigation-link" href="#">Снежные горки</a>
+                        </li>
+                    </ol>
+                </nav>
+                <a class="outnav-link" href="">Доска</a>
+            </div>
+
+            <div class="wrapp-right-side">
+                <div class="wrapp-search-form">
+                    <div class="wrapp-search-input" >
+                        <input placeholder="Пишы здесь" class="search-input" type="text">
+                    </div>
+                </div>
+                <a class="sing-link" href="#">
+                    <button class="sing-link-btn">
+                        <span class="sing-link-icon-wrapp">
+                            <svg></svg>
+                        </span>
+                        <p class="sing-link-text">Sing In</p>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </header>
 
     <main>
-        <h1>Хуторок</h1>
-        <h2>Снежные горки</h2>
-        <ul class="button-list">
-            <li class="button-item">
-                <button class="button-filter" type="button">
-                    Белый
-                </button>
-            </li>
-            <li class="button-item">
-                <button class="button-filter" type="button">
-                    Зеленый
-                </button>
-            </li>
-            <li class="button-item">
-                <button class="button-filter" type="button">
-                    Оранжевый 
-                </button>
-            </li>
-            <li class="button-item">
-                <button class="button-filter" type="button">
-                    Красный
-                </button>
-            </li>
-        </ul>
-
-        <ul class="filter-list" id="filter"></ul>
+        <section class="wrapp-section">
+            <div class="wrapp-container">
+                <!-- <h1>Хуторок</h1>
+                <h2>Снежные горки</h2> -->
+                <!-- Кнопки фильтра -->
+                <ul class="button-list list">
+                    <li class="button-item">
+                        <button class="button-filter" type="button">
+                            Белый
+                        </button>
+                    </li>
+                    <li class="button-item">
+                        <button class="button-filter" type="button">
+                            Зеленый
+                        </button>
+                    </li>
+                    <li class="button-item">
+                        <button class="button-filter" type="button">
+                            Оранжевый 
+                        </button>
+                    </li>
+                    <li class="button-item">
+                        <button class="button-filter" type="button">
+                            Красный
+                        </button>
+                    </li>
+                </ul>
+                <!-- Список из фильтрации 'таблеток' -->
+                <ul class="filter-list list" id="filter"></ul>
+            </div>
+        </section>
     </main>
 
+    <aside class="sidebar">
+    </aside>
+    
     <footer></footer>
     
+    <div class="item-modal" id="item-modal">
+        <div class="modal-window">
+            <button data-modal-close class="modal-button" type="button">
+                <svg class="modal-button__icon" width="18" height="18">
+                    <use href="./img/symbol-defs.svg#close-btn"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
     <!-- <img src="./images/commands.png" alt="npm commands"> -->
 </body>
 </html>

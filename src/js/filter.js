@@ -1,9 +1,21 @@
+const maxPills = 70;
 
-function renderCountryCard() {     // Рендерит карточку для одной страны
-    const cardMarkup = document.getElementById("filter");
-    const item = document.createElement('li');
-    console.log(item);
-  item.insertAdjacentHTML('beforeend', cardMarkup);
+// Рендерит разметку списка таблеток от первого до maxPills
+function renderItemMarkup(num) {
+    const list = document.getElementById('filter');
+
+    list.insertAdjacentHTML(
+        'beforeend',
+        `<li class="filter-item"><button class="filter-btn" isActive>${num}</button></li>`,
+    );
 }
 
-renderCountryCard();
+// Подсчёт от первого до последнего, не больше maxPills
+function countItems() {
+    for (let i = 1; i <= maxPills; i += 1) {
+        // console.log(i)
+        renderItemMarkup(i);
+    }
+    return;
+}
+countItems();
