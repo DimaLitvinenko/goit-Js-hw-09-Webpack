@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="node_modules/modern-normalize/modern-normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+        integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
+    <!-- ------------- HEADER ------------- -->
     <header class="header">
         <div class="header-wrapper">
             <div class="wrapp-navigation">
@@ -22,7 +25,7 @@
                         </li>
                     </ol>
                 </nav>
-                <a class="outnav-link" href="">Доска</a>
+                <a class="outnav-link" href="#">Доска</a>
             </div>
 
             <div class="wrapp-right-side">
@@ -43,43 +46,125 @@
         </div>
     </header>
 
-    <main>
+    <!-- ------------- SIDEBAR ------------ -->
+    <aside class="sidebar">
+        <div class="sidebar-wrapper">
+            <div class="sidebar-content__wrapper">
+                <div class="sidebar-content">
+                    <!-- --------- SIDEBAR-TOP ---------- -->
+                    <div class="sidebar-content__top">
+                        <div class="sidebar-content__section">
+                            <div class="sidebar-content__logo">
+                                <svg class="sidebar-logo"></svg>
+    
+                                <span class="sidebar-logo__breakline"></span>
+    
+                                <svg class="sidebar-logo"></svg>
+                            </div>
+                            <div class="sidebar-content__bottom-line"></div>
+                        </div>
+                    </div>
+                    <!-- --------- SIDEBAR-MAIN ---------- -->
+                    <div class="sidebar-content__main">
+                        <ul class="list">
+                            <li>
+                                <a aria-current="page" class="sidebar-main__link" href="#/admin/dashboard">
+                                    <button class="sidebar-main__link-btn">
+                                        <span class="">
+                                            <span>
+                                                <svg class="sidebar-link-btn__logo"></svg>
+                                            </span>
+                                            <p class="sidebar-link-btn__text">Dashboard</p>
+                                        </span>
+                                    </button>
+                                </a>
+                            </li>
+                            <li>
+                                <a aria-current="page" class="sidebar-main__link" href="#/admin/tables">
+                                    <button class="sidebar-main__link-btn">
+                                        <span class="">
+                                            <span>
+                                                <svg class="sidebar-link-btn__logo"></svg>
+                                            </span>
+                                            <p class="sidebar-link-btn__text">Tables</p>
+                                        </span>
+                                    </button>
+                                </a>
+                            </li>
+                            <!-- <li>
+                                        <a aria-current="page" class="sidebar-main__link" href="#/admin/--">
+                                            <button class="sidebar-main__link-btn">
+                                                <span class="">
+                                                    <span>
+                                                        <svg class="sidebar-link-btn__logo"></svg>
+                                                    </span>
+                                                    <p class="sidebar-link-btn__text"> ---- </p>
+                                                </span>
+                                            </button>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a aria-current="page" class="sidebar-main__link" href="#/admin/--">
+                                            <button class="sidebar-main__link-btn">
+                                                <span class="">
+                                                    <span>
+                                                        <svg class="sidebar-link-btn__logo"></svg>
+                                                    </span>
+                                                    <p class="sidebar-link-btn__text"> ---- </p>
+                                                </span>
+                                            </button>
+                                        </a>
+                                    </li> -->
+                        </ul>
+                    </div>
+                    <!-- --------- SIDEBAR-BOTTOM ---------- -->
+                    <div class="sidebar-content__bottom">
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!--  ---------- MAIN-CONTENT ----------- -->
+    <main class="main-wrapper">
         <section class="wrapp-section">
             <div class="wrapp-container">
-                <!-- <h1>Хуторок</h1>
-                <h2>Снежные горки</h2> -->
-                <!-- Кнопки фильтра -->
-                <ul class="button-list list">
-                    <li class="button-item">
-                        <button class="button-filter" type="button">
-                            Белый
-                        </button>
-                    </li>
-                    <li class="button-item">
-                        <button class="button-filter" type="button">
-                            Зеленый
-                        </button>
-                    </li>
-                    <li class="button-item">
-                        <button class="button-filter" type="button">
-                            Оранжевый 
-                        </button>
-                    </li>
-                    <li class="button-item">
-                        <button class="button-filter" type="button">
-                            Красный
-                        </button>
-                    </li>
-                </ul>
-                <!-- Список из фильтрации 'таблеток' -->
-                <ul class="filter-list list" id="filter"></ul>
+                <h1 class="visually-hidden">Снежные горки</h1>
+                <div class="main-wrapp-area">
+                    <div class="main-content-area">
+                        <h2 class="main-content-title"></h2>
+                        <!-- FILTER BUTTON -->
+                        <ul class="button-list list">
+                            <li class="button-item">
+                                <button class="button-filter" type="button">
+                                    Белый
+                                </button>
+                            </li>
+                            <li class="button-item">
+                                <button class="button-filter" type="button">
+                                    Зеленый
+                                </button>
+                            </li>
+                            <li class="button-item">
+                                <button class="button-filter" type="button">
+                                    Оранжевый 
+                                </button>
+                            </li>
+                            <li class="button-item">
+                                <button class="button-filter" type="button">
+                                    Красный
+                                </button>
+                            </li>
+                        </ul>
+                        <!-- Список из фильтрации 'таблеток' -->
+                        <ul class="filter-list list" id="filter"></ul>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
-
-    <aside class="sidebar">
-    </aside>
-    
+   
     <footer></footer>
     
     <div class="item-modal" id="item-modal">

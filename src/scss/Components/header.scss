@@ -1,34 +1,70 @@
 .header {
+    min-height: 40vh;
+    // height: 100%;
+    width: 100%;
     position: absolute;
-    top: 18px;
-    right: 30px;
+    background-image: url(../../images/background-card-reports.png);
+    background-size: cover;
+    top: 0px;
+
     display: flex;
-    min-height: 75px;
-    margin-inline: auto;
-    margin-top: 0px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    box-shadow: none;
+    position: absolute;
+    box-shadow: var(--chakra-shadows-none);
     background: none;
+    border-color: var(--chakra-colors-transparent);
     filter: none;
     backdrop-filter: none;
-    border-color: rgb(0 0 0 / 0%);
     border-width: 1.5px;
-    border-radius: 16px;
     border-style: solid;
-    line-height: 25.6px;
     transition-delay: 0s, 0s, 0s, 0s;
     transition-duration: 0.25s, 0.25s, 0.25s, 0s;
     transition-timing-function: linear, linear, linear, linear;
+    border-radius: 16px;
+    min-height: 75px;
+    line-height: 25.6px;
+    margin-inline: auto;
+    margin-top: 0px;
+    padding-bottom: 8px;
+    right: 30px;
+    padding-top: 8px;
+    top: 18px;
+    // min-height: 40vh;
+    // width: 100%;
+    // position: absolute;
+    // background-image: url(../../images/background-card-reports.png);
+    // background-size: cover;
+
+    // display: flex;
+    // position: absolute;
+    // box-shadow: var(--chakra-shadows-none);
+    // background: none;
+    // border-color: var(--chakra-colors-transparent);
+    // filter: none;
+    // backdrop-filter: none;
+    // border-width: 1.5px;
+    // border-style: solid;
+    // transition-delay: 0s, 0s, 0s, 0s;
+    // transition-duration: 0.25s, 0.25s, 0.25s, 0s;
+    // transition-timing-function: linear, linear, linear, linear;
+    // border-radius: 16px;
+    // min-height: 75px;
+    // line-height: 25.6px;
+    // margin-inline: auto;
+    // margin-top: 0px;
+    // padding-bottom: 8px;
+    // right: 30px;
+    // padding-top: 8px;
+    // top: 18px;
 }
 
 .header-wrapper {
     display: flex;
     width: 100%;
 }
+
+//  ----------------------- NAVIGATION ----------------------
 // .wrapp-navigation {
 // }
-//  ----------------------- NAVIGATION ----------------------
 .navigation-link {
     cursor: pointer;
     text-decoration: none;
@@ -39,6 +75,13 @@
         opacity, box-shadow, transform;
     transition-duration: 200ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    float: left;
+    max-width: 100%;
+    position: relative;
+    max-height: 100%;
+    width: 100%;
+    overflow: auto;
+    transition: top 0.2s linear 0s, bottom 0.2s linear, width 0.35s ease;
 }
 .outnav-link {
     cursor: pointer;
@@ -57,6 +100,7 @@
 
 //  -------------------- SEARCH FORM -------------------------
 .wrapp-right-side {
+    width: unset;
     margin-inline-start: auto;
 }
 
@@ -96,19 +140,18 @@
     outline-offset: 2px;
     position: relative;
     appearance: none;
-    transition-property: background-color, border-color, color, fill, stroke,
-        opacity, box-shadow, transform;
-    transition-duration: 250ms;
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
     font-weight: 400;
-    font-size: 0.75rem;
-    padding-inline-start: 2.5rem;
-    padding-inline-end: 1rem;
-    height: 2.5rem;
+    font-size: var(--chakra-fontSizes-xs);
+    padding-inline-start: var(--chakra-space-10);
+    padding-inline-end: var(--chakra-space-4);
+    height: var(--chakra-sizes-10);
     border-radius: inherit;
-    border: none;
+    border: var(--chakra-borders-none);
     padding-top: 11px;
     padding-bottom: 11px;
-    background: white;
+    background: var(--chakra-colors-white);
 }
 
 // .sing-link {
@@ -129,15 +172,15 @@
     width: auto;
     line-height: 1.2;
     border-radius: 8px;
-    font-weight: bold;
+    font-weight: var(--chakra-fontWeights-bold);
     transition-property: var(--chakra-transition-property-common);
     transition-duration: var(--chakra-transition-duration-normal);
     font-size: var(--chakra-fontSizes-md);
-    height: 2.5rem;
-    min-width: 2.5rem;
+    height: var(--chakra-sizes-10);
+    min-width: var(--chakra-sizes-10);
     padding-inline: 0px;
     margin-inline-start: 0px;
-    color: white;
+    color: var(--chakra-colors-white);
 }
 .sing-link-icon-wrapp {
     display: inline-flex;
@@ -147,50 +190,3 @@
 }
 // .sing-link-text {
 // }
-// --------------------- MEDIA-QUERY ---------------------------
-
-@media screen and (min-width: 768px) {
-    .header {
-        padding-inline: 30px;
-    }
-    .header-wrapper {
-        flex-direction: row;
-    }
-    .wrapp-navigation {
-        margin-bottom: 0;
-    }
-
-    .wrapp-right-side {
-        width: unset;
-    }
-    .wrapp-search-form {
-        padding-inline-end: 16px;
-        width: auto;
-    }
-    .sing-link-text {
-        display: flex;
-    }
-}
-
-@media screen and (min-width: 375px) {
-    .header {
-        padding-inline: 15px;
-        width: calc(100vw - 30px);
-    }
-    .header-wrapper {
-        flex-direction: column;
-    }
-    .wrapp-navigation {
-        margin-bottom: 8px;
-    }
-    .wrapp-right-side {
-        width: 100%;
-    }
-    .wrapp-search-form {
-        padding-inline-end: 0px;
-        width: 100%;
-    }
-    .sing-link-text {
-        display: none;
-    }
-}

@@ -1,0 +1,194 @@
+.sidebar {
+    position: fixed;
+    display: none;
+}
+.sidebar-wrapper {
+    margin-inline-start: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background: var(--chakra-colors-white);
+    transition: all 0.2s linear 0s;
+    width: 260px;
+    max-width: 260px;
+    height: calc(100vh - 32px);
+    padding-inline: 20px;
+    margin: 0px;
+    filter: drop-shadow(rgba(0, 0, 0, 0.05) 0px 5px 14px);
+    border-radius: 20px;
+}
+.sidebar-content-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+.sidebar-content {
+    position: absolute;
+    inset: 0px;
+    overflow: scroll;
+    margin-right: -22px;
+    margin-bottom: -17px;
+}
+
+// .sidebar-content__top {
+// }
+.sidebar-content__section {
+    padding-top: 25px;
+    margin-bottom: 12px;
+}
+.sidebar-content__logo {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.sidebar-logo {
+    width: 74px;
+    height: 27px;
+    display: inline-block;
+    line-height: 1em;
+    flex-shrink: 0;
+    color: currentcolor;
+    vertical-align: middle;
+}
+.sidebar-logo__breakline {
+    width: 1px;
+    height: 20px;
+    background: var(--chakra-colors-gray-700);
+
+    & > :not(style) ~ :not(style) {
+        margin-top: 0px;
+        margin-inline: 12px 0px;
+        margin-bottom: 0px;
+    }
+}
+.sidebar-logo {
+    width: 82px;
+    height: 21px;
+    display: inline-block;
+    line-height: 1em;
+    flex-shrink: 0;
+    color: currentcolor;
+    vertical-align: middle;
+}
+
+.sidebar-content__bottom-line {
+    display: flex;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+        90deg,
+        rgb(224 225 226 / 0%) 0%,
+        rgb(224, 225, 226) 49.52%,
+        rgb(224 225 226 / 0%) 100%
+    );
+    margin-top: 26px;
+    margin-bottom: 26px;
+}
+//  -------------MAIN-------------
+.sidebar-content__main {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.sidebar-main__link-btn {
+    margin-bottom: 6px;
+    margin-inline: auto;
+    padding-inline-start: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    display: inline-flex;
+    appearance: none;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    width: 100%;
+    line-height: 1.2;
+    border-radius: 15px;
+    font-weight: var(--chakra-fontWeights-bold);
+    font-size: var(--chakra-fontSizes-md);
+    height: initial;
+    min-width: var(--chakra-sizes-10);
+    padding-inline-end: var(--chakra-space-4);
+    background: var(--chakra-colors-white);
+    transition: all 0.2s linear 0s;
+
+    & > span {
+        display: flex;
+        & > span {
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: var(--chakra-colors-blue-500);
+            color: var(--chakra-colors-white);
+            height: 30px;
+            width: 30px;
+            margin-inline-end: 12px;
+            transition: all 0.2s linear 0s;
+        }
+    }
+}
+.sidebar-link-btn__logo {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    line-height: 1em;
+    flex-shrink: 0;
+    color: inherit;
+    vertical-align: middle;
+}
+.sidebar-link-btn__text {
+    color: var(--chakra-colors-gray-700);
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: var(--chakra-fontSizes-sm);
+}
+
+// --------------BOTTOM---------------
+.sidebar-content__bottom {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 22px;
+    margin-top: auto;
+    margin-inline: 20px;
+}
+
+// .sidebar-botton-scroll {
+//     position: absolute;
+//     height: 6px;
+//     transition: opacity 200ms ease 0s;
+//     opacity: 0;
+//     right: 2px;
+//     bottom: 2px;
+//     left: 2px;
+//     border-radius: 3px;
+// }
+
+// .sidebar-right-scroll {
+//     position: absolute;
+//     width: 6px;
+//     transition: opacity 200ms ease 0s;
+//     opacity: 0;
+//     max-width: 100%;
+//     bottom: 2px;
+//     top: 2px;
+//     border-radius: 3px;
+//     right: 0px;
+// }

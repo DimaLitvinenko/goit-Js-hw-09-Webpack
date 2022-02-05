@@ -1,44 +1,4 @@
-.wrapp-section {
-    padding: 30px 15px;
-    min-height: calc(100vh-123px);
-}
 .wrapp-container {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.main-panel {
-    float: right;
-    max-width: 100%;
-    overflow: auto;
-    position: relative;
-    max-height: 100%;
-    transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
-    transition-duration: 0.2s, 0.2s, 0.35s;
-    transition-property: top, bottom, width;
-    transition-timing-function: linear, linear, ease;
-}
-.base-style {
-    padding: 22px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.05);
-    border-radius: 20px;
-    position: relative;
-    word-wrap: break-word;
-    background-clip: border-box;
-}
-
-.sidebar {
-    background: var(--chakra-colors-white);
-    transition: all 0.2s linear 0s;
-    width: 260px;
-    max-width: 260px;
-    height: calc(100vh - 32px);
-    padding-inline: 20px;
-    margin: 0px;
-    filter: drop-shadow(rgba(0, 0, 0, 0.05) 0px 5px 14px);
-    border-radius: 20px;
+    padding: 30px 15px;
+    min-height: calc(100vh - 123px);
 }

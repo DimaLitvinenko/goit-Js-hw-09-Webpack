@@ -1,0 +1,31 @@
+.main-wrapper {
+    // padding: 30px 15px;
+    min-height: calc(100vh - 123px);
+    float: right;
+    max-width: 100%;
+    position: relative;
+    max-height: 100%;
+    width: 100%;
+    overflow: auto;
+    transition: top 0.2s linear 0s, bottom 0.2s linear, width 0.35s ease;
+}
+.main-wrapp-area {
+    display: flex;
+    flex-direction: column;
+    padding-top: 120px;
+}
+
+.main-content-area {
+    padding: 22px 22px 0px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: rgb(0 0 0 / 5%) 0px 5px 14px;
+    border-radius: 20px;
+    position: relative;
+    overflow-wrap: break-word;
+    background: var(--chakra-colors-white);
+}
+.main-content-title {
+    padding: 6px 0px 22px;
+}

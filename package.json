@@ -44,6 +44,7 @@
     "handlebars": "^4.7.7",
     "handlebars-loader": "^1.7.1",
     "modern-normalize": "^1.1.0",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "sass-extras": "^1.0.0"
   }
 }
