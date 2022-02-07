@@ -1,16 +1,20 @@
 const maxPills = 70;
 
 // Рендерит разметку списка таблеток от первого до maxPills
-function renderItemMarkup(num) {
-    const list = document.getElementById('filter');
+function renderItemMarkup(number) {
+    let list = document.getElementById('filter');
 
     list.insertAdjacentHTML(
         'beforeend',
-        `<li class="filter-item"><button class="filter-btn" isActive>${num}</button></li>`,
+        `<li class="filter_list--item">
+            <a href="#!" class="filter_list--button link" data-item-button>
+                ${number}
+            </a>
+        </li>`,
     );
 }
 
-// Подсчёт от первого до последнего, не больше maxPills
+// ПОДСЧЁТ ЕЛЕМЕНТОВ СПИСКА maxPills
 function countItems() {
     for (let i = 1; i <= maxPills; i += 1) {
         // console.log(i)

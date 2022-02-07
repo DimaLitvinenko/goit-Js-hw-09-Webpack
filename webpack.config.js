@@ -11,6 +11,7 @@ module.exports = {
         path: path.resolve(__dirname, './dist'), // точка выхода
         filename: 'main.js',
     },
+
     module: {
         rules: [
             {
@@ -28,7 +29,12 @@ module.exports = {
                 use: ['babel-loader'],
             },
             {
-                test: /\.(png|jpg|gif|svg)$/i,
+                test: /\.hbs$/,
+                exclude: /node_modules/,
+                use: ['handlebars-loader'],
+            },
+            {
+                test: /\.(png|jpg|jpe?g|gif|svg)$/i,
                 type: 'asset/resource',
                 generator: {
                     filename: 'images/[name][ext]',

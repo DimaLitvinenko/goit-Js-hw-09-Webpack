@@ -10,170 +10,189 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-    <!-- ------------- HEADER ------------- -->
-    <header class="header">
-        <div class="header-wrapper">
-            <div class="wrapp-navigation">
-                <nav class="navigation">
-                    <ol class="navigation-list">
-                        <li class="navigation-item">
-                            <a class="navigation-link" href="#">Хуторок</a>
-                            <span>/</span>
-                        </li>
-                        <li class="navigation-item">
-                            <a class="navigation-link" href="#">Снежные горки</a>
-                        </li>
-                    </ol>
-                </nav>
-                <a class="outnav-link" href="#">Доска</a>
-            </div>
+    <div>
 
-            <div class="wrapp-right-side">
-                <div class="wrapp-search-form">
-                    <div class="wrapp-search-input" >
-                        <input placeholder="Пишы здесь" class="search-input" type="text">
-                    </div>
-                </div>
-                <a class="sing-link" href="#">
-                    <button class="sing-link-btn">
-                        <span class="sing-link-icon-wrapp">
-                            <svg></svg>
-                        </span>
-                        <p class="sing-link-text">Sing In</p>
-                    </button>
-                </a>
-            </div>
-        </div>
-    </header>
+        <!-- ------------- HEADER-BACKGROUND ------------- -->
+        <div class="head"></div>
 
-    <!-- ------------- SIDEBAR ------------ -->
-    <aside class="sidebar">
-        <div class="sidebar-wrapper">
-            <div class="sidebar-content__wrapper">
-                <div class="sidebar-content">
-                    <!-- --------- SIDEBAR-TOP ---------- -->
-                    <div class="sidebar-content__top">
-                        <div class="sidebar-content__section">
-                            <div class="sidebar-content__logo">
-                                <svg class="sidebar-logo"></svg>
-    
-                                <span class="sidebar-logo__breakline"></span>
-    
-                                <svg class="sidebar-logo"></svg>
+        <!-- -------------- SIDEBAR ------------- -->
+        <div>
+            <aside class="sidebar">
+                <div class="sidebar-wrapper">
+                    <div class="sidebar-content__wrapper">
+                        <div class="sidebar-content">
+                            <!-- --------- SIDEBAR-TOP ---------- -->
+                            <div class="sidebar-content__top">
+                                <div class="sidebar-content__section">
+                                    <div class="sidebar-content__logo">
+                                        <svg class="sidebar-logo"></svg>
+            
+                                        <span class="sidebar-logo__breakline"></span>
+            
+                                        <svg class="sidebar-logo"></svg>
+                                    </div>
+                                    <div class="sidebar-content__bottom-line"></div>
+                                </div>
                             </div>
-                            <div class="sidebar-content__bottom-line"></div>
-                        </div>
-                    </div>
-                    <!-- --------- SIDEBAR-MAIN ---------- -->
-                    <div class="sidebar-content__main">
-                        <ul class="list">
-                            <li>
-                                <a aria-current="page" class="sidebar-main__link" href="#/admin/dashboard">
-                                    <button class="sidebar-main__link-btn">
-                                        <span class="">
-                                            <span>
-                                                <svg class="sidebar-link-btn__logo"></svg>
-                                            </span>
-                                            <p class="sidebar-link-btn__text">Dashboard</p>
-                                        </span>
-                                    </button>
-                                </a>
-                            </li>
-                            <li>
-                                <a aria-current="page" class="sidebar-main__link" href="#/admin/tables">
-                                    <button class="sidebar-main__link-btn">
-                                        <span class="">
-                                            <span>
-                                                <svg class="sidebar-link-btn__logo"></svg>
-                                            </span>
-                                            <p class="sidebar-link-btn__text">Tables</p>
-                                        </span>
-                                    </button>
-                                </a>
-                            </li>
-                            <!-- <li>
-                                        <a aria-current="page" class="sidebar-main__link" href="#/admin/--">
+                            <!-- --------- SIDEBAR-MAIN ---------- -->
+                            <div class="sidebar-content__main">
+                                <ul class="list">
+                                    <li>
+                                        <a aria-current="page" class="sidebar-main__link" href="#/admin/dashboard">
                                             <button class="sidebar-main__link-btn">
                                                 <span class="">
                                                     <span>
                                                         <svg class="sidebar-link-btn__logo"></svg>
                                                     </span>
-                                                    <p class="sidebar-link-btn__text"> ---- </p>
+                                                    <p class="sidebar-link-btn__text">Dashboard</p>
                                                 </span>
                                             </button>
                                         </a>
                                     </li>
                                     <li>
-                                        <a aria-current="page" class="sidebar-main__link" href="#/admin/--">
+                                        <a aria-current="page" class="sidebar-main__link" href="#/admin/tables">
                                             <button class="sidebar-main__link-btn">
                                                 <span class="">
                                                     <span>
                                                         <svg class="sidebar-link-btn__logo"></svg>
                                                     </span>
-                                                    <p class="sidebar-link-btn__text"> ---- </p>
+                                                    <p class="sidebar-link-btn__text">Tables</p>
                                                 </span>
                                             </button>
                                         </a>
-                                    </li> -->
-                        </ul>
+                                    </li>
+                                    <!-- <li>
+                                                <a aria-current="page" class="sidebar-main__link" href="#/admin/--">
+                                                    <button class="sidebar-main__link-btn">
+                                                        <span class="">
+                                                            <span>
+                                                                <svg class="sidebar-link-btn__logo"></svg>
+                                                            </span>
+                                                            <p class="sidebar-link-btn__text"> ---- </p>
+                                                        </span>
+                                                    </button>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a aria-current="page" class="sidebar-main__link" href="#/admin/--">
+                                                    <button class="sidebar-main__link-btn">
+                                                        <span class="">
+                                                            <span>
+                                                                <svg class="sidebar-link-btn__logo"></svg>
+                                                            </span>
+                                                            <p class="sidebar-link-btn__text"> ---- </p>
+                                                        </span>
+                                                    </button>
+                                                </a>
+                                            </li> -->
+                                </ul>
+                            </div>
+                            <!-- --------- SIDEBAR-BOTTOM ---------- -->
+                            <div class="sidebar-content__bottom">
+            
+                            </div>
+                        </div>
                     </div>
-                    <!-- --------- SIDEBAR-BOTTOM ---------- -->
-                    <div class="sidebar-content__bottom">
+                </div>
+            </aside>
+        </div>
+        
+        <!-- ------------ MAIN-CONTENT ------------ -->
+        <main class="main-wrapper">
+            <section class="wrapp-section">
+                <div class="wrapp-container">
+                    <h1 class="visually-hidden"></h1>
+                    <div class="main-wrapp-area">
+                        <div class="main-content-area">
+                            <h2 class="main-content-title">Сортировка</h2>
+
+                            <!-- ---------- FILTER INPUTS ---------- -->
+                            <div class="filter_inputs--wrapper">
+                                <ul class="filter_inputs--list list">
+                                    <li class="filter_inputs--item">
+                                        <input class="checkbox-alizarin" type="checkbox" id="color-1" checked="checked" />
+                                        <label class="filter_input--placeholder" for="color-1">Белый</label>
+                                    </li>
+                                    <li class="filter_inputs--item">
+                                        <input class="checkbox-wisteria" type="checkbox" id="color-2" checked="checked" />
+                                        <label class="filter_input--placeholder" for="color-2">Зеленый</label>
+                                    </li>
+                                    <li class="filter_inputs--item">
+                                        <input class="checkbox-emerland" type="checkbox" id="color-3" checked="checked" />
+                                        <label class="filter_input--placeholder" for="color-3">Оранжевый</label>
+                                    </li>
+                                    <li class="filter_inputs--item">
+                                        <input class="checkbox-belizehole" type="checkbox" id="color-4" checked="checked" />
+                                        <label class="filter_input--placeholder" for="color-4">Красный</label>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- ---------- FILTER ELEMENTS LIST --------- -->
+                            <div class="filter_list--wrapper">
+                                <ul class="filter_list list" id="filter"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
     
+<!--   <footer></footer> -->
+
+        <!-- ------------- HEADER ------------- -->
+        <div>
+            <div class="header">
+                <div class="header-wrapper">
+                    <div class="wrapp-navigation">
+                        <nav class="navigation">
+                            <ol class="navigation-list">
+                                <li class="navigation-item">
+                                    <a class="navigation-link" href="#">Хуторок</a>
+                                    <span>/</span>
+                                </li>
+                                <li class="navigation-item">
+                                    <a class="navigation-link" href="#">Снежные горки</a>
+                                </li>
+                            </ol>
+                        </nav>
+                        <a class="outnav-link" href="#">Доска</a>
+                    </div>
+        
+                    <div class="wrapp-right-side">
+                        <div class="menu-wrapper">
+                            <div class="search_form--container">
+                                <div class="search_form--wrapp">
+                                    <button class="search_form--button">
+                                        <svg class="search_form--icon"></svg>
+                                    </button>
+                                </div>
+                                <input placeholder="Пишы здесь" class="search_form--input" type="text">
+                            </div>
+            
+                            <a class="sing_link" href="#">
+                                <button class="sing_link--button">
+                                    <span class="sing_link--wrapp">
+                                        <svg class="sing_link--icon"></svg>
+                                    </span>
+                                    <p class="sing_link--text">Sing In</p>
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </aside>
 
-    <!--  ---------- MAIN-CONTENT ----------- -->
-    <main class="main-wrapper">
-        <section class="wrapp-section">
-            <div class="wrapp-container">
-                <h1 class="visually-hidden">Снежные горки</h1>
-                <div class="main-wrapp-area">
-                    <div class="main-content-area">
-                        <h2 class="main-content-title"></h2>
-                        <!-- FILTER BUTTON -->
-                        <ul class="button-list list">
-                            <li class="button-item">
-                                <button class="button-filter" type="button">
-                                    Белый
-                                </button>
-                            </li>
-                            <li class="button-item">
-                                <button class="button-filter" type="button">
-                                    Зеленый
-                                </button>
-                            </li>
-                            <li class="button-item">
-                                <button class="button-filter" type="button">
-                                    Оранжевый 
-                                </button>
-                            </li>
-                            <li class="button-item">
-                                <button class="button-filter" type="button">
-                                    Красный
-                                </button>
-                            </li>
-                        </ul>
-                        <!-- Список из фильтрации 'таблеток' -->
-                        <ul class="filter-list list" id="filter"></ul>
-                    </div>
-                </div>
+        <!-- ------------- MODAL-WINDOW ------------- -->
+        <div class="item-modal" id="item-modal">
+            <div class="modal-window">
+                <button data-modal-close class="modal-button" type="button">
+                    <svg class="modal-button__icon" width="18" height="18">
+                        <use href="./img/symbol-defs.svg#close-btn"></use>
+                    </svg>
+                </button>
             </div>
-        </section>
-    </main>
-   
-    <footer></footer>
-    
-    <div class="item-modal" id="item-modal">
-        <div class="modal-window">
-            <button data-modal-close class="modal-button" type="button">
-                <svg class="modal-button__icon" width="18" height="18">
-                    <use href="./img/symbol-defs.svg#close-btn"></use>
-                </svg>
-            </button>
         </div>
     </div>
     <!-- <img src="./images/commands.png" alt="npm commands"> -->

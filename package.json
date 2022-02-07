@@ -14,6 +14,13 @@
     "type": "git",
     "url": "git+https://github.com/DimaLitvinenko/goit-Js-hw-09-Webpack.git"
   },
+  "keywords": [
+    "Webpack",
+    "App",
+    "Khutorok",
+    "Service",
+    "JS"
+  ],
   "author": "dimaly <dimaly.too@gmail.com>",
   "license": "MIT",
   "bugs": {
@@ -24,9 +31,9 @@
     "registry": "https://github.com/DimaLitvinenko/goit-Js-hw-09-Webpack.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.5",
+    "@babel/core": "^7.17.0",
     "@babel/preset-env": "^7.15.6",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.3.0",
     "handlebars-webpack-plugin": "^2.2.1",
@@ -43,6 +50,7 @@
     "gh-pages": "^3.2.3",
     "handlebars": "^4.7.7",
     "handlebars-loader": "^1.7.1",
+    "lodash": "^4.17.21",
     "modern-normalize": "^1.1.0",
     "prettier": "^2.5.1",
     "sass-extras": "^1.0.0"
