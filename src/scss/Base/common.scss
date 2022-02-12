@@ -57,6 +57,10 @@ body {
     position: relative;
     min-height: 100%;
     font-feature-settings: 'kern';
+
+    &.modal-open {
+        overflow: hidden;
+    }
 }
 
 .list {

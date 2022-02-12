@@ -29,7 +29,7 @@ module.exports = {
                 use: ['babel-loader'],
             },
             {
-                test: /\.hbs$/,
+                test: /\.hbs$/i,
                 exclude: /node_modules/,
                 use: ['handlebars-loader'],
             },

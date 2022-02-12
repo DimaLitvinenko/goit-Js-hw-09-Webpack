@@ -1,4 +1,4 @@
-<h1 align="center">Webpack kit</h1>  
+<h1 align="center">Webpack kit</h1>
 
 <p align="center">
  <a href="https://github.com/dimalitvinenko/goit-Js-hw-09-Webpack/blob/main/LICENSE?screen_name=shields_io">
@@ -26,9 +26,250 @@
 
 </p>
 
+```html
+<label class="b-contain">
+    <span>First checkbox</span> <input type="checkbox" />
+    <div class="b-input"></div>
+</label>
+<label class="b-contain">
+    <span>Second checkbox</span> <input type="checkbox" checked />
+    <div class="b-input"></div>
+</label>
+<label class="b-contain">
+    <input type="checkbox" disabled /> <span>Third checkbox</span>
+    <div class="b-input"></div>
+</label>
+<label class="b-contain">
+    <span>Fourth checkbox</span> <input type="checkbox" checked disabled />
+    <div class="b-input"></div>
+</label>
+
+<label class="b-contain">
+    <span>First radio</span>
+    <input type="radio" name="radio1" />
+    <div class="b-input"></div>
+</label>
+<label class="b-contain">
+    <span>Second radio</span>
+    <input type="radio" name="radio1" checked />
+    <div class="b-input"></div>
+</label>
+<label class="b-contain">
+    <input type="radio" name="radio2" disabled />
+    <span>Third radio</span>
+    <div class="b-input"></div>
+</label>
+<label class="b-contain">
+    <span>Fourth radio</span>
+    <input type="radio" name="radio2" checked disabled />
+    <div class="b-input"></div>
+</label>
+```
+
+===================== CHECKBOX ======================
+
+```css
+.b-contain *,
+.b-contain *::before,
+.b-contain *::after {
+    box-sizing: content-box !important;
+}
+
+.b-contain input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.b-contain span {
+    line-height: 1.54;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.b-contain {
+    display: table;
+    position: relative;
+    padding-left: 1.8rem;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+}
+
+.b-contain input[type='checkbox'] ~ .b-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.25rem;
+    width: 1.25rem;
+    background: rgba(241, 245, 248, 1);
+    transition: background 250ms;
+    border: 1px solid rgba(184, 194, 204, 1);
+    border-radius: 0.125rem;
+}
+
+.b-contain input[type='radio'] ~ .b-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.25rem;
+    width: 1.25rem;
+    background: rgba(241, 245, 248, 1);
+    transition: background 250ms;
+    border: 1px solid rgba(184, 194, 204, 1);
+    border-radius: 2rem;
+}
+
+.b-contain input[type='checkbox'] ~ .b-input::after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 0.45rem;
+    top: 0.18rem;
+    width: 0.25rem;
+    height: 0.6rem;
+    border: solid rgba(255, 255, 255, 1);
+    border-width: 0 2px 2px 0;
+    transition: background 250ms;
+    transform: rotate(45deg);
+}
+
+.b-contain input[type='radio'] ~ .b-input::after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 0.25rem;
+    top: 0.25rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 1);
+    transition: background 250ms;
+}
+
+.b-contain input:disabled ~ .b-input::after {
+    border-color: rgba(135, 149, 161, 1);
+}
+
+.b-contain input:checked ~ .b-input::after {
+    display: block;
+}
+
+.b-contain:hover input ~ .b-input,
+.b-contain input:focus ~ .b-input {
+    background: rgb(231, 238, 243);
+}
+
+.b-contain input:focus ~ .b-input {
+    box-shadow: 0 0 0 2px rgba(52, 144, 220, 0.5);
+}
+
+.b-contain input:checked ~ .b-input {
+    background: rgba(0, 130, 243, 1);
+    border-color: rgba(0, 130, 243, 1);
+}
+
+.b-contain input[type='checkbox']:disabled ~ .b-input {
+    background: rgba(241, 245, 248, 1);
+    border-color: rgba(184, 194, 204, 1);
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.b-contain input[type='radio']:disabled ~ .b-input {
+    background: rgba(241, 245, 248, 1);
+    border-color: rgba(184, 194, 204, 1);
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.b-contain input[type='radio']:disabled ~ .b-input::after {
+    background: rgba(135, 149, 161, 1);
+}
+
+.b-contain input:checked:focus ~ .b-input,
+.b-contain:hover input:not([disabled]):checked ~ .b-input {
+    background: rgba(13, 143, 255, 1);
+    border-color: rgba(13, 143, 255, 1);
+}
+
+.b-contain .b-input::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3rem;
+    height: 3rem;
+    margin-left: -0.85rem;
+    margin-top: -0.85rem;
+    background: rgba(0, 130, 243, 1);
+    border-radius: 2rem;
+    opacity: 0.6;
+    z-index: 99999;
+    transform: scale(0);
+}
+
+@keyframes b-ripple {
+    0% {
+        transform: scale(0);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+@keyframes b-ripple-duplicate {
+    0% {
+        transform: scale(0);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+.b-contain input + .b-input::before {
+    animation: b-ripple 250ms ease-out;
+}
+
+.b-contain input:checked + .b-input::before {
+    animation-name: b-ripple-duplicate;
+}
+
+.b-contain .b-input::before {
+    visibility: hidden;
+}
+
+.b-contain input:focus + .b-input::before {
+    visibility: visible;
+}
+
+.b-contain:first-child .b-input::before {
+    visibility: hidden;
+}
+```
+
+===================================================================
+
 ## Developing
 
 ### • [Настройка Webpack 5 с нуля](https://habr.com/ru/post/524260/)
+
 ### • [How to use Webpack 5](https://www.taniarascia.com/how-to-use-webpack/)
 
 ### Prerequisites
@@ -131,8 +372,8 @@ npm run deploy
 
 [Введение в инфраструктуру проектов](https://youtu.be/XpPC4QBCfo4)
 
-  
- ### Libs:
+### Libs:
+
     ▴  https://github.com/mattboldt/typed.js
     ▴  https://atomiks.github.io/tippyjs/
     ▴  https://flatpickr.js.org/
@@ -140,53 +381,72 @@ npm run deploy
     ▴  ttps://pawelgrzybek.github.io/siema/
     ▴  https://basiclightbox.electerious.com/
 
+### [Шпаргалка Bach](https://tproger.ru/translations/bash-cheatsheet/)
 
-   ###  [Шпаргалка Bach](https://tproger.ru/translations/bash-cheatsheet/)
-   ###  [Шпаргалка Bach 2](https://habr.com/ru/company/ruvds/blog/445270/)
-   
-   ## + Терминал
-   ### • Открыть:
+### [Шпаргалка Bach 2](https://habr.com/ru/company/ruvds/blog/445270/)
+
+## + Терминал
+
+### • Открыть:
+
         ▪ (Ctrl + ~) (Ctrl + `)
         ▪ view > teminal
         ▪ через палитру (Ctrl + Shift + p)
-   ### • Выйти из REPL:
+
+### • Выйти из REPL:
+
         ▪ (Ctrl + c)
-   ### • Основные полезные команды:
+
+### • Основные полезные команды:
+
         ▪ путь (pwd)
         ▪ лист (ls)
-        ▪ навигация (cd): 
-            ▴ (cd ~) - перемещение в домашний каталог; 
-            ▴ (cd -) - в предыдущий каталог; 
+        ▪ навигация (cd):
+            ▴ (cd ~) - перемещение в домашний каталог;
+            ▴ (cd -) - в предыдущий каталог;
             ▴ (cd ..) - на один уровень выше;
-            ▴ (cd Directory1/Directory2) - в каталог Directory2 по указанному пути;  
+            ▴ (cd Directory1/Directory2) - в каталог Directory2 по указанному пути;
         ▪ очистка (clear) или (Ctrl + l)
         ▪ создание файлов (touch)
         ▪ создание папок (mkdir)
         ▪ переименование/перемещение (mv) (mv file src/file)
-        ▪ удаление (rm):  
-            ▴ (rm -rf src) - удаление со всем комплектующим 
+        ▪ удаление (rm):
+            ▴ (rm -rf src) - удаление со всем комплектующим
         ▪ информация о команде (man) (man mkdir)
 
 ## + [Node.js и npm:](https://nodejs.org/en/about/)
-   ### • [npmjs.com](https://www.npmjs.com/) - сайт с документацией о пакетах
-   ### • работа с пакетами:
+
+### • [npmjs.com](https://www.npmjs.com/) - сайт с документацией о пакетах
+
+### • работа с пакетами:
+
         ▪ установка (npm install namePackage)
         ▪ удаление (npm uninstall namePackage)
-   ### • CommonJS модули
-   ### • npm-скрипты:
+
+### • CommonJS модули
+
+### • npm-скрипты:
+
         ▪ pre и post
 
 ## + Транспиляция кода:
-   ### • [Babel](https://babeljs.io/) - компилятор JavaScript
-   ### • CLI и npm-скрипты
-   ### • Пресеты
-   ### • [Browserslist](https://github.com/browserslist/browserslist) 
+
+### • [Babel](https://babeljs.io/) - компилятор JavaScript
+
+### • CLI и npm-скрипты
+
+### • Пресеты
+
+### • [Browserslist](https://github.com/browserslist/browserslist)
 
 ## + [Сборщик Parcel](https://parceljs.org/)
 
 ## + [Сборщик Webpack](https://webpack.js.org/):
 
 ## + [ECMAScript модули](https://exploringjs.com/es6/ch_modules.html):
-   ### • Дефолтный (default) експорт и импорт
-   ### • Именованный (named) експорт и импорт
-   ### • Импорт пространства имён (namespace)
+
+### • Дефолтный (default) експорт и импорт
+
+### • Именованный (named) експорт и импорт
+
+### • Импорт пространства имён (namespace)
