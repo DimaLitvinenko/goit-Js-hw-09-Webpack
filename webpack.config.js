@@ -16,6 +16,7 @@ module.exports = {
         rules: [
             {
                 test: /\.s[ac]ss$/i,
+                // test: /\.(sa|sc|c)ss$/i,
                 use: [
                     //  'style-loader',        // Создает узлы `style` из строк JS
                     MiniCssExtractPlugin.loader,
@@ -29,7 +30,7 @@ module.exports = {
                 use: ['babel-loader'],
             },
             {
-                test: /\.hbs$/i,
+                test: /\.hbs$/,
                 exclude: /node_modules/,
                 use: ['handlebars-loader'],
             },
@@ -44,7 +45,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Webpack Boilerplate',
+            title: 'Khutorok App',
             template: path.resolve(__dirname, './src/index.html'), // шаблон
             filename: 'index.html', // название выходного файла
         }),

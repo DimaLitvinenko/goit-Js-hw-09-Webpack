@@ -58,9 +58,9 @@ body {
     min-height: 100%;
     font-feature-settings: 'kern';
 
-    &.modal-open {
-        overflow: hidden;
-    }
+    // &.modal-open {
+    //     overflow: hidden;
+    // }
 }
 
 .list {
@@ -71,9 +71,9 @@ body {
     text-decoration: none;
 }
 
-.active {
-    color: var(--chakra-colors-black);
-    outline: rgb(0 0 0 / 0%) solid 2px;
-    outline-offset: 2px;
-    box-shadow: rgb(0 0 0 / 4%) 0px 7px 11px;
-}
+// .active {
+//     color: var(--chakra-colors-black);
+//     outline: rgb(0 0 0 / 0%) solid 2px;
+//     outline-offset: 2px;
+//     box-shadow: rgb(0 0 0 / 4%) 0px 7px 11px;
+// }
