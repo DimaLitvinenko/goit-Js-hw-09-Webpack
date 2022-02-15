@@ -1,10 +1,6 @@
 <h1 align="center">Webpack kit</h1>
 
 <p align="center">
- <a href="https://github.com/dimalitvinenko/goit-Js-hw-09-Webpack/blob/main/LICENSE?screen_name=shields_io">
-        <img src="https://img.shields.io/static/v1?labelColor=lightgrey&logoColor=black&color=grey&message=License&label=MIT&style=plastic&logo=monster&url=https://github.com/dimalitvinenko/goit-Js-hw-09-Webpack/blob/main/LICENSE"
-             alt="GitHub license">
-</a> 
 <a href="https://https://webpack.js.org/?screen_name=shields_io">
   <img alt="Webpack" src="https://img.shields.io/static/v1?labelColor=darkblue&color=blue&message=v5.53.0&label=Webpack&style=plastic&logo=webpack&url=https://webpack.js.org">
 </a> 
@@ -15,18 +11,59 @@
         <img src="https://img.shields.io/static/v1?labelColor=purple&color=darkorchid&message=v14.17.6&label=Node.js&style=plastic&logo=nodedotjs&url=https://nodejs.org/en/about"
              alt="Node.js">
 </a>
-<a href="https://www.npmjs.com/?screen_name=shields_io">
-        <img src="https://img.shields.io/static/v1?label=npm&logo=npm&message=v6.14.13&labelColor=olive&color=darkkhaki&style=plastic" 
-             alt="NPM version">
-</a>
-  
-<a href="https://github.com/simple-icons/simple-icons/actions?query=workflow%3AVerify+branch%3Adevelop">
-  <img src="https://img.shields.io/github/workflow/status/simple-icons/simple-icons/Verify/develop?logo=github&style=plastic" alt="Build status"/>
-</a>
-
 </p>
 
-```html
+===================== ORDERS ======================
+
+```javascript
+// Функция order() отображает окно для покупки товара с наименованием "item_25new".
+// Названия платёжных событий пишутся в контейнер с id="callbacks".
+
+function order() {
+    var params = {
+        type: 'item',
+        item: 'item_25new',
+    };
+    VK.callMethod('showOrderBox', params);
+}
+
+var callbacksResults = document.getElementById('callbacks');
+
+VK.addCallback('onOrderSuccess', function (order_id) {
+    callbacksResults.innerHTML += '<br />onOrderSuccess ' + order_id;
+});
+VK.addCallback('onOrderFail', function () {
+    callbacksResults.innerHTML += '<br />onOrderFail';
+});
+VK.addCallback('onOrderCancel', function () {
+    callbacksResults.innerHTML += '<br />onOrderCancel';
+});
+
+Обратите внимание — в тестовом режиме подписка 5 раз автоматически продлевается раз в 10 минут (для period = month) и раз в 2 минуты для других значений period. После этого подписка автоматически отменяется.
+
+function order() {
+    VK.callMethod('showSubscriptionBox', 'create', {item: 'subscription1'});
+  }
+
+  var callbacksResults = document.getElementById('callbacks');
+
+  VK.addCallback('onSubscriptionSuccess', function(subscription_id) {
+    callbacksResults.innerHTML += '<br />onSubscriptionSuccess '+subscription_id;
+  });
+  VK.addCallback('onSubscriptionFail', function() {
+    callbacksResults.innerHTML += '<br />onSubscriptionFail';
+  });
+  VK.addCallback('onSubscriptionCancel', function() {
+    callbacksResults.innerHTML += '<br />onSubscriptionCancel';
+  });
+
+Функция order позволяет отобразить пользователю окно для покупки товара с наименованием 'subscription_25new'. Названия произошедших платёжных событий пишутся в контейнер с id="callbacks".
+
+```
+
+===================== CHECKBOX ======================
+
+```HTML
 <label class="b-contain">
     <span>First checkbox</span> <input type="checkbox" />
     <div class="b-input"></div>
@@ -66,9 +103,7 @@
 </label>
 ```
 
-===================== CHECKBOX ======================
-
-```css
+```CSS
 .b-contain *,
 .b-contain *::before,
 .b-contain *::after {

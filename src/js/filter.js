@@ -1,11 +1,12 @@
 // const saveBtnAction = saveBtn.dataset.action;
 const refs = {
-    openModalButton: document.querySelector(`[data-action="open-modal"]`),
-    closeModalButton: document.querySelector(`[data-action="modal-close"]`),
+    closeModalButton: document.querySelector(
+        `button[data-action="modal-close"]`,
+    ),
     backdrop: document.querySelector('.js-backdrop'),
     container: document.querySelector('.js-container'),
     list: document.getElementById('filter'),
-    // idNumbers: [],
+    idNumbers: [],
     // MAX_PILLS: 70,
 };
 const {
@@ -18,17 +19,21 @@ const {
     // MAX_PILLS,
 } = refs;
 
-const MAX_PILLS = 70;
-let idNumbers = [];
+const MAX_PILLS = [70];
+let array = [];
+
+MAX_PILLS.forEach(item => {
+    return (idNumbers = [item.index]);
+});
 
 // ПОДСЧЁТ ЕЛЕМЕНТОВ СПИСКА maxPills
 function countItems() {
     for (let i = 1; i <= MAX_PILLS; i += 1) {
         console.log(i);
         // renderItemMarkup(i);
-        const pillsArray = idNumbers.push(i);
-        console.log(pillsArray);
-        createItemsMarkup(pillsArray, pillsArray.length);
+        const idNumbers = array.push(i);
+        console.log(idNumbers);
+        return createItemsMarkup(idNumbers, idNumbers.length);
     }
 }
 
@@ -37,13 +42,9 @@ function createItemsMarkup(items) {
     return list.insertAdjacentHTML(
         'beforeend',
         items.map(index => {
-            console.log(index);
-            `<li class="filter_list--item">
-                    <a
-                    class="filter_list--link"
-                    href="#!"
-                    data-index="${index}"
-                    >
+            // console.log(item);
+            return `<li class="filter_list--item">
+                    
                         <button 
                         class="filter_list--button" 
                         data-action="open-modal" 
@@ -51,7 +52,7 @@ function createItemsMarkup(items) {
                         >
                             ${index}
                         </button>
-                    </a>
+                
                 </li>`;
         }),
     );
@@ -101,8 +102,9 @@ const scrollGalleryHandler = ({ key }) => {
 };
 */
 
-const modalOpenHandler = ({ event, target, currentTarget }) => {
+const modalOpenHandler = ({ target, currentTarget }) => {
     if (target.nodeName !== 'BUTTON') {
+        console.log(target.nodeName);
         return;
     }
     console.log(target);
@@ -127,3 +129,4 @@ const modalCloseHandler = () => {
 list.addEventListener('click', modalOpenHandler);
 closeModalButton.addEventListener('click', modalCloseHandler);
 backdrop.addEventListener('click', modalCloseHandler);
+closeModalButton;

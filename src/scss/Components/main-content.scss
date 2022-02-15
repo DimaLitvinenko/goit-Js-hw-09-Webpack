@@ -36,8 +36,11 @@
     display: flex;
     justify-content: space-evenly;
 }
-.filter_inputs--item {
-}
+// .filter_inputs--item {
+// }
+// .filter_input {
+
+// }
 
 .filter_input--placeholder {
     &::after {
@@ -51,6 +54,8 @@
     }
 }
 
+// ================ FILTER LIST ==================
+
 .filter_list--wrapper {
     padding: 10px;
 }
@@ -61,8 +66,8 @@
     grid-auto-rows: 100px;
     grid-gap: 30px;
 }
-.filter_list--item {
-}
+// .filter_list--item {
+// }
 .filter_list--button {
     display: flex;
     align-items: center;

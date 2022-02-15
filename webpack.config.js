@@ -4,11 +4,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
+    mode: 'none',
     entry: {
         main: path.resolve(__dirname, './src/index.js'), // точка входа
     },
     output: {
-        path: path.resolve(__dirname, './dist'), // точка выхода
+        path: path.resolve(__dirname, './dist/'), // точка выхода
         filename: 'main.js',
     },
 
@@ -25,12 +26,12 @@ module.exports = {
                 ],
             },
             {
-                test: /\.js$/,
+                test: /\.js$/i,
                 exclude: /node_modules/,
                 use: ['babel-loader'],
             },
             {
-                test: /\.hbs$/,
+                test: /\.hbs$/i,
                 exclude: /node_modules/,
                 use: ['handlebars-loader'],
             },
@@ -53,7 +54,10 @@ module.exports = {
         new CleanWebpackPlugin(),
     ],
     devServer: {
-        port: 4444,
-        open: true,
+        static: {
+            directory: path.join(__dirname, 'dist'),
+        },
+        hotOnly: true,
+        port: 5501,
     },
 };
