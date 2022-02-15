@@ -9,8 +9,8 @@ module.exports = {
         main: path.resolve(__dirname, './src/index.js'), // точка входа
     },
     output: {
-        path: path.resolve(__dirname, './dist/'), // точка выхода
         filename: 'main.js',
+        path: path.resolve(__dirname, 'dist'), // точка выхода
     },
 
     module: {
@@ -47,17 +47,15 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Khutorok App',
-            template: path.resolve(__dirname, './src/index.html'), // шаблон
+            template: path.resolve(__dirname, 'src'), // шаблон
             filename: 'index.html', // название выходного файла
         }),
         new MiniCssExtractPlugin({ filename: 'styles.css' }),
         new CleanWebpackPlugin(),
     ],
     devServer: {
-        static: {
-            directory: path.join(__dirname, 'dist'),
-        },
-        hotOnly: true,
+        static: 'dist',
+        compress: true,
         port: 5501,
     },
 };
