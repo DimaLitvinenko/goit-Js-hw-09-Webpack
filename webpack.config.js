@@ -4,7 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    mode: 'none',
     entry: {
         main: path.resolve(__dirname, './src/index.js'), // точка входа
     },
@@ -47,7 +46,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Khutorok App',
-            template: path.resolve(__dirname, 'src'), // шаблон
+            template: path.resolve(__dirname, './src/index.html'), // шаблон
             filename: 'index.html', // название выходного файла
         }),
         new MiniCssExtractPlugin({ filename: 'styles.css' }),
@@ -55,7 +54,5 @@ module.exports = {
     ],
     devServer: {
         static: 'dist',
-        compress: true,
-        port: 5501,
     },
 };

@@ -19,12 +19,10 @@
 //     // MAX_PILLS,
 // } = refs;
 
+// const { isArguments } = require('lodash');
+
 // const MAX_PILLS = [70];
 // let array = [];
-
-// MAX_PILLS.forEach(item => {
-//     return (idNumbers = [item.index]);
-// });
 
 // // ПОДСЧЁТ ЕЛЕМЕНТОВ СПИСКА maxPills
 // function countItems() {
@@ -130,13 +128,14 @@
 // closeModalButton.addEventListener('click', modalCloseHandler);
 // backdrop.addEventListener('click', modalCloseHandler);
 // closeModalButton;
-// ===============================
+
+// ===============================----------------------===============================================
 
 const refs = {
-    closeModalButton: document.querySelector(`[data-action="modal-close"]`),
+    closeModalButton: document.getElementById('modal-close'),
     backdrop: document.querySelector('.js-backdrop'),
     container: document.querySelector('.js-container'),
-    list: document.querySelector('.filter-list'),
+    list: document.getElementById('filter'),
 };
 
 const {
@@ -147,42 +146,33 @@ const {
     list,
 } = refs;
 
-let idNumbers = [];
 const MAX_PILLS = 70;
-
+let idNumbers = [];
 // ПОДСЧЁТ ЕЛЕМЕНТОВ СПИСКА maxPills
-function countItems() {
-    for (let i = 0; i <= MAX_PILLS.length; i++) {
+const countItems = arg => {
+    for (let i = 0; i < arg.length; i++) {
         console.log(i);
-        idNumbers.push(i);
 
-        createItemsMarkup(idNumbers);
+        idNumbers.push(arg[i]);
+        console.alert(idNumbers);
     }
-}
-
+    return idNumbers;
+};
+countItems(MAX_PILLS);
 // Рендерит разметку списка таблеток от первого до maxPills
-function createItemsMarkup(items) {
+const createItemsMarkup = () => {
     return list.insertAdjacentHTML(
         'beforeend',
-        items.map(index => {
-            // console.log(item);
-            `<li class="filter_list--item">
-                    
-                        <button 
-                        class="filter_list--button" 
-                        data-action="open-modal" 
-                        type="button" 
-                        >
-                            ${index}
-                        </button>
-                
-                </li>`;
-        }),
+        `<li class="filter_list--item">
+            <button class="filter_list--button" data-action="open-modal" type="button">
+                ${idNumbers}
+            </button>
+        </li>`,
     );
-}
+};
 // createItemsMarkup(idNumbers, idNumbers.length);
 
-// const murkap = createItemsMarkup(numbers, numbers.length);
+const markup = createItemsMarkup(idNumbers, idNumbers.length);
 
 // list.addEventListener('click', toggleModal);
 // closeModalButton.addEventListener('click', toggleModal);
@@ -232,16 +222,12 @@ const modalOpenHandler = ({ target, currentTarget }) => {
         console.log(target.nodeName);
         return;
     }
-    console.log(target);
-    console.log(currentTarget);
 
     window.addEventListener('keydown', modalCloseByEscHandler);
     // window.addEventListener('keydown', scrollGalleryHandler);
 
     container.classList.add('is-open'); // - Открытие модального окна по клику на элементе галереи.
     // image.src = target.dataset.source; // - Подмена значения атрибута `src` элемента `img.lightbox__image`.
-    // image.alt = target.alt;
-    // console.log(image.alt);
 };
 
 const modalCloseHandler = () => {
