@@ -1,3 +1,39 @@
+//DAY END
+//get the number of hours until the end of the day
+function getHoursUntilEndOfDay(date) {
+    var endOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
+    var hours = Math.ceil((endOfDay.getTime() - date.getTime()) / (1000 * 60 * 60));
+    return hours;
+}
+
+//get the number of minutes until the end of the day
+function getMinutesUntilEndOfDay(date) {
+    var endOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
+    var minutes = Math.ceil((endOfDay.getTime() - date.getTime()) / (1000 * 60));
+    return minutes;
+}
+
+//get the number of seconds until the end of the day
+function getSecondsUntilEndOfDay(date) {
+    var endOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
+    var seconds = Math.ceil((endOfDay.getTime() - date.getTime()) / 1000);
+    return seconds;
+}
+
+//get today's date
+function getToday() {
+    var today = new Date();
+    return today;
+}
+
+setInterval(() => {
+    let today = getToday();
+
+    document.querySelector('.hoursLeftDay').innerHTML = getHoursUntilEndOfDay(today);
+    document.querySelector('.minutesLeftDay').innerHTML = getMinutesUntilEndOfDay(today);
+    document.querySelector('.secondsLeftDay').innerHTML = getSecondsUntilEndOfDay(today);
+}, 100);
+
 // // const saveBtnAction = saveBtn.dataset.action;
 // const refs = {
 //     closeModalButton: document.querySelector(
@@ -217,7 +253,7 @@ const scrollGalleryHandler = ({ key }) => {
 };
 */
 
-const modalOpenHandler = ({ target, currentTarget }) => {
+const modalOpenHandler = ({ target }) => {
     if (target.nodeName !== 'BUTTON') {
         console.log(target.nodeName);
         return;

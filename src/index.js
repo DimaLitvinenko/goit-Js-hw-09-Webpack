@@ -21,66 +21,82 @@ import './scss/Components/modal-window.scss';
 
 // ============ JavaScript ==============
 // import './js/filter.js';
-// import './js/modal';
+
+// ===============================================================================================
+// const MAX_PILLS = 70;
+// let idNumbers = [];
 
 const refs = {
     closeModalButton: document.getElementById('modal-close'),
     backdrop: document.querySelector('.js-backdrop'),
     container: document.querySelector('.js-container'),
     list: document.getElementById('filter'),
+    MAX_PILLS: 70,
+    idNumbers: [],
 };
 
-const {
-    // openModalButton,
-    closeModalButton,
-    backdrop,
-    container,
-    list,
-} = refs;
+const { closeModalButton, backdrop, container, list, MAX_PILLS, idNumbers } = refs;
 
-const MAX_PILLS = 70;
-let idNumbers = [];
-// ПОДСЧЁТ ЕЛЕМЕНТОВ СПИСКА maxPills
-const countItems = arg => {
-    for (let i = 0; i < arg.length; i++) {
-        console.log(i);
+// ПОДСЧЁТ ЕЛЕМЕНТОВ СПИСКА 'MAX_PILLS'
+const countItems = length => {
+    for (let i = 1; i <= length; ++i) {
+        // console.log(i);
 
-        idNumbers.push(arg[i]);
-        console.alert(idNumbers);
+        idNumbers.push(...[i]);
+        // console.log(idNumbers);
     }
     return idNumbers;
 };
 countItems(MAX_PILLS);
-// Рендерит разметку списка таблеток от первого до maxPills
-const createItemsMarkup = () => {
-    return list.insertAdjacentHTML(
-        'beforeend',
-        `<li class="filter_list--item">
-            <button class="filter_list--button" data-action="open-modal" type="button">
-                ${idNumbers}
-            </button>
-        </li>`,
-    );
-};
-// createItemsMarkup(idNumbers, idNumbers.length);
+console.log(idNumbers);
 
+// Рендерит разметку списка таблеток от первого до maxPills
+const createItemsMarkup = items => {
+    items.map(item => {
+        return list.insertAdjacentHTML(
+            'beforeend',
+            `<li class="filter_list--item">
+                <button 
+                class="filter_list--button" 
+                data-action="open-modal" 
+                type="button">
+                    ${item}
+                </button>
+            </li>`,
+        );
+    });
+};
 const markup = createItemsMarkup(idNumbers, idNumbers.length);
 
-// list.addEventListener('click', toggleModal);
-// closeModalButton.addEventListener('click', toggleModal);
-
-// function toggleModal() {
-//     // if (!refs.modal.classList.contains)
-//     container.classList.toggle('is-open');
-//     // backdrop.classList.toggle('is-hidden');
-// }
-
+// ================================== MODAL WINDOW =======================================.
 // - Закрытие модального окна по нажатию клавиши `ESC`.
 const modalCloseByEscHandler = ({ key }) => {
     if (key === 'Escape') {
         modalCloseHandler();
     }
 };
+
+// - Открытие модального окна по нажатию клавиши `ESC`.
+const modalOpenHandler = ({ target }) => {
+    if (target.nodeName !== 'BUTTON') {
+        console.log(target.nodeName);
+        return;
+    }
+    window.addEventListener('keydown', modalCloseByEscHandler);
+    // window.addEventListener('keydown', scrollGalleryHandler);
+    container.classList.add('is-open'); // - Открытие модального окна по клику на элементе галереи.
+    // image.src = target.dataset.source; // - Подмена значения атрибута `src` элемента `img.lightbox__image`.
+};
+
+// - Закрытие модального окна.
+const modalCloseHandler = () => {
+    window.removeEventListener('keydown', modalCloseByEscHandler);
+    container.classList.remove('is-open'); // - Закрытие модального окна по клику на кнопку `button[data-action="close-lightbox"]`.
+};
+
+list.addEventListener('click', modalOpenHandler);
+closeModalButton.addEventListener('click', modalCloseHandler);
+backdrop.addEventListener('click', modalCloseHandler);
 
 /*
 const scrollGalleryHandler = ({ key }) => {
@@ -108,26 +124,3 @@ const scrollGalleryHandler = ({ key }) => {
     image.src = galleryItems[currentIndex].original;
 };
 */
-
-const modalOpenHandler = ({ target }) => {
-    if (target.nodeName !== 'BUTTON') {
-        console.log(target.nodeName);
-        return;
-    }
-
-    window.addEventListener('keydown', modalCloseByEscHandler);
-    // window.addEventListener('keydown', scrollGalleryHandler);
-
-    container.classList.add('is-open'); // - Открытие модального окна по клику на элементе галереи.
-    // image.src = target.dataset.source; // - Подмена значения атрибута `src` элемента `img.lightbox__image`.
-};
-
-const modalCloseHandler = () => {
-    window.removeEventListener('keydown', modalCloseByEscHandler);
-
-    container.classList.remove('is-open'); // - Закрытие модального окна по клику на кнопку `button[data-action="close-lightbox"]`.
-};
-
-list.addEventListener('click', modalOpenHandler);
-closeModalButton.addEventListener('click', modalCloseHandler);
-backdrop.addEventListener('click', modalCloseHandler);
