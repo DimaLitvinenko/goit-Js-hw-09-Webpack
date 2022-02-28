@@ -106,30 +106,30 @@
                             <h2 class="main-content-title">Сортировка</h2>
 
                             <!-- ---------- FILTER INPUTS ---------- -->
-                            <div class="filter_inputs--wrapper">
-                                <ul class="filter_inputs--list list">
-                                    <li class="filter_inputs--item">
-                                        <input class="checkbox-alizarin filter_input" type="checkbox" id="color-1" checked="checked" />
-                                        <label class="filter_input--placeholder" for="color-1">Белый</label>
+                            <div class="filter-input__wrapper">
+                                <ul class="filter-input__list list">
+                                    <li class="filter-input__item">
+                                        <input class="checkbox-alizarin filter-input" type="checkbox" id="color-1" checked="checked" />
+                                        <label class="filter-input__placeholder" for="color-1">Белый</label>
                                     </li>
-                                    <li class="filter_inputs--item">
+                                    <li class="filter-input__item">
                                         <input class="checkbox-wisteria filter_input" type="checkbox" id="color-2" checked="checked" />
-                                        <label class="filter_input--placeholder" for="color-2">Зеленый</label>
+                                        <label class="filter-input__placeholder" for="color-2">Зеленый</label>
                                     </li>
-                                    <li class="filter_inputs--item">
+                                    <li class="filter-input__item">
                                         <input class="checkbox-emerland filter_input" type="checkbox" id="color-3" checked="checked" />
-                                        <label class="filter_input--placeholder" for="color-3">Оранжевый</label>
+                                        <label class="filter-input__placeholder" for="color-3">Оранжевый</label>
                                     </li>
-                                    <li class="filter_inputs--item">
+                                    <li class="filter-input__item">
                                         <input class="checkbox-belizehole filter_input" type="checkbox" id="color-4" checked="checked" />
-                                        <label class="filter_input--placeholder" for="color-4">Красный</label>
+                                        <label class="filter-input__placeholder" for="color-4">Красный</label>
                                     </li>
                                 </ul>
                             </div>
 
                             <!-- ---------- FILTER ELEMENTS LIST --------- -->
-                            <div class="filter_list--wrapper">
-                                <ul class="filter_list list" id="filter"></ul>
+                            <div class="filter-list__wrapper">
+                                <ul class="filter-list list" id="filter"></ul>
                             </div>
                         </div>
                     </div>
@@ -189,7 +189,9 @@
         <div class="modal-container js-container">
             <div class="backdrop js-backdrop"></div>
 
-            <div class="modal-window"></div>
+            <div class="modal-window">
+
+            </div>
             
             <button 
             id="modal-close"
@@ -197,7 +199,7 @@
             class="modal-button" 
             type="button">
                 <svg class="modal-button__icon" width="18" height="18">
-                    <!-- <use href="./image/symbol-defs.svg#close-btn"></use> -->
+                    <use href="./image/symbol-defs.svg#close-btn"></use>
                 </svg>
             </button>
         </div>

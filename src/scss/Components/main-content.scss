@@ -29,17 +29,16 @@
     padding: 0px 0px 20px 10px;
 }
 
-.filter_inputs--wrapper {
+.filter-input__wrapper {
     padding: 0px 70px 50px 70px;
 }
-.filter_inputs--list {
+.filter-input__list {
     display: flex;
     justify-content: space-evenly;
 }
-// .filter_inputs--item {
+// .filter-input__item {
 // }
 // .filter_input {
-
 // }
 
 .filter_input--placeholder {
@@ -56,25 +55,32 @@
 
 // ================ FILTER LIST ==================
 
-.filter_list--wrapper {
+.filter-list__wrapper {
     padding: 10px;
 }
-.filter_list {
+.filter-list {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     grid-auto-rows: 100px;
     grid-gap: 30px;
 }
-// .filter_list--item {
+// .filter-list__item {
+
 // }
-.filter_list--button {
+.filter-list__button {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
+
     border: 1px solid rgba(0, 0, 0, 0.289);
-    border-radius: 20%;
-    background-color: white;
+    border-radius: 10%;
+    font-size: large;
+    font-weight: bold;
+    background-color: white; // <-- BUTTON COLOR
 }
+
+// .button-text {
+// }

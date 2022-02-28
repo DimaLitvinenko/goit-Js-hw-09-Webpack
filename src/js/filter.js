@@ -33,6 +33,7 @@ setInterval(() => {
     document.querySelector('.minutesLeftDay').innerHTML = getMinutesUntilEndOfDay(today);
     document.querySelector('.secondsLeftDay').innerHTML = getSecondsUntilEndOfDay(today);
 }, 100);
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 // // const saveBtnAction = saveBtn.dataset.action;
 // const refs = {

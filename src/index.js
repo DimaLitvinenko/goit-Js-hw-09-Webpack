@@ -41,7 +41,6 @@ const { closeModalButton, backdrop, container, list, MAX_PILLS, idNumbers } = re
 const countItems = length => {
     for (let i = 1; i <= length; ++i) {
         // console.log(i);
-
         idNumbers.push(...[i]);
         // console.log(idNumbers);
     }
@@ -52,13 +51,16 @@ console.log(idNumbers);
 
 // Рендерит разметку списка таблеток от первого до maxPills
 const createItemsMarkup = items => {
-    items.map(item => {
+    items.map((item, index) => {
         return list.insertAdjacentHTML(
             'beforeend',
-            `<li class="filter_list--item">
+            `<li class="filter-list__item">
                 <button 
-                class="filter_list--button" 
+                id="button-${index + 1}"
+                class="filter-list__button" 
                 data-action="open-modal" 
+                data-identifier="${index + 1}"
+                data-color="white"
                 type="button">
                     ${item}
                 </button>
@@ -77,15 +79,33 @@ const modalCloseByEscHandler = ({ key }) => {
 };
 
 // - Открытие модального окна по нажатию клавиши `ESC`.
-const modalOpenHandler = ({ target }) => {
+const modalOpenHandler = ({ event, target }) => {
+    console.log(target);
     if (target.nodeName !== 'BUTTON') {
         console.log(target.nodeName);
         return;
     }
-    window.addEventListener('keydown', modalCloseByEscHandler);
-    // window.addEventListener('keydown', scrollGalleryHandler);
-    container.classList.add('is-open'); // - Открытие модального окна по клику на элементе галереи.
+    event.preventDefault();
+    ///////////////////////////////////////////////////////////
+    const color = target.dataset.color;
+    console.log(color);
+
+    let id = target.textContent;
+    console.log(id);
+
+    const buttonElem = document.querySelector(`#${target.id}`);
+    console.log(buttonElem);
+
+    let colt = buttonElem.dataset['color'];
+    console.log(colt);
+
+    const newColor = (buttonElem.dataset['color'] = 'green');
+    buttonElem.style.backgroundColor = newColor;
     // image.src = target.dataset.source; // - Подмена значения атрибута `src` элемента `img.lightbox__image`.
+    /////////////////////////////////////////////////////////////
+
+    window.addEventListener('keydown', modalCloseByEscHandler);
+    container.classList.add('is-open'); // - Открытие модального окна по клику на элементе галереи.
 };
 
 // - Закрытие модального окна.
