@@ -13,21 +13,97 @@
 </a>
 </p>
 
-===================== ORDERS ======================
+==================================================CHECKBOX-==============
 
-```javascript
+```html
+<section title=".squaredOne">
+    <!-- .squaredOne -->
+    <div class="squaredOne">
+        <input type="checkbox" value="None" id="squaredOne" name="check" checked />
+        <label for="squaredOne"></label>
+    </div>
+    <!-- end .squaredOne -->
+</section>
+```
+
+```css
+@import 'compass/css3';
+
+/* $activeColor: #c0392b; //red */
+$activeColor: #27ae60; //green
+$darkenColor: darken($activeColor, 20%);
+/* $background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/13460/dark_wall.png'); */
+$background: #3498db;
+.squaredOne {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    margin: 20px auto;
+    background: #fcfff4;
+    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+    label {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        cursor: pointer;
+        background: linear-gradient(top, #222 0%, #45484d 100%);
+        box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 1);
+        &:after {
+            content: '';
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            background: $activeColor;
+            background: linear-gradient(top, $activeColor 0%, $darkenColor 100%);
+            box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+        }
+        &:hover::after {
+            opacity: 0.3;
+        }
+    }
+    input[type='checkbox'] {
+        visibility: hidden;
+        &:checked + label:after {
+            opacity: 1;
+        }
+    }
+}
+```
+
+```js
+$(document).ready(function () {
+    //   Hide the border by commenting out the variable below
+    const $on = 'section';
+    $($on).css({
+        background: 'none',
+        border: 'none',
+        'box-shadow': 'none',
+    });
+});
+```
+
+============================================================================
+========================================== ORDERS ========================
+
+```js
 // Функция order() отображает окно для покупки товара с наименованием "item_25new".
 // Названия платёжных событий пишутся в контейнер с id="callbacks".
 
 function order() {
-    var params = {
+    const params = {
         type: 'item',
         item: 'item_25new',
     };
     VK.callMethod('showOrderBox', params);
 }
 
-var callbacksResults = document.getElementById('callbacks');
+let callbacksResults = document.getElementById('callbacks');
 
 VK.addCallback('onOrderSuccess', function (order_id) {
     callbacksResults.innerHTML += '<br />onOrderSuccess ' + order_id;
@@ -39,29 +115,29 @@ VK.addCallback('onOrderCancel', function () {
     callbacksResults.innerHTML += '<br />onOrderCancel';
 });
 
-Обратите внимание — в тестовом режиме подписка 5 раз автоматически продлевается раз в 10 минут (для period = month) и раз в 2 минуты для других значений period. После этого подписка автоматически отменяется.
+// Обратите внимание — в тестовом режиме подписка 5 раз автоматически продлевается раз в 10 минут (для period = month) и раз в 2 минуты для других значений period. После этого подписка автоматически отменяется.
 
 function order() {
-    VK.callMethod('showSubscriptionBox', 'create', {item: 'subscription1'});
-  }
+    VK.callMethod('showSubscriptionBox', 'create', { item: 'subscription1' });
+}
 
-  var callbacksResults = document.getElementById('callbacks');
+let callbacksResults = document.getElementById('callbacks');
 
-  VK.addCallback('onSubscriptionSuccess', function(subscription_id) {
-    callbacksResults.innerHTML += '<br />onSubscriptionSuccess '+subscription_id;
-  });
-  VK.addCallback('onSubscriptionFail', function() {
+VK.addCallback('onSubscriptionSuccess', function (subscription_id) {
+    callbacksResults.innerHTML += '<br />onSubscriptionSuccess ' + subscription_id;
+});
+VK.addCallback('onSubscriptionFail', function () {
     callbacksResults.innerHTML += '<br />onSubscriptionFail';
-  });
-  VK.addCallback('onSubscriptionCancel', function() {
+});
+VK.addCallback('onSubscriptionCancel', function () {
     callbacksResults.innerHTML += '<br />onSubscriptionCancel';
-  });
+});
 
-Функция order позволяет отобразить пользователю окно для покупки товара с наименованием 'subscription_25new'. Названия произошедших платёжных событий пишутся в контейнер с id="callbacks".
-
+// Функция order позволяет отобразить пользователю окно для покупки товара с наименованием 'subscription_25new'. Названия произошедших платёжных событий пишутся в контейнер с id="callbacks".
 ```
 
-===================== CHECKBOX ======================
+==============================================================
+============================================ CHECKBOX ======================
 
 ```HTML
 <label class="b-contain">
@@ -103,7 +179,7 @@ function order() {
 </label>
 ```
 
-```CSS
+```css
 .b-contain *,
 .b-contain *::before,
 .b-contain *::after {
@@ -309,13 +385,12 @@ function order() {
 
 ### Prerequisites
 
-Для корректной работы SASS-компилятора и других инструментов, необходимо один
-раз глобально поставить дополнительные пакеты, выполнив в терминале следующие
-команды. Пользователям MacOS ничего делать не нужно.
+Для корректной работы SASS-компилятора и других инструментов, необходимо один раз
+глобально поставить дополнительные пакеты, выполнив в терминале следующие команды.
+Пользователям MacOS ничего делать не нужно.
 
 Пользователям **Windows**, в режиме администратора.
-[Как запусттить Powershell](https://youtu.be/p2tFnxcymwk) в режиме
-администратора.
+[Как запусттить Powershell](https://youtu.be/p2tFnxcymwk) в режиме администратора.
 
 ```shell
 npm install --global --production windows-build-tools
@@ -351,8 +426,8 @@ mv webpack-starter-kit имя_проекта
 cd имя_проекта
 ```
 
-Находясь в папке проекта удалить папку `.git` связанную с репозиторием сборки
-выполнив следующую команду.
+Находясь в папке проекта удалить папку `.git` связанную с репозиторием сборки выполнив
+следующую команду.
 
 ```shell
 npx rimraf .git
@@ -370,14 +445,12 @@ npm install
 npm start
 ```
 
-Во вкладке браузера перейти по адресу
-[http://localhost:4040](http://localhost:4040).
+Во вкладке браузера перейти по адресу [http://localhost:4040](http://localhost:4040).
 
 ### Building
 
-Для того чтобы создать оптимизированные файлы для хостинга, необходимо выполнить
-следующую команду. В корне проекта появится папка `build` со всеми
-оптимизированными ресурсами.
+Для того чтобы создать оптимизированные файлы для хостинга, необходимо выполнить следующую
+команду. В корне проекта появится папка `build` со всеми оптимизированными ресурсами.
 
 ```shell
 npm run build
@@ -385,9 +458,9 @@ npm run build
 
 ### Deploying/Publishing
 
-Сборка может автоматически деплоить билд на GitHub Pages удаленного (remote)
-репозитория. Для этого необходимо в файле `package.json` отредактировать поле
-`homepage`, заменив имя пользователя и репозитория на свои.
+Сборка может автоматически деплоить билд на GitHub Pages удаленного (remote) репозитория.
+Для этого необходимо в файле `package.json` отредактировать поле `homepage`, заменив имя
+пользователя и репозитория на свои.
 
 ```json
 "homepage": "https://имя_пользователя.github.io/имя_репозитория"
@@ -399,11 +472,10 @@ npm run build
 npm run deploy
 ```
 
-Если нет ошибок в коде и свойство `homepage` указано верно, запустится сборка
-проекта в продакшен, после чего содержимое папки `build` будет помещено в ветку
-`gh-pages` на удаленном (remote) репозитории. Через какое-то время живую
-страницу можно будет посмотреть по адресу указанному в отредактированном
-свойстве `homepage`.
+Если нет ошибок в коде и свойство `homepage` указано верно, запустится сборка проекта в
+продакшен, после чего содержимое папки `build` будет помещено в ветку `gh-pages` на
+удаленном (remote) репозитории. Через какое-то время живую страницу можно будет посмотреть
+по адресу указанному в отредактированном свойстве `homepage`.
 
 [Введение в инфраструктуру проектов](https://youtu.be/XpPC4QBCfo4)
 

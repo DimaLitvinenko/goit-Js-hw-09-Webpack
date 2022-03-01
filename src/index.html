@@ -104,7 +104,7 @@
                     <div class="main-wrapp-area">
                         <div class="main-content-area">
                             <h2 class="main-content-title">Сортировка</h2>
-
+                            
                             <!-- ---------- FILTER INPUTS ---------- -->
                             <div class="filter-input__wrapper">
                                 <ul class="filter-input__list list">
@@ -143,7 +143,8 @@
         <div>
             <div class="header">
                 <div class="header-wrapper">
-                    <div class="wrapp-navigation">
+                    
+                    <div class="wrapp__navigation">
                         <nav class="navigation">
                             <ol class="navigation-list">
                                 <li class="navigation-item">
@@ -158,7 +159,7 @@
                         <a class="outnav-link" href="#">Доска</a>
                     </div>
         
-                    <div class="wrapp-right-side">
+                    <div class="wrapp__right-side">
                         <div class="menu-wrapper">
                             <div class="search_form--container">
                                 <div class="search_form--wrapp">
@@ -166,7 +167,7 @@
                                         <svg class="search_form--icon"></svg>
                                     </button>
                                 </div>
-                                <input placeholder="Пишы здесь" class="search_form--input" type="text">
+                                <input placeholder="Пишы здесь" class="search_form--input" type="text" id="input">
                             </div>
             
                             <a class="sing_link" href="#">
@@ -179,6 +180,16 @@
                             </a>
                         </div>
                     </div>
+                    <div class="wrapp-timeleft">
+                        <h2 class="wrapp-timeleft__title">До конца дня:</h2>
+                        <p class="wrapp-timeleft__timer">
+                            <span class="wrapp-timeleft__hours" id="hours"></span>
+                            :
+                            <span class="wrapp-timeleft__minutes" id="minutes"></span>
+                            :
+                            <span class="wrapp-timeleft__seconds" id="seconds"></span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -189,9 +200,7 @@
         <div class="modal-container js-container">
             <div class="backdrop js-backdrop"></div>
 
-            <div class="modal-window">
-
-            </div>
+            <div class="modal-window" id="modal"></div>
             
             <button 
             id="modal-close"

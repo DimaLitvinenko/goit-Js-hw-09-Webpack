@@ -36,7 +36,7 @@
 }
 
 //  ----------------------- NAVIGATION ----------------------
-// .wrapp-navigation {
+// .wrapp__navigation {
 // }
 .navigation-link {
     cursor: pointer;
@@ -44,8 +44,8 @@
     outline: rgb(0 0 0 / 0%) solid 2px;
     outline-offset: 2px;
     color: white;
-    transition-property: background-color, border-color, color, fill, stroke,
-        opacity, box-shadow, transform;
+    transition-property: background-color, border-color, color, fill, stroke, opacity,
+        box-shadow, transform;
     transition-duration: 200ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     float: left;
@@ -65,14 +65,14 @@
     background: inherit;
     border-radius: inherit;
     font-weight: bold;
-    transition-property: background-color, border-color, color, fill, stroke,
-        opacity, box-shadow, transform;
+    transition-property: background-color, border-color, color, fill, stroke, opacity,
+        box-shadow, transform;
     transition-duration: 200ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 //  -------------------- SEARCH FORM -------------------------
-.wrapp-right-side {
+.wrapp__right-side {
     // display: flex;
     margin-inline-start: auto;
 }
@@ -208,4 +208,18 @@
     margin-inline-end: 0px;
 }
 // .sing_link--text {
+// }
+
+// TIME LEFT OF DAY
+// .wrapp-timeleft {
+// }
+// .wrapp-timeleft__title {
+// }
+// .wrapp-timeleft__timer {
+// }
+// .wrapp-timeleft__hours {
+// }
+// .wrapp-timeleft__minutes {
+// }
+// .wrapp-timeleft__seconds {
 // }

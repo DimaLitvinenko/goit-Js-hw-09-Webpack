@@ -31,11 +31,24 @@ const refs = {
     backdrop: document.querySelector('.js-backdrop'),
     container: document.querySelector('.js-container'),
     list: document.getElementById('filter'),
+    modal: document.getElementById('modal'),
+    searchInput: document.getElementById('input'),
     MAX_PILLS: 70,
     idNumbers: [],
+    COLORS: ['white', 'green', 'orange', 'red'],
 };
 
-const { closeModalButton, backdrop, container, list, MAX_PILLS, idNumbers } = refs;
+const {
+    closeModalButton,
+    backdrop,
+    container,
+    list,
+    modal,
+    searchInput,
+    MAX_PILLS,
+    idNumbers,
+    COLORS,
+} = refs;
 
 // ПОДСЧЁТ ЕЛЕМЕНТОВ СПИСКА 'MAX_PILLS'
 const countItems = length => {
@@ -47,16 +60,16 @@ const countItems = length => {
     return idNumbers;
 };
 countItems(MAX_PILLS);
-console.log(idNumbers);
 
 // Рендерит разметку списка таблеток от первого до maxPills
 const createItemsMarkup = items => {
+    getDayTimeout();
     items.map((item, index) => {
         return list.insertAdjacentHTML(
             'beforeend',
             `<li class="filter-list__item">
                 <button 
-                id="button-${index + 1}"
+                id="btn-${index + 1}"
                 class="filter-list__button" 
                 data-action="open-modal" 
                 data-identifier="${index + 1}"
@@ -70,7 +83,59 @@ const createItemsMarkup = items => {
 };
 const markup = createItemsMarkup(idNumbers, idNumbers.length);
 
-// ================================== MODAL WINDOW =======================================.
+// - FILTER/ФИЛЬТР ПО НАЗВАНИЮ ЦВЕТА
+const filterByName = () => {
+    searchInput.addEventListener('keyup', inputFilterHandler);
+};
+filterByName();
+
+const inputFilterHandler = event => {
+    const filter = input.value.toLowerCase(),
+        filterItems = document.querySelectorAll('#filter li');
+
+    filterItems.forEach(item => {
+        if (item.innerHTML.toLowerCase().indexOf(filter) > -1) {
+            item.style.display = '';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+};
+
+//-Get обратный отсчёт ОСТАТОК ВРЕМЕНИ ДО КОНЦА ДНЯ
+function getDayTimeout() {
+    setInterval(() => {
+        let today = getToday();
+        document.getElementById('hours').innerHTML = getHoursUntilEndOfDay(today);
+        document.getElementById('minutes').innerHTML = getMinutesUntilEndOfDay(today);
+        document.getElementById('seconds').innerHTML = getSecondsUntilEndOfDay(today);
+    }, 100);
+}
+//-Get the number of hours until the end of the day
+function getHoursUntilEndOfDay(date) {
+    let endOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
+    let hours = Math.ceil((endOfDay.getTime() - date.getTime()) / (1000 * 60 * 60));
+    return hours;
+}
+//-Get the number of minutes until the end of the day
+function getMinutesUntilEndOfDay(date) {
+    let endOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
+    let minutes = Math.ceil((endOfDay.getTime() - date.getTime()) / (1000 * 60));
+    return minutes;
+}
+//-Get the number of seconds until the end of the day
+function getSecondsUntilEndOfDay(date) {
+    let endOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
+    let seconds = Math.ceil((endOfDay.getTime() - date.getTime()) / 1000);
+    return seconds;
+}
+//-Get today's date
+function getToday() {
+    let today = new Date();
+    return today;
+}
+
+// ==================================>> MODAL WINDOW <<=======================================
 // - Закрытие модального окна по нажатию клавиши `ESC`.
 const modalCloseByEscHandler = ({ key }) => {
     if (key === 'Escape') {
@@ -78,15 +143,14 @@ const modalCloseByEscHandler = ({ key }) => {
     }
 };
 
-// - Открытие модального окна по нажатию клавиши `ESC`.
-const modalOpenHandler = ({ event, target }) => {
+// - Открытие модального окна по нажатию на кнопку'BUTTON' из списка
+const modalOpenHandler = ({ target }) => {
     console.log(target);
     if (target.nodeName !== 'BUTTON') {
         console.log(target.nodeName);
         return;
     }
-    event.preventDefault();
-    ///////////////////////////////////////////////////////////
+
     const color = target.dataset.color;
     console.log(color);
 
@@ -101,23 +165,107 @@ const modalOpenHandler = ({ event, target }) => {
 
     const newColor = (buttonElem.dataset['color'] = 'green');
     buttonElem.style.backgroundColor = newColor;
-    // image.src = target.dataset.source; // - Подмена значения атрибута `src` элемента `img.lightbox__image`.
+
+    modalWindowMarkup(id, color);
+
+    // image.src = target.dataset.source; //>-Подмена значения атрибута `src` элемента `img.lightbox__image`.
     /////////////////////////////////////////////////////////////
 
     window.addEventListener('keydown', modalCloseByEscHandler);
     container.classList.add('is-open'); // - Открытие модального окна по клику на элементе галереи.
 };
 
-// - Закрытие модального окна.
+// ЗАКРЫТИЕ модального окна по НАЖАТИЮ КЛАВИШИ - 'ESC' `button[data-action="close-lightbox"]`.
 const modalCloseHandler = () => {
     window.removeEventListener('keydown', modalCloseByEscHandler);
-    container.classList.remove('is-open'); // - Закрытие модального окна по клику на кнопку `button[data-action="close-lightbox"]`.
+    container.classList.remove('is-open');
 };
 
-list.addEventListener('click', modalOpenHandler);
-closeModalButton.addEventListener('click', modalCloseHandler);
-backdrop.addEventListener('click', modalCloseHandler);
+list.addEventListener('click', modalOpenHandler); //>СПИСОК ИЗ КНОПОК(ТАБЛЕТОК)
+closeModalButton.addEventListener('click', modalCloseHandler); //>ЗАКРЫТЬ МОДАЛЬНОЕ ОКНО
+backdrop.addEventListener('click', modalCloseHandler); //>ФОН МОДАЛЬНОГО ОКНА
 
+// СБРОС/ОЧИСТИТЬ РАЗМЕТКУ
+function reset() {
+    return (modal.innerHTML = '');
+}
+
+// РАЗМЕТКА/ПЕРЕРИСОВКА ЕЛЕМЕНТОВ ДЛЯ МОДАЛЬНОГО ОКНА
+function modalWindowMarkup(id, currentColor) {
+    COLORS.forEach(color => {
+        if (currentColor === 'white' && modalOpenHandler) {
+            reset();
+            modal.insertAdjacentHTML(
+                'beforeend',
+                `
+                    <div>
+                        <h2 class="modal-title">Таблетка №${id}</h2>
+                        <p><span>${currentColor}</span> - Cвободна</p>
+                    </div>
+                    <div>
+                        <p id="datejs">${getCurrentDate()}</p>
+                        
+                    </div>  
+                `,
+            );
+        } else if (currentColor === 'green' && modalOpenHandler) {
+            reset();
+            modal.insertAdjacentHTML(
+                'beforeend',
+                `   
+                    <div>
+                        <h2 class="modal-title">Таблетка №${id}</h2>
+                        <p><span>${currentColor}</span> - Занята</p>
+                    </div>
+                    <div></div>
+                `,
+            );
+        } else if (currentColor === 'orange' && modalOpenHandler) {
+            reset();
+            modal.insertAdjacentHTML(
+                'beforeend',
+                `   
+                    <div>
+                        <h2 class="modal-title">Таблетка №${id}</h2>
+                        <p><span>${currentColor}</span> - Осталось 10 мин.</p>
+                    </div>
+                    <div></div>
+                `,
+            );
+        } else if (currentColor === 'red' && modalOpenHandler) {
+            reset();
+            modal.insertAdjacentHTML(
+                'beforeend',
+                `
+                    <div>
+                        <h2 class="modal-title">Таблетка №${id}</h2>
+                        <p><span>${currentColor}</span> - Время выйшло</p>
+                    </div>
+                    <div></div>
+                `,
+            );
+        }
+    });
+}
+
+// ТЕКУЩАЯ ДАТА И ВРЕМЯ - В МОДАЛЬНОМ ОКНЕ
+function getCurrentDate() {
+    let date = new Date();
+    // формат вывода
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+    };
+    let localeUk;
+    // Украина
+    return (localeUk = date.toLocaleString('Uk-uk', options)); // текущая дата
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
 /*
 const scrollGalleryHandler = ({ key }) => {
     let currentIndex = galleryItems.findIndex(
