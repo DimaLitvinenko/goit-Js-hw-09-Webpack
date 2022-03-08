@@ -35,8 +35,8 @@
     width: 100%;
 }
 
-//  ----------------------- NAVIGATION ----------------------
-// .wrapp__navigation {
+//  ----------------------- LEFT_SIDE NAVIGATION ----------------------
+// .left-side {
 // }
 .navigation-link {
     cursor: pointer;
@@ -71,8 +71,8 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-//  -------------------- SEARCH FORM -------------------------
-.wrapp__right-side {
+//  -------------------- RIGHT_SIDE SEARCH_FORM -------------------------
+.right-side {
     // display: flex;
     margin-inline-start: auto;
 }
@@ -89,9 +89,9 @@
     display: flex;
     position: relative;
     border-radius: 8px;
-    margin-inline-end: 18px;
+    margin-inline-end: 20px;
 }
-.search_form--wrapp {
+.search_form--button-wrap {
     left: 0px;
     width: var(--chakra-sizes-10);
     height: var(--chakra-sizes-10);
@@ -167,6 +167,7 @@
 }
 .sing_link--button {
     display: inline-flex;
+    padding: 10px;
     appearance: none;
     -webkit-box-align: center;
     align-items: center;
@@ -210,16 +211,146 @@
 // .sing_link--text {
 // }
 
-// TIME LEFT OF DAY
-// .wrapp-timeleft {
+//====================== DATE / TIME ===========================
+.date-time__wrapp {
+    position: absolute;
+    top: 0;
+    left: 38%;
+
+    display: flex;
+    flex-direction: column-reverse;
+    // background-color: white;
+    border-radius: 8px;
+    border-bottom-left-radius: 20px;
+    margin-left: auto;
+    // padding: 10px;
+    height: auto;
+}
+
+.date-container {
+    display: flex;
+    text-align: center;
+    background: linear-gradient(to bottom right, #0263e1, #eb1836);
+    border-radius: 22px;
+    width: 100%;
+}
+.date-calendar__list {
+    position: absolute;
+    top: 50%;
+    right: 30%;
+    // padding: 10px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    color: #f8ab37;
+    // background-color: white;
+    visibility: hidden;
+    transform: translateY(0);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.outer {
+    &:hover .date-calendar__list {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(20%);
+    }
+    &:hover .year {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-35%);
+    }
+}
+// .date-item {
 // }
-// .wrapp-timeleft__title {
+.month,
+.day {
+    font-size: 10px;
+    line-height: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.date {
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.year {
+    // width: 100%;
+    position: absolute;
+    top: 10%;
+    left: -20%;
+    font-size: 10px;
+    line-height: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    color: #f8ab37;
+    transform: translateX(0);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.time-container {
+    display: flex;
+    text-align: center;
+    background: linear-gradient(
+        to bottom right,
+        rgba(2, 99, 225, 1),
+        rgba(235, 24, 54, 1)
+    );
+    border-radius: 22px;
+}
+.time__list {
+    display: flex;
+    width: 100%;
+}
+
+.time-item {
+    display: flex;
+    align-items: center;
+}
+
+.hours,
+.minutes,
+.seconds {
+    width: 100%;
+    color: #f8ab37;
+    background-color: black;
+}
+.hours {
+    margin: 5px 0 5px 5px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.minutes {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.seconds {
+    margin: 5px 5px 5px 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.timer-text {
+    align-items: center;
+    border-radius: 20px;
+    display: flex;
+    margin: 4px;
+    padding: 0px 5px;
+}
+// .timer-hours {
 // }
-// .wrapp-timeleft__timer {
+// .timer-minutes {
 // }
-// .wrapp-timeleft__hours {
-// }
-// .wrapp-timeleft__minutes {
-// }
-// .wrapp-timeleft__seconds {
+// .timer-seconds {
 // }

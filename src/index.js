@@ -17,7 +17,8 @@ import './scss/Components/modal-window.scss';
 // import './scss/Components/sidebar.scss';
 
 // ============== IMAGES ================
-// import './images/modules.png'
+import './images/icons_moon.svg';
+import './images/symbol-defs.svg';
 
 // ============ JavaScript ==============
 // import './js/filter.js';
@@ -32,7 +33,8 @@ const refs = {
     container: document.querySelector('.js-container'),
     list: document.getElementById('filter'),
     modal: document.getElementById('modal'),
-    searchInput: document.getElementById('input'),
+    // headerInput: document.getElementById('header-input'),
+    // searchInput: document.getElementById('search-input'),
     MAX_PILLS: 70,
     idNumbers: [],
     COLORS: ['white', 'green', 'orange', 'red'],
@@ -44,7 +46,8 @@ const {
     container,
     list,
     modal,
-    searchInput,
+    // headerInput,
+    // searchInput,
     MAX_PILLS,
     idNumbers,
     COLORS,
@@ -63,8 +66,9 @@ countItems(MAX_PILLS);
 
 // Рендерит разметку списка таблеток от первого до maxPills
 const createItemsMarkup = items => {
-    getDayTimeout();
-    items.map((item, index) => {
+    getDateToDay();
+    filterbyNumber();
+    items.forEach((item, index) => {
         return list.insertAdjacentHTML(
             'beforeend',
             `<li class="filter-list__item">
@@ -83,56 +87,89 @@ const createItemsMarkup = items => {
 };
 const markup = createItemsMarkup(idNumbers, idNumbers.length);
 
-// - FILTER/ФИЛЬТР ПО НАЗВАНИЮ ЦВЕТА
-const filterByName = () => {
-    searchInput.addEventListener('keyup', inputFilterHandler);
-};
-filterByName();
+// // - FILTER/ФИЛЬТР ПО ЦВЕТУ
+// const filterByColor = () => {
+//     searchInput.addEventListener('keyup', inputFilterHandler);
+// };
+// filterByColor();
 
-const inputFilterHandler = event => {
-    const filter = input.value.toLowerCase(),
-        filterItems = document.querySelectorAll('#filter li');
+// const inputFilterHandler = event => {
+//     const filter = input.value.toLowerCase(),
+//         filterItems = document.querySelectorAll('#filter li');
 
-    filterItems.forEach(item => {
-        if (item.innerHTML.toLowerCase().indexOf(filter) > -1) {
-            item.style.display = '';
-        } else {
-            item.style.display = 'none';
-        }
+//     filterItems.forEach(item => {
+//         if (item.innerHTML.toLowerCase().indexOf(filter) > -1) {
+//             item.style.display = '';
+//         } else {
+//             item.style.display = 'none';
+//         }
+//     });
+// };
+
+// - FILTER/ФИЛЬТР ПО НОМЕРУ
+function filterbyNumber() {
+    let input = document.getElementById('search-input');
+
+    input.addEventListener('keyup', function () {
+        let filter = input.value.toLowerCase(),
+            filterItems = document.querySelectorAll('#filter li');
+
+        filterItems.forEach(item => {
+            if (item.innerHTML.toLowerCase().indexOf(filter) > -1) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
     });
-};
+}
 
-//-Get обратный отсчёт ОСТАТОК ВРЕМЕНИ ДО КОНЦА ДНЯ
-function getDayTimeout() {
-    setInterval(() => {
-        let today = getToday();
-        document.getElementById('hours').innerHTML = getHoursUntilEndOfDay(today);
-        document.getElementById('minutes').innerHTML = getMinutesUntilEndOfDay(today);
-        document.getElementById('seconds').innerHTML = getSecondsUntilEndOfDay(today);
-    }, 100);
-}
-//-Get the number of hours until the end of the day
-function getHoursUntilEndOfDay(date) {
-    let endOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
-    let hours = Math.ceil((endOfDay.getTime() - date.getTime()) / (1000 * 60 * 60));
-    return hours;
-}
-//-Get the number of minutes until the end of the day
-function getMinutesUntilEndOfDay(date) {
-    let endOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
-    let minutes = Math.ceil((endOfDay.getTime() - date.getTime()) / (1000 * 60));
-    return minutes;
-}
-//-Get the number of seconds until the end of the day
-function getSecondsUntilEndOfDay(date) {
-    let endOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
-    let seconds = Math.ceil((endOfDay.getTime() - date.getTime()) / 1000);
-    return seconds;
-}
-//-Get today's date
-function getToday() {
-    let today = new Date();
-    return today;
+// - ДАТА / ВРЕМЯ
+function getDateToDay() {
+    let monthNames = [
+        'Январь',
+        'Февраль',
+        'Март',
+        'Апрель',
+        'Май',
+        'Июнь',
+        'Июль',
+        'Август',
+        'Сентябрь',
+        'Октябрь',
+        'Ноябрь',
+        'Декабрь',
+    ];
+    let dayNames = [
+        'Воскресенье',
+        'Понедельник',
+        'Вторник',
+        'Среда',
+        'Четверг',
+        'Пятница',
+        'Суббота',
+    ];
+    let newDate = new Date();
+    newDate.setDate(newDate.getDate());
+
+    setInterval(function () {
+        //-Get hours
+        let hours = new Date().getHours();
+        document.getElementById('hours').innerHTML = (hours < 10 ? '0' : '') + hours;
+        //-Get minutes
+        let minutes = new Date().getMinutes();
+        document.getElementById('minutes').innerHTML =
+            (minutes < 10 ? '0' : '') + minutes;
+        //-Get seconds
+        let seconds = new Date().getSeconds();
+        document.getElementById('seconds').innerHTML =
+            (seconds < 10 ? '0' : '') + seconds;
+
+        document.getElementById('month').innerHTML = monthNames[newDate.getMonth()];
+        document.getElementById('date').innerHTML = newDate.getDate();
+        document.getElementById('day').innerHTML = dayNames[newDate.getDay()];
+        document.getElementById('year').innerHTML = newDate.getFullYear();
+    }, 1000);
 }
 
 // ==================================>> MODAL WINDOW <<=======================================

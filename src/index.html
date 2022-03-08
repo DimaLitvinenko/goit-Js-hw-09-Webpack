@@ -103,9 +103,15 @@
                     <h1 class="visually-hidden"></h1>
                     <div class="main-wrapp-area">
                         <div class="main-content-area">
-                            <h2 class="main-content-title">Сортировка</h2>
-                            
-                            <!-- ---------- FILTER INPUTS ---------- -->
+                            <!-- ------------- FILTER-INPUT BY NUMBER ------------- -->
+                            <div class="search-container">
+                                <h2 class="main-content-title">Сортировка</h2>
+                                <div class="search-field__container">
+                                    <input class="search-input" id="search-input" type="text" placeholder="Введите номер..">
+                                    <div class="search-input_wrapp"></div>
+                                </div>
+                            </div>
+                            <!-- -------------- FILTER-INPUTS -------------- -->
                             <div class="filter-input__wrapper">
                                 <ul class="filter-input__list list">
                                     <li class="filter-input__item">
@@ -126,8 +132,7 @@
                                     </li>
                                 </ul>
                             </div>
-
-                            <!-- ---------- FILTER ELEMENTS LIST --------- -->
+                            <!-- -------------- FILTER-ELEMENTS LIST ------------- -->
                             <div class="filter-list__wrapper">
                                 <ul class="filter-list list" id="filter"></ul>
                             </div>
@@ -137,14 +142,12 @@
             </section>
         </main>
     
-
-
-        <!-- ------------- HEADER ------------- -->
+        <!-- ---------------- HEADER ---------------- -->
         <div>
             <div class="header">
                 <div class="header-wrapper">
-                    
-                    <div class="wrapp__navigation">
+                    <!-- LEFT SIDE -->
+                    <div class="left-side">
                         <nav class="navigation">
                             <ol class="navigation-list">
                                 <li class="navigation-item">
@@ -158,48 +161,73 @@
                         </nav>
                         <a class="outnav-link" href="#">Доска</a>
                     </div>
-        
-                    <div class="wrapp__right-side">
+                    <!-- RIGHT SIDE -->
+                    <div class="right-side">
                         <div class="menu-wrapper">
                             <div class="search_form--container">
-                                <div class="search_form--wrapp">
+                                <div class="search_form--button-wrap">
                                     <button class="search_form--button">
-                                        <svg class="search_form--icon"></svg>
+                                        <svg class="search_form--icon" width="18" height="18">
+                                            <use href="./images/icons_moon.svg#search"></use>
+                                        </svg>
                                     </button>
                                 </div>
-                                <input placeholder="Пишы здесь" class="search_form--input" type="text" id="input">
+                                <input placeholder="Пишы здесь" class="search_form--input" type="text" id="header-input">
                             </div>
             
                             <a class="sing_link" href="#">
                                 <button class="sing_link--button">
                                     <span class="sing_link--wrapp">
-                                        <svg class="sing_link--icon"></svg>
+                                        <svg class="sing_link--icon" width="18" height="18">
+                                            <use href="./images/icons_moon.svg#sign-in"></use>
+                                        </svg>
                                     </span>
                                     <p class="sing_link--text">Sing In</p>
                                 </button>
                             </a>
                         </div>
                     </div>
-                    <div class="wrapp-timeleft">
-                        <h2 class="wrapp-timeleft__title">До конца дня:</h2>
-                        <p class="wrapp-timeleft__timer">
-                            <span class="wrapp-timeleft__hours" id="hours"></span>
-                            :
-                            <span class="wrapp-timeleft__minutes" id="minutes"></span>
-                            :
-                            <span class="wrapp-timeleft__seconds" id="seconds"></span>
-                        </p>
+                    <!-- DATE / TIME  -->
+                    <div class="date-time__wrapp outer">
+                        <div class="date-container">
+                            <p class="year" id="year"></p>
+                            <ul class="date-calendar__list list">
+                                <li class="date-item month">
+                                    <span id="month"></span>
+                                </li>
+                                <li class="date-item date">
+                                    <span id="date"></span>
+                                </li>
+                                <li class="date-item day">
+                                    <span id="day"></span>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        <div class="time-container">
+                            <ul class="time__list list">
+                                <li class="time-item hours">
+                                    <span class="timer-hours timer-text" id="hours"></span>
+                                   <span>:</span>
+                                </li>
+                                <li class="time-item minutes">
+                                    <span class="timer-minutes timer-text" id="minutes"></span>
+                                    <span>:</span>
+                                </li>
+                                <li class="time-item seconds">
+                                    <span class="timer-seconds timer-text" id="seconds"></span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
 
-        <!--   <footer></footer> -->
-
         <!-- ------------- MODAL-WINDOW ------------- -->
         <div class="modal-container js-container">
             <div class="backdrop js-backdrop"></div>
-
             <div class="modal-window" id="modal"></div>
             
             <button 
@@ -208,7 +236,7 @@
             class="modal-button" 
             type="button">
                 <svg class="modal-button__icon" width="18" height="18">
-                    <use href="./image/symbol-defs.svg#close-btn"></use>
+                    <use href="./images/icons_moon.svg#close-btn"></use>
                 </svg>
             </button>
         </div>
