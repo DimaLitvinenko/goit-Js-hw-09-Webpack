@@ -87,25 +87,6 @@ const createItemsMarkup = items => {
 };
 const markup = createItemsMarkup(idNumbers, idNumbers.length);
 
-// // - FILTER/ФИЛЬТР ПО ЦВЕТУ
-// const filterByColor = () => {
-//     searchInput.addEventListener('keyup', inputFilterHandler);
-// };
-// filterByColor();
-
-// const inputFilterHandler = event => {
-//     const filter = input.value.toLowerCase(),
-//         filterItems = document.querySelectorAll('#filter li');
-
-//     filterItems.forEach(item => {
-//         if (item.innerHTML.toLowerCase().indexOf(filter) > -1) {
-//             item.style.display = '';
-//         } else {
-//             item.style.display = 'none';
-//         }
-//     });
-// };
-
 // - FILTER/ФИЛЬТР ПО НОМЕРУ
 function filterbyNumber() {
     let input = document.getElementById('search-input');
@@ -173,14 +154,8 @@ function getDateToDay() {
 }
 
 // ==================================>> MODAL WINDOW <<=======================================
-// - Закрытие модального окна по нажатию клавиши `ESC`.
-const modalCloseByEscHandler = ({ key }) => {
-    if (key === 'Escape') {
-        modalCloseHandler();
-    }
-};
 
-// - Открытие модального окна по нажатию на кнопку'BUTTON' из списка
+// - ОТКРЫТИЕ МОДАЛЬНОГО ОКНА ПО НАЖАТИЮ НА КНОПКУ 'BUTTON' из списка
 const modalOpenHandler = ({ target }) => {
     console.log(target);
     if (target.nodeName !== 'BUTTON') {
@@ -206,13 +181,19 @@ const modalOpenHandler = ({ target }) => {
     modalWindowMarkup(id, color);
 
     // image.src = target.dataset.source; //>-Подмена значения атрибута `src` элемента `img.lightbox__image`.
-    /////////////////////////////////////////////////////////////
 
     window.addEventListener('keydown', modalCloseByEscHandler);
     container.classList.add('is-open'); // - Открытие модального окна по клику на элементе галереи.
 };
 
-// ЗАКРЫТИЕ модального окна по НАЖАТИЮ КЛАВИШИ - 'ESC' `button[data-action="close-lightbox"]`.
+// - ЗАКРЫТИЕ МОДАЛЬНОГО ОКНА ПО НАЖАТИЮ КЛАВИШИ 'ESC' - `button[data-action="close-lightbox"]`.
+const modalCloseByEscHandler = ({ key }) => {
+    if (key === 'Escape') {
+        modalCloseHandler();
+    }
+};
+
+// ЗАКРЫТИЕ МОДЛАЛЬНОГО ОКНА
 const modalCloseHandler = () => {
     window.removeEventListener('keydown', modalCloseByEscHandler);
     container.classList.remove('is-open');
@@ -222,7 +203,7 @@ list.addEventListener('click', modalOpenHandler); //>СПИСОК ИЗ КНОП�
 closeModalButton.addEventListener('click', modalCloseHandler); //>ЗАКРЫТЬ МОДАЛЬНОЕ ОКНО
 backdrop.addEventListener('click', modalCloseHandler); //>ФОН МОДАЛЬНОГО ОКНА
 
-// СБРОС/ОЧИСТИТЬ РАЗМЕТКУ
+// СБРОС/ОЧИСТИТКА РАЗМЕТКИ
 function reset() {
     return (modal.innerHTML = '');
 }
@@ -285,7 +266,7 @@ function modalWindowMarkup(id, currentColor) {
     });
 }
 
-// ТЕКУЩАЯ ДАТА И ВРЕМЯ - В МОДАЛЬНОМ ОКНЕ
+// ТЕКУЩАЯ ДАТА И ВРЕМЯ - В МОДАЛКЕ (БЕЛЫЙ)
 function getCurrentDate() {
     let date = new Date();
     // формат вывода
@@ -298,10 +279,32 @@ function getCurrentDate() {
         minute: '2-digit',
     };
     let localeUk;
-    // Украина
     return (localeUk = date.toLocaleString('Uk-uk', options)); // текущая дата
 }
 
+// =========================== LIGHT & DARK MODE =================================
+const getTheme = () => {
+    return localStorage.getItem('theme') || 'dark';
+};
+
+const colorScheme = document.querySelector('meta[name="color-scheme"]');
+
+const applyTheme = theme => {
+    document.body.className = theme;
+    colorScheme.content = theme;
+    localStorage.setItem('theme', theme);
+};
+
+const themeToggleButton = document.querySelector('.theme-toggle');
+
+let theme = getTheme();
+applyTheme(theme);
+
+themeToggleButton.addEventListener('click', () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    applyTheme(newTheme);
+    theme = newTheme;
+});
 //////////////////////////////////////////////////////////////////////////////////////////////
 /*
 const scrollGalleryHandler = ({ key }) => {

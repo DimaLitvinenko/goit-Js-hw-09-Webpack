@@ -375,9 +375,45 @@ VK.addCallback('onSubscriptionCancel', function () {
 }
 ```
 
+'beforeend', `<li class="filter-list__item"> <a href="#" 
+            id="btn-${index + 1}"
+            class="filter-list__button" 
+            data-action="open-modal"
+            data-identifier="${index + 1}"
+            data-color="white"> <div class="filter-icon">
+<svg class="icon-pills" width="18" height="18">
+<use href="./images/icons_moon.svg#enter"></use> </svg> </div>
+<h3 class="filter-title">Step
+${index + 1}</h3>
+                <div class="filter-descr">${item}</div> </a>
+
+            </li>`,
+
+<button 
+                id="btn-${index + 1}"
+                class="filter-list__button" 
+                data-action="open-modal" 
+                data-identifier="${index + 1}"
+                data-color="white"
+                type="button"> ${item} </button>
+
 ===================================================================
 
 ## Developing
+
+## ClassNames **(БЭМ)**
+
+```css
+.block {
+    // БЛОК;
+}
+.block__element {
+    // БЛОК__НАЗВАНИЕ ЕЛЕМЕНТА;
+}
+.block--modificator {
+    // БЛОК--НАЗВАНИЕ МОДИФИКАТОРА;
+}
+```
 
 ### • [Настройка Webpack 5 с нуля](https://habr.com/ru/post/524260/)
 

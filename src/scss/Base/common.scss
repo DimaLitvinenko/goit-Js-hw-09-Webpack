@@ -44,6 +44,9 @@ html {
 }
 
 body {
+    // --color: rgba(30, 30, 30);
+    // --bgColor: rgba(245, 245, 245);
+    min-height: 100vh;
     font-family: Helvetica, sans-serif;
     color: var(--chakra-colors-gray-800);
     background: var(--chakra-colors-gray-50);
@@ -55,7 +58,7 @@ body {
     margin: 0px;
 
     position: relative;
-    min-height: 100%;
+    // min-height: 100%;
     font-feature-settings: 'kern';
 
     // &.modal-open {
