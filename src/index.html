@@ -9,7 +9,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
-<body>
+<body class="light">
     <div>
         <!-- ------------- HEADER-BACKGROUND ------------- -->
         <div class="head"></div>
@@ -105,10 +105,13 @@
                         <div class="main-content-area">
                             <!-- ------------- FILTER-INPUT BY NUMBER ------------- -->
                             <div class="search-container">
-                                <h2 class="main-content-title">Сортировка</h2>
                                 <div class="search-field__container">
-                                    <input class="search-input" id="search-input" type="text" placeholder="Введите номер..">
-                                    <div class="search-input_wrapp"></div>
+                                <h2 class="main-content-title">Сортировка:</h2>
+                                <input class="search-input" id="search-input" type="text" placeholder="Введите номер..">
+                                <div class="search-input_wrapp"></div>
+                                
+                                
+                                    
                                 </div>
                             </div>
                             <!-- -------------- FILTER-INPUTS -------------- -->
@@ -149,7 +152,7 @@
                     <!-- LEFT SIDE -->
                     <div class="left-side">
                         <nav class="navigation">
-                            <ol class="navigation-list">
+                            <ol class="navigation-list list">
                                 <li class="navigation-item">
                                     <a class="navigation-link" href="#">Хуторок</a>
                                     <span>/</span>
@@ -179,12 +182,28 @@
                                 <button class="sing_link--button">
                                     <span class="sing_link--wrapp">
                                         <svg class="sing_link--icon" width="18" height="18">
+                                            <use href="./images/icons_moon.svg#log-in"></use>
+                                        </svg>
+                                    </span>
+                                    <p class="sing_link--text">Log-In</p>
+                                </button>
+                            </a>
+
+                            <a class="sing_link" href="#">
+                                <button class="sing_link--button">
+                                    <span class="sing_link--wrapp">
+                                        <svg class="sing_link--icon" width="18" height="18">
                                             <use href="./images/icons_moon.svg#sign-in"></use>
                                         </svg>
                                     </span>
-                                    <p class="sing_link--text">Sing In</p>
+                                    <p class="sing_link--text">Sing-In</p>
                                 </button>
                             </a>
+
+                            
+                            <button class="theme-toggle">
+                                Сменить тему
+                            </button>
                         </div>
                     </div>
                     <!-- DATE / TIME  -->

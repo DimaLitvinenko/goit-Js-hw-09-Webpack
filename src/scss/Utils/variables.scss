@@ -7,6 +7,41 @@
     --second-color-gray: rgb(113 128 150);
     --third-color-gray: rgb(74 85 104);
 
+    --chakra-shadows-base: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+    --chakra-shadows-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+    --chakra-shadows-lg: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+    --chakra-shadows-xl: 0 20px 25px -5px rgb(0 0 0 / 10%),
+        0 10px 10px -5px rgb(0 0 0 / 4%);
+    --chakra-shadows-2xl: 0 25px 50px -12px rgb(0 0 0 / 25%);
+    --chakra-shadows-outline: 0 0 0 3px rgb(66 153 225 / 60%);
+    --chakra-shadows-inner: inset 0 2px 4px 0 rgb(0 0 0 / 6%);
+    --chakra-shadows-none: none;
+    --chakra-shadows-dark-lg: rgb(0 0 0 / 10%) 0px 0px 0px 1px,
+        rgb(0 0 0 / 20%) 0px 5px 10px, rgb(0 0 0 / 40%) 0px 15px 40px;
+
+    --duration-normal: 250ms;
+    --property-common: background-color, border-color, color, fill, visibility, opacity,
+        box-shadow, transform, border-radius;
+    --property-colors: background-color, border-color, color, fill, stroke outline;
+    --property-dimensions: width, height, position;
+    --property-position: left, right, top, bottom;
+    --property-background: background-color, background-image, background-position;
+    --easing-in: cubic-bezier(0.6, 0, 0.4, 1.2);
+    --easing-out: cubic-bezier(0.4, 0.2, 0.6, 1.1);
+
+    --gap: 10px;
+    // --carousel-count: 4;
+    --black: #1e1d26;
+    --white: #f7f7f7;
+    --light-blue: #b6b9bf;
+    --blue: #334668;
+    --dark-blue: #262733;
+    --light-gray: #eaeaea;
+    --background-image: url('../../images/tree-bg/snow_tree_bg1200x800.webp');
+    --gradient: linear-gradient(rgba(253, 253, 255, 0.52), rgba(0, 0, 0, 0.55));
+    --button-background: var(--light-gray);
+    color-scheme: light dark; // prefer dark mode
+
     --chakra-ring-inset: var(--chakra-empty);
     --chakra-ring-offset-width: 0px;
     --chakra-ring-offset-color: rgb(255 255 255);
@@ -307,17 +342,7 @@
     --chakra-space-3\.5: 0.875rem;
     --chakra-shadows-xs: 0 0 0 1px rgb(0 0 0 / 5%);
     --chakra-shadows-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
-    --chakra-shadows-base: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
-    --chakra-shadows-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
-    --chakra-shadows-lg: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
-    --chakra-shadows-xl: 0 20px 25px -5px rgb(0 0 0 / 10%),
-        0 10px 10px -5px rgb(0 0 0 / 4%);
-    --chakra-shadows-2xl: 0 25px 50px -12px rgb(0 0 0 / 25%);
-    --chakra-shadows-outline: 0 0 0 3px rgb(66 153 225 / 60%);
-    --chakra-shadows-inner: inset 0 2px 4px 0 rgb(0 0 0 / 6%);
-    --chakra-shadows-none: none;
-    --chakra-shadows-dark-lg: rgb(0 0 0 / 10%) 0px 0px 0px 1px,
-        rgb(0 0 0 / 20%) 0px 5px 10px, rgb(0 0 0 / 40%) 0px 15px 40px;
+
     --chakra-sizes-1: 0.25rem;
     --chakra-sizes-2: 0.5rem;
     --chakra-sizes-3: 0.75rem;
@@ -385,17 +410,9 @@
     --chakra-zIndices-skipLink: 1600;
     --chakra-zIndices-toast: 1700;
     --chakra-zIndices-tooltip: 1800;
-    --chakra-transition-property-common: background-color, border-color, color, fill,
-        stroke, opacity, box-shadow, transform;
-    --chakra-transition-property-colors: background-color, border-color, color, fill,
-        stroke;
-    --chakra-transition-property-dimensions: width, height;
-    --chakra-transition-property-position: left, right, top, bottom;
-    --chakra-transition-property-background: background-color, background-image,
-        background-position;
+
     --chakra-transition-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
-    --chakra-transition-easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
-    --chakra-transition-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
     --chakra-transition-duration-ultra-fast: 50ms;
     --chakra-transition-duration-faster: 100ms;
     --chakra-transition-duration-fast: 150ms;

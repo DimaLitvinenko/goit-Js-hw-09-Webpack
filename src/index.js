@@ -19,6 +19,7 @@ import './scss/Components/modal-window.scss';
 // ============== IMAGES ================
 import './images/icons_moon.svg';
 import './images/symbol-defs.svg';
+import './images/tree-bg/snow_tree_bg 1200x800.jpg';
 
 // ============ JavaScript ==============
 // import './js/filter.js';
@@ -218,11 +219,15 @@ function modalWindowMarkup(id, currentColor) {
                 `
                     <div>
                         <h2 class="modal-title">Таблетка №${id}</h2>
-                        <p><span>${currentColor}</span> - Cвободна</p>
+                        <span>${currentColor}</span>
+                        <p> - Cвободна</p>
                     </div>
                     <div>
                         <p id="datejs">${getCurrentDate()}</p>
-                        
+                    <div>
+                        <input type="select"> </input>
+                        <button type="button">Выдать</button>
+                    </div>
                     </div>  
                 `,
             );
@@ -291,7 +296,8 @@ const colorScheme = document.querySelector('meta[name="color-scheme"]');
 
 const applyTheme = theme => {
     document.body.className = theme;
-    colorScheme.content = theme;
+    // console.log(colorScheme.content);
+    // colorScheme.value = theme;
     localStorage.setItem('theme', theme);
 };
 

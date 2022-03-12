@@ -12,10 +12,8 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--property-common) 250ms var(--ease-in-out);
 }
-
 .modal-container.is-open {
     opacity: 1;
     visibility: visible;
@@ -25,11 +23,6 @@
         transform: scale(1);
         // transform: translate(-50%, -50%);
     }
-}
-
-.modal-window {
-    transform: scale(0.95);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-window {
@@ -45,6 +38,8 @@
     border-radius: 4px;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 2px 1px rgba(0, 0, 0, 0.2);
+    transform: scale(0.95);
+    transition: var(--property-common) 250ms var(--ease-in-out);
 }
 
 .modal-button {
@@ -62,8 +57,7 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     cursor: pointer;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--property-colors) 250ms var(--ease-in-out);
 
     &:hover,
     &:focus {

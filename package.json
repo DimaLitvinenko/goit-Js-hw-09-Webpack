@@ -1,7 +1,7 @@
 {
   "name": "goit-js-hw-09-webpack",
   "version": "1.0.0",
-  "description": "practice",
+  "description": "project by costumer 'Khutorok' restourant hotel",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode=development",
