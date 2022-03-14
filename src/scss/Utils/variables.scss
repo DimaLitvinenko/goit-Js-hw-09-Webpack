@@ -1,11 +1,23 @@
 :root {
-    --current-color: rgb(236 201 75);
-    --second-color: rgb(214 158 46);
-    --third-color: rgb(246 224 94);
+    --light-text-color: #c6e01a
+    #1b1d1f
+    rgba(198, 224, 27, .2)
+    #ebb401
+#e2fb23
+#62700f
+    --current-color: rgba(246, 173, 85, 1);
+    --second-color: rgba(221, 71, 25, 1);
+    --third-color: rgba(201, 80, 15, 0.919);
+
+    --orange-300: rgb(246 173 85);
+    --orange-400: rgb(237 137 54);
+    --orange-500: rgb(221 107 32);
+    --orange-600: rgb(192 86 33);
 
     --color-gray: rgb(160 174 192);
     --second-color-gray: rgb(113 128 150);
     --third-color-gray: rgb(74 85 104);
+    --fourth-color-gray: rgb(247 250 252);
 
     --chakra-shadows-base: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
     --chakra-shadows-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
@@ -18,7 +30,7 @@
     --chakra-shadows-none: none;
     --chakra-shadows-dark-lg: rgb(0 0 0 / 10%) 0px 0px 0px 1px,
         rgb(0 0 0 / 20%) 0px 5px 10px, rgb(0 0 0 / 40%) 0px 15px 40px;
-
+    // ================= TRANSITION ==================
     --duration-normal: 250ms;
     --property-common: background-color, border-color, color, fill, visibility, opacity,
         box-shadow, transform, border-radius;
@@ -28,16 +40,16 @@
     --property-background: background-color, background-image, background-position;
     --easing-in: cubic-bezier(0.6, 0, 0.4, 1.2);
     --easing-out: cubic-bezier(0.4, 0.2, 0.6, 1.1);
-
+    // ================= THEME ====================
     --gap: 10px;
-    // --carousel-count: 4;
-    --black: #1e1d26;
-    --white: #f7f7f7;
+    --carousel-count: 4;
+    --black: #1e1d2698;
+    --white: #f7f7f7b6;
     --light-blue: #b6b9bf;
     --blue: #334668;
     --dark-blue: #262733;
     --light-gray: #eaeaea;
-    --background-image: url('../../images/tree-bg/snow_tree_bg1200x800.webp');
+    --background-image: url('../../images/head-bg/futuristic.jpeg');
     --gradient: linear-gradient(rgba(253, 253, 255, 0.52), rgba(0, 0, 0, 0.55));
     --button-background: var(--light-gray);
     color-scheme: light dark; // prefer dark mode
@@ -74,7 +86,7 @@
     --chakra-colors-blackAlpha-700: rgb(0 0 0 / 64%);
     --chakra-colors-blackAlpha-800: rgb(0 0 0 / 80%);
     --chakra-colors-blackAlpha-900: rgb(0 0 0 / 92%);
-    --chakra-colors-gray-50: rgb(247 250 252);
+   
     --chakra-colors-gray-100: rgb(237 242 247);
     --chakra-colors-gray-200: rgb(226 232 240);
     --chakra-colors-gray-300: rgb(203 213 224);

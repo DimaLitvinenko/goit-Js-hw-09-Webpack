@@ -37,6 +37,7 @@ img {
     max-width: 100%;
     height: auto;
 }
+
 html {
     display: block;
     line-height: 1.5;
@@ -44,7 +45,6 @@ html {
     text-rendering: optimizelegibility;
     touch-action: manipulation;
 }
-
 body {
     position: relative;
     min-height: 100vh;
@@ -53,34 +53,43 @@ body {
 
     font-family: Helvetica, sans-serif;
     transition-property: background-color;
-    transition-duration: var(--duration-normal, --chakra-transition-property-colors);
+    transition-duration: var(--duration-normal, --property-colors);
     overflow-x: hidden;
     font-feature-settings: 'kern';
 
     &.light {
-        --text: var(--blue);
+        --text: #9A12B3;
         --background: var(--white);
         --carousel-background: var(--light-gray);
+        --gradient: linear-gradient(rgba(253, 253, 255, 0.52), rgba(0, 0, 0, 0.55));
+
+        & .head {
+            --background: var(--white);
+        }
 
         & .main-content-area {
-            --background: var(--chakra-colors-white);
+            --background: var(--white);
         }
     }
 
     &.dark {
-        --text: var(--light-blue);
+        --text: var(--second-color-gray);
         --background: var(--black);
         --carousel-background: var(--dark-blue);
-        --gradient: linear-gradient(rgba(148, 155, 193, 0.52), rgba(11, 18, 38, 0.55));
+        --gradient: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.659));
 
+        & .head {
+            --background: var(--black);
+        }
         & .main-content-area {
-            --background: var(--chakra-colors-black);
+            --background: var(--black);
         }
     }
     color: var(--text);
-    background: var(--chakra-colors-gray-50);
+    background: var(--fourth-color-gray);
     background-color: var(--background);
     background-image: var(--gradient), var(--background-image);
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     // &.modal-open {

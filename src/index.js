@@ -19,7 +19,8 @@ import './scss/Components/modal-window.scss';
 // ============== IMAGES ================
 import './images/icons_moon.svg';
 import './images/symbol-defs.svg';
-import './images/tree-bg/snow_tree_bg 1200x800.jpg';
+import './images/main-bg/tree_1280.jpg';
+import './images/background/sky-bg_1280.jpg';
 
 // ============ JavaScript ==============
 // import './js/filter.js';
@@ -225,8 +226,10 @@ function modalWindowMarkup(id, currentColor) {
                     <div>
                         <p id="datejs">${getCurrentDate()}</p>
                     <div>
-                        <input type="select"> </input>
-                        <button type="button">Выдать</button>
+                        <form>
+                            <input type="select"> </input>
+                            <button type="submit">Выдать</button>
+                        </form>
                     </div>
                     </div>  
                 `,
@@ -296,7 +299,7 @@ const colorScheme = document.querySelector('meta[name="color-scheme"]');
 
 const applyTheme = theme => {
     document.body.className = theme;
-    // console.log(colorScheme.content);
+    console.log(colorScheme);
     // colorScheme.value = theme;
     localStorage.setItem('theme', theme);
 };
