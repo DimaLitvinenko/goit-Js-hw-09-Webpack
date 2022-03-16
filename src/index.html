@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
         integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -13,7 +14,107 @@
     <div>
         <!-- ------------- HEADER-BACKGROUND ------------- -->
         <div class="head"></div>
+        <!-- ---------------- HEADER ---------------- -->
+        <div>
+            <div class="header">
+                <div class="header-wrapper">
+                    <!-- ______LEFT--SIDE______ -->
+                    <div class="left-side">
+                        <nav class="navigation">
+                            <ol class="navigation-list list">
+                                <li class="navigation-item">
+                                    <a class="navigation-link" href="#">Хуторок</a>
+                                    <span>/</span>
+                                </li>
+                                <li class="navigation-item">
+                                    <a class="navigation-link" href="#">Снежные горки</a>
+                                </li>
+                                <li class="navigation-item">
+                                    <a class="outnav-link" href="#">Доска</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <!--_______DATE/TIME_______  -->
+                    <div class="date-time__wrapp outer">
+                        <div class="time-container">
+                            <div class="date-container">
+                                <p class="year" id="year"></p>
+                                <ul class="date-calendar__list list">
+                                    <li class="date-item month">
+                                        <span id="month"></span>
+                                    </li>
+                                    <li class="date-item date">
+                                        <span id="date"></span>
+                                    </li>
+                                    <li class="date-item day">
+                                        <span id="day"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <ul class="time__list list">
+                                <li class="time-item hours">
+                                    <span class="timer-hours timer-text" id="hours"></span>
+                                    <span>:</span>
+                                </li>
+                                <li class="time-item minutes">
+                                    <span class="timer-minutes timer-text" id="minutes"></span>
+                                    <span>:</span>
+                                </li>
+                                <li class="time-item seconds">
+                                    <span class="timer-seconds timer-text" id="seconds"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- ________RIGHT-SIDE________ -->
+                    <div class="right-side">
+                        <div class="menu-wrapper">
+                            <div class="search_form--container">
+                                <div class="search_form--button-wrap">
+                                    <button class="search_form--button">
+                                        <svg class="search_form--icon" width="18" height="18">
+                                            <use href="./images/icons_moon.svg#search"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <input placeholder="Пишы здесь" class="search_form--input" type="text" id="header-input">
+                            </div>
 
+                            <ul class="list">
+                                <li>
+                                    <button class="sing_link--button" type="button">
+                                        <span class="sing_link--wrapp">
+                                            <svg class="sing_link--icon" width="18" height="18">
+                                                <use href="./images/icons_moon.svg#log-in"></use>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    <a class="sing_link link" href="#">Log-In</a>
+                                </li>
+                                <li>
+                                    <button class="sing_link--button" type="button">
+                                        <span class="sing_link--wrapp">
+                                            <svg class="sing_link--icon" width="18" height="18">
+                                                <use href="./images/icons_moon.svg#sign-in"></use>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    <a class="sing_link link" href="#">Sing-In</a>
+                                </li>
+                            </ul>
+                            <div class="switch">
+                                <div class="switch__theme">
+                                    <input class="theme-toggle" type="checkbox" title="Переключить тему" id="toogle">
+                                    <label for="toggle"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- -------------- SIDEBAR ------------- -->
         <!--  
         <div>
@@ -106,12 +207,10 @@
                             <!-- ------------- FILTER-INPUT BY NUMBER ------------- -->
                             <div class="search-container">
                                 <div class="search-field__container">
-                                <h2 class="main-content-title">Сортировка:</h2>
-                                <input class="search-input" id="search-input" type="text" placeholder="Введите номер..">
-                                <div class="search-input_wrapp"></div>
-                                
-                                
-                                    
+                                    <h2 class="main-content-title">Сортировка:</h2>
+                                    <input class="search-input" id="search-input" type="text" placeholder="Введите номер..">
+                                    <button class="reset-button"  type="button">X</button>
+                                    <div class="search-input_wrapp"></div>
                                 </div>
                             </div>
                             <!-- -------------- FILTER-INPUTS -------------- -->
@@ -145,107 +244,8 @@
             </section>
         </main>
     
-        <!-- ---------------- HEADER ---------------- -->
-        <div>
-            <div class="header">
-                <div class="header-wrapper">
-                    <!-- LEFT SIDE -->
-                    <div class="left-side">
-                        <nav class="navigation">
-                            <ol class="navigation-list list">
-                                <li class="navigation-item">
-                                    <a class="navigation-link" href="#">Хуторок</a>
-                                    <span>/</span>
-                                </li>
-                                <li class="navigation-item">
-                                    <a class="navigation-link" href="#">Снежные горки</a>
-                                </li>
-                            </ol>
-                        </nav>
-                        <a class="outnav-link" href="#">Доска</a>
-                    </div>
-                    <!-- RIGHT SIDE -->
-                    <div class="right-side">
-                        <div class="menu-wrapper">
-                            <div class="search_form--container">
-                                <div class="search_form--button-wrap">
-                                    <button class="search_form--button">
-                                        <svg class="search_form--icon" width="18" height="18">
-                                            <use href="./images/icons_moon.svg#search"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <input placeholder="Пишы здесь" class="search_form--input" type="text" id="header-input">
-                            </div>
-            
-                            <a class="sing_link" href="#">
-                                <button class="sing_link--button">
-                                    <span class="sing_link--wrapp">
-                                        <svg class="sing_link--icon" width="18" height="18">
-                                            <use href="./images/icons_moon.svg#log-in"></use>
-                                        </svg>
-                                    </span>
-                                    <p class="sing_link--text">Log-In</p>
-                                </button>
-                            </a>
-
-                            <a class="sing_link" href="#">
-                                <button class="sing_link--button">
-                                    <span class="sing_link--wrapp">
-                                        <svg class="sing_link--icon" width="18" height="18">
-                                            <use href="./images/icons_moon.svg#sign-in"></use>
-                                        </svg>
-                                    </span>
-                                    <p class="sing_link--text">Sing-In</p>
-                                </button>
-                            </a>
-
-                            
-                            <div class="switch">
-	                            <input class="theme-toggle" type="checkbox" title="Переключить тему" name="toggle">
-                                <label for="toggle">
-                                    </label>
-                            </div>
-                        </div>
-
-                        <!-- DATE / TIME  -->
-                        <div class="date-time__wrapp outer">
-                            <div class="date-container">
-                                <p class="year" id="year"></p>
-                                <ul class="date-calendar__list list">
-                                    <li class="date-item month">
-                                        <span id="month"></span>
-                                    </li>
-                                    <li class="date-item date">
-                                        <span id="date"></span>
-                                    </li>
-                                    <li class="date-item day">
-                                        <span id="day"></span>
-                                    </li>
-                                    
-                                </ul>
-                            </div>
-                            <div class="time-container">
-                                <ul class="time__list list">
-                                    <li class="time-item hours">
-                                        <span class="timer-hours timer-text" id="hours"></span>
-                                    <span>:</span>
-                                    </li>
-                                    <li class="time-item minutes">
-                                        <span class="timer-minutes timer-text" id="minutes"></span>
-                                        <span>:</span>
-                                    </li>
-                                    <li class="time-item seconds">
-                                        <span class="timer-seconds timer-text" id="seconds"></span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
+        
+       
 
         <!-- ------------- MODAL-WINDOW ------------- -->
         <div class="modal-container js-container">

@@ -1,10 +1,35 @@
 :root {
-    --light-text-color: #c6e01a
-    #1b1d1f
-    rgba(198, 224, 27, .2)
-    #ebb401
-#e2fb23
-#62700f
+    --light-text-color: #c6e01a;
+
+    --primary-light: #8abdff;
+    --primary: #6d5dfc;
+    --primary-dark: #5b0eeb;
+
+    --padding-set: 10px;
+    --border: 3px;
+    --circle-radius: 100px;
+
+    --white: #FFFFFF;
+    --greyLight-1: #E4EBF5;
+    --greyLight-2: #c8d0e7;
+    --greyLight-3: #bec8e4;
+    --greyDark: #9baacf;
+    --shadow: .3rem .3rem .6rem var(--greyLight-2), -.2rem -.2rem .5rem var(--white);
+    --inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2), inset -.2rem -.2rem .5rem var(--white);
+
+    --color1: #1b1d1f;
+    --color2:rgba(198, 224, 27, 0.987);
+    --color3:#ebb401;
+    --color4:#e2fb23;
+    --color5:#434d0a;
+
+  --color6: #1e1d26;
+  --color7: #f7f7f7;
+  --color8: #b6b9bf;
+  --color9: #334668;
+  --color10: #262733;
+  --color11: #eaeaea;
+
     --current-color: rgba(246, 173, 85, 1);
     --second-color: rgba(221, 71, 25, 1);
     --third-color: rgba(201, 80, 15, 0.919);
@@ -43,17 +68,23 @@
     // ================= THEME ====================
     --gap: 10px;
     --carousel-count: 4;
-    --black: #1e1d2698;
+    --black: #1e1d26d2;
     --white: #f7f7f7b6;
     --light-blue: #b6b9bf;
     --blue: #334668;
     --dark-blue: #262733;
     --light-gray: #eaeaea;
-    --background-image: url('../../images/head-bg/futuristic.jpeg');
-    --gradient: linear-gradient(rgba(253, 253, 255, 0.52), rgba(0, 0, 0, 0.55));
+    // --background-light-image: url('../../images/main-bg/day_snow.png');
+    // --background-light-image:url('../../images/main-bg/morning-sky.png');
+    // --background-dark-image: url('../../images/main-bg/night-sky.png');
+    
+    --gradient: linear-gradient(rgba(253, 253, 255, 0.65), rgba(0, 0, 0, 0.55));
     --button-background: var(--light-gray);
     color-scheme: light dark; // prefer dark mode
 
+//   
+
+  --button-background: var(--light-gray);
     --chakra-ring-inset: var(--chakra-empty);
     --chakra-ring-offset-width: 0px;
     --chakra-ring-offset-color: rgb(255 255 255);

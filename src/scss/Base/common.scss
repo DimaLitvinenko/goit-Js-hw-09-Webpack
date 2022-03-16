@@ -1,6 +1,6 @@
 *,
-::before,
-::after {
+*::before,
+*::after {
     box-sizing: border-box;
     border-color: var(--chakra-colors-gray-200);
     border-style: solid;
@@ -26,6 +26,7 @@ ol {
     margin-bottom: 0;
     padding-left: 0;
 }
+
 figure {
     width: 100%;
     height: 100%;
@@ -45,58 +46,68 @@ html {
     text-rendering: optimizelegibility;
     touch-action: manipulation;
 }
+
 body {
     position: relative;
     min-height: 100vh;
     margin: 0px;
     padding: 0px;
 
-    font-family: Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
     transition-property: background-color;
     transition-duration: var(--duration-normal, --property-colors);
     overflow-x: hidden;
-    font-feature-settings: 'kern';
+    // font-feature-settings: 'kern';
 
     &.light {
-        --text: #9A12B3;
+        --text: var(--color5);
         --background: var(--white);
-        --carousel-background: var(--light-gray);
+        // --carousel-background: var(--light-gray);
         --gradient: linear-gradient(rgba(253, 253, 255, 0.52), rgba(0, 0, 0, 0.55));
+        background-image: var(--gradient),
+        var(--background-light-image);
 
         & .head {
             --background: var(--white);
         }
 
         & .main-content-area {
-            --background: var(--white);
+            --background: var(--gradient);
         }
     }
 
     &.dark {
-        --text: var(--second-color-gray);
+        --text: var(--color2);
         --background: var(--black);
-        --carousel-background: var(--dark-blue);
+        // --carousel-background: var(--dark-blue);
         --gradient: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.659));
+        background: var(--gradient),
+        var(--background-dark-image);
 
         & .head {
             --background: var(--black);
         }
         & .main-content-area {
-            --background: var(--black);
+            --background: var(--gradient);
         }
     }
     color: var(--text);
     background: var(--fourth-color-gray);
     background-color: var(--background);
-    background-image: var(--gradient), var(--background-image);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+
     // &.modal-open {
     //     overflow: hidden;
     // }
 }
-
+@media (prefers-color-scheme: dark) {
+    button {
+        // background: var(--black);
+        color:var(--text)
+    }
+}
 .list {
     list-style: none;
 }

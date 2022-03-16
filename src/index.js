@@ -74,13 +74,17 @@ const createItemsMarkup = items => {
         return list.insertAdjacentHTML(
             'beforeend',
             `<li class="filter-list__item">
+                <div class="circle">
+                    <div class="noise animated"></div>
+                </div>
+
                 <button 
-                id="btn-${index + 1}"
-                class="filter-list__button" 
-                data-action="open-modal" 
-                data-identifier="${index + 1}"
-                data-color="white"
-                type="button">
+                 id="btn-${index + 1}"
+                 class="filter-list__button" 
+                 data-action="open-modal" 
+                 data-identifier="${index + 1}"
+                 data-color="white"
+                 type="button">
                     ${item}
                 </button>
             </li>`,
@@ -299,8 +303,7 @@ const colorScheme = document.querySelector('meta[name="color-scheme"]');
 
 const applyTheme = theme => {
     document.body.className = theme;
-    console.log(colorScheme);
-    // colorScheme.value = theme;
+    colorScheme.content = theme;
     localStorage.setItem('theme', theme);
 };
 
@@ -309,7 +312,8 @@ const themeToggleButton = document.querySelector('.theme-toggle');
 let theme = getTheme();
 applyTheme(theme);
 
-themeToggleButton.addEventListener('click', () => {
+themeToggleButton.addEventListener('click', event => {
+    console.log(event.target);
     const newTheme = theme === 'light' ? 'dark' : 'light';
     applyTheme(newTheme);
     theme = newTheme;
