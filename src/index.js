@@ -1,4 +1,5 @@
 // ============== STYLES ================
+// import './templates/style.scss';
 
 // ------------- UTILS --------------
 import './scss/Utils/variables.scss';
@@ -12,28 +13,26 @@ import './scss/Base/container.scss';
 // ---------- COMPONENTS ------------
 import './scss/Components/header.scss';
 import './scss/Components/main-content.scss';
-import './scss/Components/backdrop.scss';
+// import './scss/Components/backdrop.scss';
 import './scss/Components/modal-window.scss';
 // import './scss/Components/sidebar.scss';
 
 // ============== IMAGES ================
 import './images/icons_moon.svg';
-import './images/symbol-defs.svg';
-import './images/main-bg/tree_1280.jpg';
+import './images/app-icons-sprite.svg';
+// import './images/main-bg/tree_1280.jpg';
 import './images/background/sky-bg_1280.jpg';
 
 // ============ JavaScript ==============
 // import './js/filter.js';
 
 // ===============================================================================================
-// const MAX_PILLS = 70;
-// let idNumbers = [];
 
 const refs = {
     closeModalButton: document.getElementById('modal-close'),
     backdrop: document.querySelector('.js-backdrop'),
     container: document.querySelector('.js-container'),
-    list: document.getElementById('filter'),
+    list: document.getElementById('filter-products'),
     modal: document.getElementById('modal'),
     // headerInput: document.getElementById('header-input'),
     // searchInput: document.getElementById('search-input'),
@@ -111,6 +110,64 @@ function filterbyNumber() {
     });
 }
 
+// const filterToItemsHandler = event => {};
+// const filterHandler = document
+//     .getElementById('#filters-container :checkbox')
+//     .click(() => {
+//         const selectedColorLength = document
+//             .getElementById('#filter-options :checkbox')
+//             .filter(':checked').length;
+//         const hideItem = document.getElementById('#filter-products li').hide();
+//         if (selectedColorLength < 1) {
+//         }
+//     });
+
+// // On checkbox click in the color filter
+// $('#filters-container :checkbox').click(() => {
+//     // Define constants for length of checked checkboxes array
+//     const selectedColorLength = $('#filter-options :checkbox').filter(':checked').length;
+//     // const selectedTypeLength = $('#filter-options-type :checkbox').filter(
+//     //     ':checked',
+//     // ).length;
+//     // Hide all items in the list
+//     $('#filter-products li').hide();
+//     // If NO checkboxes are selected in color-filter AND type-filter
+//     if (selectedColorLength < 1 && selectedTypeLength < 1) {
+//         // Show entire product list
+//         $('#filter-products li').fadeIn();
+
+//         // If checkboxes are selected in the color-filter ONLY
+//     } else if (selectedColorLength >= 1 && selectedTypeLength < 1) {
+//         // For each of the checked checkboxes in the color-filter
+//         $('#filter-options :checkbox:checked').each((index, element) => {
+//             // Show items with the class of the value of the checkbox
+//             $('.' + $(element).val()).fadeIn();
+//         });
+
+//         // If checkboxes are selected in the type-filter ONLY
+//     } else if (selectedColorLength < 1 && selectedTypeLength > 0) {
+//         // For each of the checked checkboxes in the type-filter
+//         $('#filter-options-type :checkbox:checked').each((index, element) => {
+//             // Show items with the class of the value of the checkbox
+//             $('.' + $(element).val()).fadeIn();
+//         });
+
+//         // If checkboxes are selected in color-filter AND type-filter
+//     } else {
+//         // For each of the checked checkboxes in the color-filter
+//         $('#filter-options-color :checkbox:checked').each((index, element) => {
+//             // Define matched color-filter class
+//             let colorClass = $(element).val();
+//             // For each of the checked checkboxes in the type-filter
+//             $('#filter-options-type :checkbox:checked').each((index, element) => {
+//                 // Show items with the class of the value of the checkbox
+//                 $('.' + $(element).val() + '.' + colorClass).fadeIn();
+//             });
+//         });
+//     }
+// });
+//-------------------------------------------------------------------------------------------------
+
 // - ДАТА / ВРЕМЯ
 function getDateToDay() {
     let monthNames = [
@@ -159,11 +216,11 @@ function getDateToDay() {
     }, 1000);
 }
 
-// ==================================>> MODAL WINDOW <<=======================================
+// ===============================================>> MODAL_WINDOW <<==========================================================
 
 // - ОТКРЫТИЕ МОДАЛЬНОГО ОКНА ПО НАЖАТИЮ НА КНОПКУ 'BUTTON' из списка
 const modalOpenHandler = ({ target }) => {
-    console.log(target);
+    // console.log(target);
     if (target.nodeName !== 'BUTTON') {
         console.log(target.nodeName);
         return;
@@ -231,7 +288,10 @@ function modalWindowMarkup(id, currentColor) {
                         <p id="datejs">${getCurrentDate()}</p>
                     <div>
                         <form>
-                            <input type="select"> </input>
+                            <label>
+                                <input type="select">
+                            </label>
+
                             <button type="submit">Выдать</button>
                         </form>
                     </div>
@@ -294,9 +354,9 @@ function getCurrentDate() {
     return (localeUk = date.toLocaleString('Uk-uk', options)); // текущая дата
 }
 
-// =========================== LIGHT & DARK MODE =================================
+// ========================================= THEME_TOGGLE =================================================
 const getTheme = () => {
-    return localStorage.getItem('theme') || 'dark';
+    return localStorage.getItem('theme') && 'dark';
 };
 
 const colorScheme = document.querySelector('meta[name="color-scheme"]');

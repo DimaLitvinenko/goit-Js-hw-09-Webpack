@@ -4,12 +4,18 @@
     --primary-light: #8abdff;
     --primary: #6d5dfc;
     --primary-dark: #5b0eeb;
+    --primary-light-bgColor: rgb(255 255 255 / 60%);
+    --primary-dark-bgColor: rgb(0 0 0 / 60%);
+    // --primary-light-bgColor: rgb(81, 87, 237);
+    // --primary-dark-bgColor: rgb(22, 24, 70);
+--black: #1e1d26af;
+--white: #ffffffb3;
 
-    --padding-set: 10px;
+    --padding-set: 0px;
     --border: 3px;
-    --circle-radius: 100px;
+    --circle-radius: 160px;
 
-    --white: #FFFFFF;
+     
     --greyLight-1: #E4EBF5;
     --greyLight-2: #c8d0e7;
     --greyLight-3: #bec8e4;
@@ -18,8 +24,8 @@
     --inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2), inset -.2rem -.2rem .5rem var(--white);
 
     --color1: #1b1d1f;
-    --color2:rgba(198, 224, 27, 0.987);
-    --color3:#ebb401;
+    --color2:rgba(198, 224, 27, 0.9);
+    --color3:#c29c21;
     --color4:#e2fb23;
     --color5:#434d0a;
 
@@ -55,11 +61,11 @@
     --chakra-shadows-none: none;
     --chakra-shadows-dark-lg: rgb(0 0 0 / 10%) 0px 0px 0px 1px,
         rgb(0 0 0 / 20%) 0px 5px 10px, rgb(0 0 0 / 40%) 0px 15px 40px;
-    // ================= TRANSITION ==================
+    // ========================================= TRANSITION ========================================
     --duration-normal: 250ms;
     --property-common: background-color, border-color, color, fill, visibility, opacity,
         box-shadow, transform, border-radius;
-    --property-colors: background-color, border-color, color, fill, stroke outline;
+    --property-colors: background-color, border-color, color, fill, stroke, outline;
     --property-dimensions: width, height, position;
     --property-position: left, right, top, bottom;
     --property-background: background-color, background-image, background-position;
@@ -68,8 +74,7 @@
     // ================= THEME ====================
     --gap: 10px;
     --carousel-count: 4;
-    --black: #1e1d26d2;
-    --white: #f7f7f7b6;
+    
     --light-blue: #b6b9bf;
     --blue: #334668;
     --dark-blue: #262733;
@@ -82,7 +87,7 @@
     --button-background: var(--light-gray);
     color-scheme: light dark; // prefer dark mode
 
-//   
+//   ==================================================================================================
 
   --button-background: var(--light-gray);
     --chakra-ring-inset: var(--chakra-empty);

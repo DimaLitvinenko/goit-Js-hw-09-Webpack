@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="color-scheme" content="light dark">
+    <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
         integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -18,16 +18,16 @@
         <div>
             <div class="header">
                 <div class="header-wrapper">
-                    <!-- ______LEFT--SIDE______ -->
+                    <!-- _________________________ LEFT-PART | NAVIGATION _______________________ -->
                     <div class="left-side">
                         <nav class="navigation">
                             <ol class="navigation-list list">
                                 <li class="navigation-item">
-                                    <a class="navigation-link" href="#">Хуторок</a>
+                                    <a class="navigation-link link" href="#">Хуторок</a>
                                     <span>/</span>
                                 </li>
                                 <li class="navigation-item">
-                                    <a class="navigation-link" href="#">Снежные горки</a>
+                                    <a class="navigation-link link" href="#">Снежные горки</a>
                                 </li>
                                 <li class="navigation-item">
                                     <a class="outnav-link" href="#">Доска</a>
@@ -35,7 +35,8 @@
                             </ol>
                         </nav>
                     </div>
-                    <!--_______DATE/TIME_______  -->
+
+                    <!--_______________________ MIDDLE | DATE/TIME ________________________  -->
                     <div class="date-time__wrapp outer">
                         <div class="time-container">
                             <div class="date-container">
@@ -67,55 +68,128 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- ________RIGHT-SIDE________ -->
+
+                    <!-- _________________________ RIGHT-SIDE ___________________________ -->
                     <div class="right-side">
                         <div class="menu-wrapper">
-                            <div class="search_form--container">
-                                <div class="search_form--button-wrap">
-                                    <button class="search_form--button">
-                                        <svg class="search_form--icon" width="18" height="18">
+                            <div class="search-form_container">
+                                <div class="search-button-wrap">
+                                    <button class="search-form_button">
+                                        <svg class="header-icon" width="20" height="20">
                                             <use href="./images/icons_moon.svg#search"></use>
                                         </svg>
                                     </button>
                                 </div>
-                                <input placeholder="Пишы здесь" class="search_form--input" type="text" id="header-input">
+                                <input placeholder="Пишы здесь" class="search-form_input" type="text" id="header-input">
                             </div>
 
-                            <ul class="list">
-                                <li>
-                                    <button class="sing_link--button" type="button">
-                                        <span class="sing_link--wrapp">
-                                            <svg class="sing_link--icon" width="18" height="18">
+                            <ul class="autorization-list list">
+                                <li class="autorization-item">
+                                    <button class="autorization-button" type="button">
+                                        <span class="header-icon-wrapper">
+                                            <svg class="header-icon" width="20" height="20">
                                                 <use href="./images/icons_moon.svg#log-in"></use>
                                             </svg>
                                         </span>
                                     </button>
-                                    <a class="sing_link link" href="#">Log-In</a>
+                                    <!-- <a class="sing-link link" href="#">Log-In</a> -->
                                 </li>
-                                <li>
-                                    <button class="sing_link--button" type="button">
-                                        <span class="sing_link--wrapp">
-                                            <svg class="sing_link--icon" width="18" height="18">
+                                <li class="autorization-item">
+                                    <button class="autorization-button" type="button">
+                                        <span class="header-icon-wrapper">
+                                            <svg class="header-icon" width="20" height="20">
                                                 <use href="./images/icons_moon.svg#sign-in"></use>
                                             </svg>
                                         </span>
                                     </button>
-                                    <a class="sing_link link" href="#">Sing-In</a>
+                                    <!-- <a class="sing-link link" href="#">Sing-In</a> -->
                                 </li>
                             </ul>
-                            <div class="switch">
-                                <div class="switch__theme">
-                                    <input class="theme-toggle" type="checkbox" title="Переключить тему" id="toogle">
-                                    <label for="toggle"></label>
-                                </div>
+                            <!-- -------------------------------- THEME-SWITCH ------------------------------------ -->
+                            <div class="switch-container">
+                                <label class="switch" title="Переключатель темы">
+                                    <input class="theme-toggle" type="checkbox" checked="checked">
+                                    <span class="switch-toggle"></span>
+                                    <span class="header-icon-wrapper">
+                                        <svg class="header-icon" width="50" height="50">
+                                            <use href="./images/app-icons-sprite.svg#icon-moon"></use>
+                                        </svg>
+                                    </span>
+                                </label>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-        <!-- -------------- SIDEBAR ------------- -->
+        
+        <!-- ========================================== MAIN-CONTENT ========================================== -->
+        <main class="main-wrapper">
+            <section class="wrapp-section">
+                <h1 class="visually-hidden"></h1>
+                <div class="wrapp-container">
+                    <div class="main-wrapp-area">
+                        <div class="main-content-area">
+                            <!-- ----------------------- SEARCH-INPUT BY NUMBER ----------------------- -->
+                            <div class="search-container">
+                                <h2 class="main-content-title">Сортировка:</h2>
+                                <div class="search-field__container">
+                                    <input class="search-input" id="search-input" type="text" placeholder="Введите номер..">
+                                    <div class="search-input_wrapp"></div>
+                                </div>
+                            </div>
+                            <!-- --------------------------- FILTERS-CHECKBOX ELEMENTS ----------------------------- -->
+                            <div class="filter-input_wrapper" id="filter-container">
+                                <ul class="filter-input__list list" id="filter-options">
+                                    <li class="filter-input__item">
+                                        <input 
+                                        class="checkbox-alizarin filter-input" 
+                                        value="filter-white" 
+                                        type="checkbox" 
+                                        id="color-white" 
+                                        />
+                                        <label class="filter-input__placeholder" for="color-white">Белый</label>
+                                    </li>
+                                    <li class="filter-input__item">
+                                        <input 
+                                        class="checkbox-wisteria filter_input" 
+                                        value="filter-green" 
+                                        type="checkbox" 
+                                        id="color-green" 
+                                        />
+                                        <label class="filter-input__placeholder" for="color-green">Зеленый</label>
+                                    </li>
+                                    <li class="filter-input__item">
+                                        <input 
+                                        class="checkbox-emerland filter_input" 
+                                        value="filter-orange" 
+                                        type="checkbox" 
+                                        id="color-orange" 
+                                         />
+                                        <label class="filter-input__placeholder" for="color-orange">Оранжевый</label>
+                                    </li>
+                                    <li class="filter-input__item">
+                                        <input 
+                                        class="checkbox-belizehole filter_input" 
+                                        value="filter-red" 
+                                        type="checkbox" 
+                                        id="color-red" 
+                                        />
+                                        <label class="filter-input__placeholder" for="color-red">Красный</label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- ----------------------- LIST-ELEMENTS(PILLs) -------------------------- -->
+                            <div class="filter-list__wrapper">
+                                <ul class="filter-list list" id="filter-products"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ------------------------------ SIDEBAR --------------------------------- -->
         <!--  
         <div>
             <aside class="sidebar">
@@ -197,56 +271,6 @@
             </aside>
         </div>
         -->
-        <!-- ------------ MAIN-CONTENT ------------ -->
-        <main class="main-wrapper">
-            <section class="wrapp-section">
-                <div class="wrapp-container">
-                    <h1 class="visually-hidden"></h1>
-                    <div class="main-wrapp-area">
-                        <div class="main-content-area">
-                            <!-- ------------- FILTER-INPUT BY NUMBER ------------- -->
-                            <div class="search-container">
-                                <div class="search-field__container">
-                                    <h2 class="main-content-title">Сортировка:</h2>
-                                    <input class="search-input" id="search-input" type="text" placeholder="Введите номер..">
-                                    <button class="reset-button"  type="button">X</button>
-                                    <div class="search-input_wrapp"></div>
-                                </div>
-                            </div>
-                            <!-- -------------- FILTER-INPUTS -------------- -->
-                            <div class="filter-input__wrapper">
-                                <ul class="filter-input__list list">
-                                    <li class="filter-input__item">
-                                        <input class="checkbox-alizarin filter-input" type="checkbox" id="color-1" checked="checked" />
-                                        <label class="filter-input__placeholder" for="color-1">Белый</label>
-                                    </li>
-                                    <li class="filter-input__item">
-                                        <input class="checkbox-wisteria filter_input" type="checkbox" id="color-2" checked="checked" />
-                                        <label class="filter-input__placeholder" for="color-2">Зеленый</label>
-                                    </li>
-                                    <li class="filter-input__item">
-                                        <input class="checkbox-emerland filter_input" type="checkbox" id="color-3" checked="checked" />
-                                        <label class="filter-input__placeholder" for="color-3">Оранжевый</label>
-                                    </li>
-                                    <li class="filter-input__item">
-                                        <input class="checkbox-belizehole filter_input" type="checkbox" id="color-4" checked="checked" />
-                                        <label class="filter-input__placeholder" for="color-4">Красный</label>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- -------------- FILTER-ELEMENTS LIST ------------- -->
-                            <div class="filter-list__wrapper">
-                                <ul class="filter-list list" id="filter"></ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-    
-        
-       
-
         <!-- ------------- MODAL-WINDOW ------------- -->
         <div class="modal-container js-container">
             <div class="backdrop js-backdrop"></div>
