@@ -8,6 +8,7 @@
     --primary-dark-bgColor: rgb(0 0 0 / 60%);
     // --primary-light-bgColor: rgb(81, 87, 237);
     // --primary-dark-bgColor: rgb(22, 24, 70);
+    
 --black: #1e1d26af;
 --white: #ffffffb3;
 
@@ -15,14 +16,22 @@
     --border: 3px;
     --circle-radius: 160px;
 
-     
+    --light-blue: #b6b9bf;
+    --third-color-gray: rgb(74 85 104);
+
+     --shadow-light-theme: 0 0 25px 0 rgba(0, 0, 0, 0.4),
+     0 0 25px 0 rgba(0, 0, 0, 0.4);
+     --shadow-dark-theme: 0 0 25px 0 rgba(221, 108, 32, 0.45),
+     0 0 25px 0 rgba(221, 107, 32, 0.6);
+     --inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
+      inset -.2rem -.2rem .5rem var(--white);
+
     --greyLight-1: #E4EBF5;
     --greyLight-2: #c8d0e7;
     --greyLight-3: #bec8e4;
     --greyDark: #9baacf;
-    --shadow: .3rem .3rem .6rem var(--greyLight-2), -.2rem -.2rem .5rem var(--white);
-    --inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2), inset -.2rem -.2rem .5rem var(--white);
-
+    // --shadow: .3rem .3rem .6rem var(--greyLight-2), -.2rem -.2rem .5rem var(--white);
+   
     --color1: #1b1d1f;
     --color2:rgba(198, 224, 27, 0.9);
     --color3:#c29c21;
@@ -40,6 +49,7 @@
     --second-color: rgba(221, 71, 25, 1);
     --third-color: rgba(201, 80, 15, 0.919);
 
+    --teal: rgb(20, 201, 214);
     --orange-300: rgb(246 173 85);
     --orange-400: rgb(237 137 54);
     --orange-500: rgb(221 107 32);
@@ -47,7 +57,6 @@
 
     --color-gray: rgb(160 174 192);
     --second-color-gray: rgb(113 128 150);
-    --third-color-gray: rgb(74 85 104);
     --fourth-color-gray: rgb(247 250 252);
 
     --chakra-shadows-base: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
@@ -59,8 +68,8 @@
     --chakra-shadows-outline: 0 0 0 3px rgb(66 153 225 / 60%);
     --chakra-shadows-inner: inset 0 2px 4px 0 rgb(0 0 0 / 6%);
     --chakra-shadows-none: none;
-    --chakra-shadows-dark-lg: rgb(0 0 0 / 10%) 0px 0px 0px 1px,
-        rgb(0 0 0 / 20%) 0px 5px 10px, rgb(0 0 0 / 40%) 0px 15px 40px;
+
+    
     // ========================================= TRANSITION ========================================
     --duration-normal: 250ms;
     --property-common: background-color, border-color, color, fill, visibility, opacity,
@@ -71,11 +80,13 @@
     --property-background: background-color, background-image, background-position;
     --easing-in: cubic-bezier(0.6, 0, 0.4, 1.2);
     --easing-out: cubic-bezier(0.4, 0.2, 0.6, 1.1);
+
+
     // ================= THEME ====================
     --gap: 10px;
     --carousel-count: 4;
     
-    --light-blue: #b6b9bf;
+    
     --blue: #334668;
     --dark-blue: #262733;
     --light-gray: #eaeaea;
@@ -84,12 +95,11 @@
     // --background-dark-image: url('../../images/main-bg/night-sky.png');
     
     --gradient: linear-gradient(rgba(253, 253, 255, 0.65), rgba(0, 0, 0, 0.55));
-    --button-background: var(--light-gray);
-    color-scheme: light dark; // prefer dark mode
+    
+    color-scheme: light dark; // prefer light mode
 
 //   ==================================================================================================
 
-  --button-background: var(--light-gray);
     --chakra-ring-inset: var(--chakra-empty);
     --chakra-ring-offset-width: 0px;
     --chakra-ring-offset-color: rgb(255 255 255);
@@ -150,7 +160,7 @@
     --chakra-colors-orange-500: rgb(221 107 32);
     --chakra-colors-orange-600: rgb(192 86 33);
     --chakra-colors-orange-700: rgb(156 66 33);
-    --chakra-colors-orange-800: rgb(123 52 30);
+    --chakra-colors-orange-800: #fc9f25;
     --chakra-colors-orange-900: rgb(101 43 25);
     --chakra-colors-yellow-50: rgb(255 255 240);
     --chakra-colors-yellow-100: rgb(254 252 191);

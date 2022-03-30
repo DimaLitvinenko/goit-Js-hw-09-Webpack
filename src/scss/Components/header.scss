@@ -305,11 +305,13 @@
 }
 .autorization-list {
     display: flex;
+    // margin-right: 15px;
 }
 .autorization-item {
     &:not(:first-child) {
-        margin-left: 10px;
+        margin-left: 15px;
     }
+    
 }
 .autorization-button {
     display: inline-flex;
@@ -344,17 +346,23 @@
     flex-shrink: 0;
     
 }
-.header-icon {
+.header-icon,
+.search-form__icon {
     display: inline-block;
-    line-height: 1em;
+    // line-height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
     flex-shrink: 0;
-    color: var(--chakra-colors-white);
     vertical-align: middle;
     margin-inline-end: 0px;
 }
 
 
 // ========================== THEME TOGGLE ============================
+.swotch-container {
+    margin-left: 20px;
+}
 .theme-toggle {
     // font-family: 'Oswald';
     color: var(--blue);
@@ -381,7 +389,7 @@
         position: relative;
         width: 70px;
         height: 40px;
-        margin-left: 20px;
+        // margin-left: 20px;
         border-radius: 20px;
         background-color: #b0bec5;
         transition: all 300ms var(--easing-out);

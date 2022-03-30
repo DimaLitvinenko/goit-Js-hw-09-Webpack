@@ -48,6 +48,7 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: 'Poppins', sans-serif;
+    // font-family: 'Josefin Sans', sans-serif;  // ---+++
     transition-duration: var(--duration-normal);
     transition-property: var(--property-common);
     transition-timing-function: var(--easing-out);
@@ -55,11 +56,14 @@ body {
 
 
     &.light {
-        --text: var(--color3);
+        --text: var(--orange-500);
+        --text-inverse: var(--color2);
         --background: var(--white);
+        --background-inverse: var(--black);
         // --carousel-background: var(--light-gray);
         --gradient: radial-gradient(circle, rgba(45, 51, 173, 0.98) 4%, rgba(17, 131, 124, 0.90) 29%, rgba(48, 195, 189, 0.88) 69%, rgba(217, 236, 233, 0.85) 92%, rgba(242, 242, 240, 0.8) 100%);
-        
+        --box-shadow: var(--shadow-light-theme);
+        --button-background: var(--light-blue);
 
         & .head {
             --background: var(--primary-light-bgColor);
@@ -71,10 +75,14 @@ body {
 
     &.dark {
         --text: var(--color2);
+        --text-inverse: var(--orange-500);
         --background: var(--black);
+        --background-inverse: var(--white);
         // --carousel-background: var(--dark-blue);
         // background: rgb(22, 24, 70);
         --gradient: radial-gradient(circle, rgba(54, 61, 219, 0.98) 4%, rgba(17, 131, 123, 0.90) 29%, rgba(55, 189, 180, 0.88) 69%, rgba(57, 65, 64, 0.85) 92%, rgba(27, 27, 27, 0.8) 100%);
+        --box-shadow: var(--shadow-dark-theme);
+        --button-background: var(--third-color-gray);
 
         & .head {
             --background: var(--primary-dark-bgColor);
@@ -88,7 +96,7 @@ body {
     background-image: var(--gradient);
     background-position: center;
     background-size: cover;
-
+    box-shadow: var(--shadow)
 }
 
 @media (prefers-color-scheme: dark) {
@@ -110,7 +118,6 @@ body {
 }
 
 .link {
-    
     color: var(--text);
     text-decoration: none;
 }

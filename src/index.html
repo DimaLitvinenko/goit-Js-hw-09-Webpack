@@ -14,11 +14,11 @@
     <div>
         <!-- ------------- HEADER-BACKGROUND ------------- -->
         <div class="head"></div>
-        <!-- ---------------- HEADER ---------------- -->
+        <!-- ====================================== HEADER ========================================= -->
         <div>
             <div class="header">
                 <div class="header-wrapper">
-                    <!-- _________________________ LEFT-PART | NAVIGATION _______________________ -->
+                    <!-- ------------------------ LEFT-PART | NAVIGATION ------------------------ -->
                     <div class="left-side">
                         <nav class="navigation">
                             <ol class="navigation-list list">
@@ -36,7 +36,7 @@
                         </nav>
                     </div>
 
-                    <!--_______________________ MIDDLE | DATE/TIME ________________________  -->
+                    <!-- -------------------------- MIDDLE | DATE/TIME ---------------------------  -->
                     <div class="date-time__wrapp outer">
                         <div class="time-container">
                             <div class="date-container">
@@ -69,50 +69,62 @@
                         </div>
                     </div>
 
-                    <!-- _________________________ RIGHT-SIDE ___________________________ -->
+                    <!-- ------------------------- RIGHT-SIDE -------------------------- -->
                     <div class="right-side">
                         <div class="menu-wrapper">
-                            <div class="search-form_container">
-                                <div class="search-button-wrap">
+                            <form class="search-form_container">
+                                <div>
                                     <button class="search-form_button">
-                                        <svg class="header-icon" width="20" height="20">
-                                            <use href="./images/icons_moon.svg#search"></use>
-                                        </svg>
+                                            <svg class="header-icon" width="30" height="30">
+                                                <use href="./images/new-icon-sprite.svg#i-search"></use>
+                                            </svg>
                                     </button>
                                 </div>
-                                <input placeholder="Пишы здесь" class="search-form_input" type="text" id="header-input">
-                            </div>
+                                <input 
+                                    type="search" 
+                                    id="mySearch"  
+                                    name="site-search" 
+                                    placeholder="Пишы здесь"
+                                    aria-label="Search through site content"
+                                    class="search-form_input"
+                                    />
+                            </form>
 
                             <ul class="autorization-list list">
-                                <li class="autorization-item">
+                                <li class="autorization-item"></li>
                                     <button class="autorization-button" type="button">
                                         <span class="header-icon-wrapper">
-                                            <svg class="header-icon" width="20" height="20">
-                                                <use href="./images/icons_moon.svg#log-in"></use>
+                                            <svg class="header-icon" width="30" height="30">
+                                                <use href="./images/new-icon-sprite.svg#i-sign-in"></use>
                                             </svg>
                                         </span>
+                                        Sing-In
                                     </button>
-                                    <!-- <a class="sing-link link" href="#">Log-In</a> -->
                                 </li>
                                 <li class="autorization-item">
-                                    <button class="autorization-button" type="button">
+                                   <button class="autorization-button" type="button">
                                         <span class="header-icon-wrapper">
-                                            <svg class="header-icon" width="20" height="20">
-                                                <use href="./images/icons_moon.svg#sign-in"></use>
+                                            <svg class="header-icon" width="30" height="30">
+                                                <use href="./images/new-icon-sprite.svg#i-sign-out"></use>
                                             </svg>
                                         </span>
+                                        Sing-Out
                                     </button>
-                                    <!-- <a class="sing-link link" href="#">Sing-In</a> -->
                                 </li>
                             </ul>
-                            <!-- -------------------------------- THEME-SWITCH ------------------------------------ -->
+                            <!-- ------------------------------ THEME-SWITCH -------------------------------- -->
                             <div class="switch-container">
                                 <label class="switch" title="Переключатель темы">
-                                    <input class="theme-toggle" type="checkbox" checked="checked">
+                                    <span class="header-icon-wrapper">
+                                        <svg class="header-icon" width="30" height="30">
+                                            <use href="./images/new-icon-sprite.svg#i-moon-o"></use>
+                                        </svg>
+                                    </span>
+                                    <input class="theme-toggle" id="themeToggle" type="checkbox" checked>
                                     <span class="switch-toggle"></span>
                                     <span class="header-icon-wrapper">
-                                        <svg class="header-icon" width="50" height="50">
-                                            <use href="./images/app-icons-sprite.svg#icon-moon"></use>
+                                        <svg class="header-icon" width="30" height="30">
+                                            <use href="./images/new-icon-sprite.svg#i-sun-o"></use>
                                         </svg>
                                     </span>
                                 </label>
@@ -132,14 +144,20 @@
                         <div class="main-content-area">
                             <!-- ----------------------- SEARCH-INPUT BY NUMBER ----------------------- -->
                             <div class="search-container">
-                                <h2 class="main-content-title">Сортировка:</h2>
+                                <h2 class="main-content-title">Сортировка:
+                                    <span>
+                                        <svg class="header-icon i-filter" wigth="40" height="40">
+                                            <use href="./images/new-icon-sprite.svg#i-filter"></use>
+                                        </svg>
+                                    </span>
+                                </h2>
                                 <div class="search-field__container">
                                     <input class="search-input" id="search-input" type="text" placeholder="Введите номер..">
                                     <div class="search-input_wrapp"></div>
                                 </div>
                             </div>
-                            <!-- --------------------------- FILTERS-CHECKBOX ELEMENTS ----------------------------- -->
-                            <div class="filter-input_wrapper" id="filter-container">
+                            <!-- ------------------------- FILTERS-CHECKBOX ELEMENTS ------------------------- -->
+                            <div class="filter-input__wrapper" id="filter-container">
                                 <ul class="filter-input__list list" id="filter-options">
                                     <li class="filter-input__item">
                                         <input 
@@ -181,7 +199,7 @@
                             </div>
                             <!-- ----------------------- LIST-ELEMENTS(PILLs) -------------------------- -->
                             <div class="filter-list__wrapper">
-                                <ul class="filter-list list" id="filter-products"></ul>
+                                <ul class="filter-list list" id="filterElem"></ul>
                             </div>
                         </div>
                     </div>
@@ -189,7 +207,7 @@
             </section>
         </main>
 
-        <!-- ------------------------------ SIDEBAR --------------------------------- -->
+        <!-- ==================================== SIDEBAR ==================================== -->
         <!--  
         <div>
             <aside class="sidebar">
@@ -281,8 +299,8 @@
             data-action="modal-close" 
             class="modal-button" 
             type="button">
-                <svg class="modal-button__icon" width="18" height="18">
-                    <use href="./images/icons_moon.svg#close-btn"></use>
+                <svg class="modal-button__icon" width="40" height="40">
+                    <use href="./images/new-icon-sprite.svg#i-close"></use>
                 </svg>
             </button>
         </div>

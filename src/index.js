@@ -18,10 +18,11 @@ import './scss/Components/modal-window.scss';
 // import './scss/Components/sidebar.scss';
 
 // ============== IMAGES ================
-import './images/icons_moon.svg';
-import './images/app-icons-sprite.svg';
-// import './images/main-bg/tree_1280.jpg';
-import './images/background/sky-bg_1280.jpg';
+// import './images/icons_moon.svg';
+import './images/new-icon-sprite.svg';
+// import './images/app-icons-sprite.svg';
+// import './images/icon-new_sprite.svg';
+// import './images/background/sky-bg_1280.jpg';
 
 // ============ JavaScript ==============
 // import './js/filter.js';
@@ -32,8 +33,9 @@ const refs = {
     closeModalButton: document.getElementById('modal-close'),
     backdrop: document.querySelector('.js-backdrop'),
     container: document.querySelector('.js-container'),
-    list: document.getElementById('filter-products'),
+    list: document.getElementById('filterElem'),
     modal: document.getElementById('modal'),
+    input: document.getElementById('search-input'),
     // headerInput: document.getElementById('header-input'),
     // searchInput: document.getElementById('search-input'),
     MAX_PILLS: 70,
@@ -47,6 +49,7 @@ const {
     container,
     list,
     modal,
+    input,
     // headerInput,
     // searchInput,
     MAX_PILLS,
@@ -54,18 +57,16 @@ const {
     COLORS,
 } = refs;
 
-// ПОДСЧЁТ ЕЛЕМЕНТОВ СПИСКА 'MAX_PILLS'
+// ------------------ ПОДСЧЁТ ЕЛЕМЕНТОВ СПИСКА 'MAX_PILLS'
 const countItems = length => {
     for (let i = 1; i <= length; ++i) {
-        // console.log(i);
         idNumbers.push(...[i]);
-        // console.log(idNumbers);
     }
     return idNumbers;
 };
 countItems(MAX_PILLS);
 
-// Рендерит разметку списка таблеток от первого до maxPills
+// ------------------- РЕНДЕРИТ РАЗМЕТКУ ЕЛЕМЕНТОВ(таблеток) СПИСКА от первого до maxPills
 const createItemsMarkup = items => {
     getDateToDay();
     filterbyNumber();
@@ -92,13 +93,11 @@ const createItemsMarkup = items => {
 };
 const markup = createItemsMarkup(idNumbers, idNumbers.length);
 
-// - FILTER/ФИЛЬТР ПО НОМЕРУ
+// ------------------- FILTER/ФИЛЬТР ЕЛЕМЕНТОВ СПИСКА ПО НОМЕРУ
 function filterbyNumber() {
-    let input = document.getElementById('search-input');
-
     input.addEventListener('keyup', function () {
         let filter = input.value.toLowerCase(),
-            filterItems = document.querySelectorAll('#filter li');
+            filterItems = document.querySelectorAll('#filterElem li');
 
         filterItems.forEach(item => {
             if (item.innerHTML.toLowerCase().indexOf(filter) > -1) {
@@ -166,9 +165,9 @@ function filterbyNumber() {
 //         });
 //     }
 // });
-//-------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
 
-// - ДАТА / ВРЕМЯ
+// ---------------------------- ДАТА/ВРЕМЯ
 function getDateToDay() {
     let monthNames = [
         'Январь',
@@ -208,7 +207,6 @@ function getDateToDay() {
         let seconds = new Date().getSeconds();
         document.getElementById('seconds').innerHTML =
             (seconds < 10 ? '0' : '') + seconds;
-
         document.getElementById('month').innerHTML = monthNames[newDate.getMonth()];
         document.getElementById('date').innerHTML = newDate.getDate();
         document.getElementById('day').innerHTML = dayNames[newDate.getDay()];
@@ -218,7 +216,7 @@ function getDateToDay() {
 
 // ===============================================>> MODAL_WINDOW <<==========================================================
 
-// - ОТКРЫТИЕ МОДАЛЬНОГО ОКНА ПО НАЖАТИЮ НА КНОПКУ 'BUTTON' из списка
+// ------------------- ОТКРЫТИЕ МОДАЛЬНОГО ОКНА ПО НАЖАТИЮ НА КНОПКУ 'BUTTON' из списка
 const modalOpenHandler = ({ target }) => {
     // console.log(target);
     if (target.nodeName !== 'BUTTON') {
@@ -241,7 +239,7 @@ const modalOpenHandler = ({ target }) => {
     const newColor = (buttonElem.dataset['color'] = 'green');
     buttonElem.style.backgroundColor = newColor;
 
-    modalWindowMarkup(id, color);
+    modalWindowMarkup(color, id);
 
     // image.src = target.dataset.source; //>-Подмена значения атрибута `src` элемента `img.lightbox__image`.
 
@@ -249,7 +247,7 @@ const modalOpenHandler = ({ target }) => {
     container.classList.add('is-open'); // - Открытие модального окна по клику на элементе галереи.
 };
 
-// - ЗАКРЫТИЕ МОДАЛЬНОГО ОКНА ПО НАЖАТИЮ КЛАВИШИ 'ESC' - `button[data-action="close-lightbox"]`.
+// ------------------ ЗАКРЫТИЕ МОДАЛЬНОГО ОКНА ПО НАЖАТИЮ КЛАВИШИ 'ESC' - `button[data-action="close-lightbox"]`.
 const modalCloseByEscHandler = ({ key }) => {
     if (key === 'Escape') {
         modalCloseHandler();
@@ -266,13 +264,13 @@ list.addEventListener('click', modalOpenHandler); //>СПИСОК ИЗ КНОП�
 closeModalButton.addEventListener('click', modalCloseHandler); //>ЗАКРЫТЬ МОДАЛЬНОЕ ОКНО
 backdrop.addEventListener('click', modalCloseHandler); //>ФОН МОДАЛЬНОГО ОКНА
 
-// СБРОС/ОЧИСТИТКА РАЗМЕТКИ
+// -------------------------------- СБРОС/ОЧИСТИТКА РАЗМЕТКИ
 function reset() {
     return (modal.innerHTML = '');
 }
 
-// РАЗМЕТКА/ПЕРЕРИСОВКА ЕЛЕМЕНТОВ ДЛЯ МОДАЛЬНОГО ОКНА
-function modalWindowMarkup(id, currentColor) {
+// --------------------------- РАЗМЕТКА/ПЕРЕРИСОВКА ЕЛЕМЕНТОВ ДЛЯ МОДАЛЬНОГО ОКНА
+function modalWindowMarkup(currentColor, id) {
     COLORS.forEach(color => {
         if (currentColor === 'white' && modalOpenHandler) {
             reset();
@@ -285,16 +283,30 @@ function modalWindowMarkup(id, currentColor) {
                         <p> - Cвободна</p>
                     </div>
                     <div>
+                        <h3>Выдача:</h3>
                         <p id="datejs">${getCurrentDate()}</p>
-                    <div>
-                        <form>
-                            <label>
-                                <input type="select">
-                            </label>
+                        <div>
+                            <form class="modal-form">
+                                <select>
+                                    <optgroup label="Необычные цветы">
+                                        <option>Ангулоя одноцветковая</option>
+                                        <option>Обезьяний дракула</option>
+                                        <option>Пассифлора инкарнатная</option>
+                                    </optgroup>
+                                </select>
+                            
+                                <label>
+                                    <input type="selection">
+                                </label>
 
-                            <button type="submit">Выдать</button>
-                        </form>
-                    </div>
+                                <button class="modal-form_submit" type="submit" method="GET">
+                                    <svg class="" width="40" height="40">
+                                        <use href="./images/new-icon-sprite.svg#i-wheelchair-alt"></use>
+                                    </svg>
+                                    Выдать
+                                </button>
+                            </form>
+                        </div>
                     </div>  
                 `,
             );
@@ -337,8 +349,107 @@ function modalWindowMarkup(id, currentColor) {
         }
     });
 }
+// =================================== СПОСОБ №1 ========================================
+// Установка даты окончания
+// const endDate = new Date("Apr 23, 2022 12:00:00").getTime();
 
-// ТЕКУЩАЯ ДАТА И ВРЕМЯ - В МОДАЛКЕ (БЕЛЫЙ)
+// // Определяем таймер
+// const intervalId = setInterval(
+//   function() {
+//   // Расчёт оставшегося времени
+//   let dateNow = new Date().getTime();
+//   let time = endDate - dateNow;
+
+//   if (time >= 0) {
+//     // Конвертация UTC в дни, часы, минуты и секунды
+//     let days = Math.floor(time / (1000 * 60 * 60 * 24));
+//     let hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//     let mins = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+//     let secs = Math.floor((time % (1000 * 60)) / 1000);
+
+//     // Вывод таймера
+//     document.querySelector('span[data-value="days"]').innerHTML = days;
+//     document.querySelector('span[data-value="hours"]').innerHTML = ("0"+hours).slice(-2);
+//     document.querySelector('span[data-value="mins"]').innerHTML = ("0"+mins).slice(-2);
+//     document.querySelector('span[data-value="secs"]').innerHTML = ("0"+secs).slice(-2);
+//   } else {
+//     // Уведомление для пользователя, когда закончился отсчёт
+//     document.getElementById("timer-1").innerHTML = "The countdown is over!";
+//     clearInterval(intervalId);
+//   };
+// }, 1000);
+
+// ====================================== СПОСОБ №2 ==========================================
+class CountdownTimer {
+    constructor({ selector, targetDate }) {
+        this.intervalId = null;
+        this.selector = selector;
+        this.targetDate = targetDate;
+        this.start();
+
+        this.refs = {
+            days: document.querySelector(`${this.selector} span[data-value="days"]`),
+            hours: document.querySelector(`${this.selector} span[data-value="hours"]`),
+            mins: document.querySelector(`${this.selector} span[data-value="mins"]`),
+            secs: document.querySelector(`${this.selector} span[data-value="secs"]`),
+        };
+    }
+
+    calcTheTime() {
+        let dateNow = Date.now();
+        let deltaTime = this.targetDate - dateNow;
+
+        this.timerReview(deltaTime); // ???
+
+        this.getTimeComponents(deltaTime);
+    }
+
+    // Проверка на время
+    timerReview(time) {
+        // ???
+        if (time < 0) {
+            document.querySelector(`${this.selector}`).innerHTML =
+                'The countdown is over!';
+
+            clearInterval(intervalId);
+        }
+    }
+
+    getTimeComponents(time) {
+        let days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
+        let hours = this.pad(
+            Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        );
+        let mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
+        let secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
+
+        this.updateComponents(days, hours, mins, secs);
+    }
+
+    updateComponents(days, hours, mins, secs) {
+        this.refs.days.textContent = days;
+        this.refs.hours.textContent = hours;
+        this.refs.mins.textContent = mins;
+        this.refs.secs.textContent = secs;
+    }
+
+    pad(value) {
+        return String(value).padStart(2, '0');
+    }
+
+    start() {
+        this.intervalId = setInterval(() => {
+            this.calcTheTime();
+        }, 1000);
+    }
+}
+
+const timeToMyBithday = new CountdownTimer({
+    selector: '#timer-1',
+    targetDate: new Date('Apr 23, 2022'),
+});
+
+// ================================ ТЕКУЩАЯ ДАТА И ВРЕМЯ - В МОДАЛКЕ (БЕЛЫЙ) =================================
 function getCurrentDate() {
     let date = new Date();
     // формат вывода
@@ -356,7 +467,7 @@ function getCurrentDate() {
 
 // ========================================= THEME_TOGGLE =================================================
 const getTheme = () => {
-    return localStorage.getItem('theme') && 'dark';
+    return localStorage.getItem('theme') || 'dark';
 };
 
 const colorScheme = document.querySelector('meta[name="color-scheme"]');

@@ -29,6 +29,7 @@
 .search-container {
     position: relative;
     min-height: 80px;
+    padding-bottom: 50px;
 }
 .main-content-title {
     align-self: start;
@@ -36,13 +37,12 @@
 }
 .search-field__container {
     position: absolute;
+    width: 100%;
     margin: auto;
     top: 0;
     left: 0;
     right: 10px;
     bottom: 0;
-    width: 100%;
-    
 }
 .search-field__container .search-input_wrapp {
     position: absolute;
@@ -51,12 +51,11 @@
     right: 0;
     bottom: 0;
     left: 0;
-    width: 50px;
-    height: 50px;
-    background: var(--background);
+    width: 65px;
+    height: 65px;
+    background: var(--background-inverse);
     border-radius: 50%;
-    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4),
-    0 0 25px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: var(--box-shadow);
     transition: all 1s var(--easing-out);
 }
 .search-field__container .search-input_wrapp:hover {
@@ -72,7 +71,7 @@
     left: 22px;
     width: 12px;
     height: 2px;
-    background: #111;
+    background: var(--text);
     transform: rotate(45deg);
     transition: all 1s var(--easing-out);
 }
@@ -87,7 +86,7 @@
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    border: 1px solid #111;
+    border: 1px solid var(--text);
     //  transition: all 1s; 
      transition: all 1s var(--easing-out);
 }
@@ -98,16 +97,16 @@
     right: 0;
     bottom: 0;
     left: 0;
-    width: 50px;
-    height: 50px;
+    width: 65px;
+    height: 65px;
     outline: none;
     border: none;
     background: var(--background);
-    color: #111;
+    color: var(--text);
     /* text-shadow: 0 0 10px crimson; */
     padding: 0 80px 0 20px;
-    border-radius: 30px;
-    box-shadow: 12px 13px 25px 0 #111, 8px 9px 25px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+    box-shadow: var(--box-shadow);
     opacity: 0;
     z-index: 2;
     font-weight: bolder;
@@ -121,12 +120,13 @@
         cursor: pointer;
     }
     & .search-input:focus {
-        width: 300px;
+        min-width: 318px;
         opacity: 1;
         cursor: text;
     }
     & .search-input:focus ~ .search-input_wrapp {
         right: -250px;
+        box-shadow: none;
         background: transparent;
         z-index: 3;
     }
@@ -147,7 +147,7 @@
            border: none;
            bottom: 25px;
         /* margin: -25px 0px 0px 20px; */
-        background: #111;
+        background: var(--text);
         border-radius: 0%;
         transform: rotate(-45deg);
     }
@@ -182,6 +182,38 @@
         border-radius: 5px;
     }
 }
+input[type="checkbox"] {
+    position: relative;
+    width: 1em;
+    height: 1em;
+    border: 1px solid gray;
+    /* Adjusts the position of the checkboxes on the text baseline */
+    vertical-align: -2px;
+    /* Set here so that Windows' High-Contrast Mode can override */
+    color: green;
+}
+
+input[type="checkbox"]::before {
+    content: "✔";
+    position: absolute;
+    font-size: 1.2em;
+    right: -1px;
+    top: -0.3em;
+    visibility: hidden;
+    transition: var(--property-common) 250ms var(--easing-out);
+}
+
+input[type="checkbox"]:checked::before {
+    /* Use `visibility` instead of `display` to avoid recalculating layout */
+    visibility: visible;
+}
+
+input[type="checkbox"]:disabled {
+    border-color: black;
+    background: #ddd;
+    color: gray;
+}
+
 
 // ============================== LIST-ITEMS ====================================
 // .filter-list__wrapper {
@@ -271,11 +303,11 @@
     // box-shadow: -5px 4px 14px -1px #ebb219, -10px 8px 29px 0px #f8e237;
     // box-shadow: var(--chakra-shadows-md);
     border-radius: 20px;
-    color: var(--current-color);
+    // color: var(--current-color);
     font-size: large;
     font-weight: 500;
     // transform: translateX(50%) translateY(50%);
-    background-color: white; // <-- BUTTON COLOR
+    background-color: var(--button-background); // <-- BUTTON COLOR
 }
 
 
