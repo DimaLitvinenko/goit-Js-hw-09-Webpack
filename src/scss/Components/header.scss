@@ -235,74 +235,74 @@
     -webkit-box-align: center;
     align-items: center;
 }
-.search-form_container {
-    min-width: 200px;
-    display: flex;
-    position: relative;
-    border-radius: 8px;
-    margin-inline-end: 20px;
-}
-.search-button-wrap {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    display: flex;
-    width: var(--chakra-sizes-10);
-    height: var(--chakra-sizes-10);
-    font-size: var(--chakra-fontSizes-md);
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    z-index: 2;
-}
-.search-form_button {
-    display: inline-flex;
-    appearance: none;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    user-select: none;
-    position: relative;
-    white-space: nowrap;
-    vertical-align: middle;
-    outline: rgb(0 0 0 / 0%) solid 2px;
-    outline-offset: 2px;
-    width: auto;
-    line-height: 1.2;
-    border-radius: inherit;
-    font-weight: var(--chakra-fontWeights-bold);
-    transition-property: var(--chakra-transition-property-common);
-    transition-duration: var(--chakra-transition-duration-normal);
-    font-size: var(--chakra-fontSizes-md);
-    height: var(--chakra-sizes-10);
-    min-width: var(--chakra-sizes-10);
-    padding-inline-start: var(--chakra-space-4);
-    padding-inline-end: var(--chakra-space-4);
-    background: inherit;
-    padding: 0px;
-}
-.search-form_input {
-    width: 100%;
-    min-width: 0px;
-    outline: rgb(0 0 0 / 0%) solid 2px;
-    outline-offset: 2px;
-    position: relative;
-    appearance: none;
-    transition-property: var(--chakra-transition-property-common);
-    transition-duration: var(--chakra-transition-duration-normal);
-    font-weight: 400;
-    font-size: var(--chakra-fontSizes-xs);
-    padding-inline-start: var(--chakra-space-10);
-    padding-inline-end: var(--chakra-space-4);
-    height: var(--chakra-sizes-10);
-    border-radius: inherit;
-    border: var(--chakra-borders-none);
-    padding-top: 11px;
-    padding-bottom: 11px;
-    background: var(--chakra-colors-white);
-}
+// .search-form_container {
+//     min-width: 200px;
+//     display: flex;
+//     position: relative;
+//     border-radius: 8px;
+//     margin-inline-end: 20px;
+// }
+// .search-button-wrap {
+//     position: absolute;
+//     top: 0px;
+//     left: 0px;
+//     display: flex;
+//     width: var(--chakra-sizes-10);
+//     height: var(--chakra-sizes-10);
+//     font-size: var(--chakra-fontSizes-md);
+//     -webkit-box-align: center;
+//     align-items: center;
+//     -webkit-box-pack: center;
+//     justify-content: center;
+//     z-index: 2;
+// }
+// .search-form_button {
+//     display: inline-flex;
+//     appearance: none;
+//     -webkit-box-align: center;
+//     align-items: center;
+//     -webkit-box-pack: center;
+//     justify-content: center;
+//     user-select: none;
+//     position: relative;
+//     white-space: nowrap;
+//     vertical-align: middle;
+//     outline: rgb(0 0 0 / 0%) solid 2px;
+//     outline-offset: 2px;
+//     width: auto;
+//     line-height: 1.2;
+//     border-radius: inherit;
+//     font-weight: var(--chakra-fontWeights-bold);
+//     transition-property: var(--chakra-transition-property-common);
+//     transition-duration: var(--chakra-transition-duration-normal);
+//     font-size: var(--chakra-fontSizes-md);
+//     height: var(--chakra-sizes-10);
+//     min-width: var(--chakra-sizes-10);
+//     padding-inline-start: var(--chakra-space-4);
+//     padding-inline-end: var(--chakra-space-4);
+//     background: inherit;
+//     padding: 0px;
+// }
+// .search-form_input {
+//     width: 100%;
+//     min-width: 0px;
+//     outline: rgb(0 0 0 / 0%) solid 2px;
+//     outline-offset: 2px;
+//     position: relative;
+//     appearance: none;
+//     transition-property: var(--chakra-transition-property-common);
+//     transition-duration: var(--chakra-transition-duration-normal);
+//     font-weight: 400;
+//     font-size: var(--chakra-fontSizes-xs);
+//     padding-inline-start: var(--chakra-space-10);
+//     padding-inline-end: var(--chakra-space-4);
+//     height: var(--chakra-sizes-10);
+//     border-radius: inherit;
+//     border: var(--chakra-borders-none);
+//     padding-top: 11px;
+//     padding-bottom: 11px;
+//     background: var(--chakra-colors-white);
+// }
 .autorization-list {
     display: flex;
     // margin-right: 15px;
@@ -361,7 +361,10 @@
 
 // ========================== THEME TOGGLE ============================
 .swotch-container {
-    margin-left: 20px;
+    display: block;
+    margin-left: 10px;
+    border-left: 2px solid #c1c1c1;
+    padding-left: 10px;
 }
 .theme-toggle {
     // font-family: 'Oswald';
@@ -402,7 +405,7 @@
             top: 5px;
             content: "";
             border-radius: 50%;
-            background-color: rgba(white, 0.5);
+            background-color: rgba(255,255, 255,0.5);
             transition: all 300ms var(--easing-out);
         }
     }
@@ -416,7 +419,7 @@
             &::before {
                 left: 100%;
                 transform: translateX(calc(-100% - 5px));
-                background-color: (var(text), 0.5);
+                background-color: var(text);
             }
         }
     }

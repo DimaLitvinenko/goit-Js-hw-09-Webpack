@@ -73,14 +73,14 @@ const createItemsMarkup = items => {
     items.forEach((item, index) => {
         return list.insertAdjacentHTML(
             'beforeend',
-            `<li class="filter-list__item">
+            `<li class="elements-list__item">
                 <div class="circle">
                     <div class="noise animated"></div>
                 </div>
 
                 <button 
                  id="btn-${index + 1}"
-                 class="filter-list__button" 
+                 class="elements-button" 
                  data-action="open-modal" 
                  data-identifier="${index + 1}"
                  data-color="white"
@@ -380,74 +380,74 @@ function modalWindowMarkup(currentColor, id) {
 // }, 1000);
 
 // ====================================== СПОСОБ №2 ==========================================
-class CountdownTimer {
-    constructor({ selector, targetDate }) {
-        this.intervalId = null;
-        this.selector = selector;
-        this.targetDate = targetDate;
-        this.start();
+// class CountdownTimer {
+//     constructor({ selector, targetDate }) {
+//         this.intervalId = null;
+//         this.selector = selector;
+//         this.targetDate = targetDate;
+//         this.start();
 
-        this.refs = {
-            days: document.querySelector(`${this.selector} span[data-value="days"]`),
-            hours: document.querySelector(`${this.selector} span[data-value="hours"]`),
-            mins: document.querySelector(`${this.selector} span[data-value="mins"]`),
-            secs: document.querySelector(`${this.selector} span[data-value="secs"]`),
-        };
-    }
+//         this.refs = {
+//             days: document.querySelector(`${this.selector} span[data-value="days"]`),
+//             hours: document.querySelector(`${this.selector} span[data-value="hours"]`),
+//             mins: document.querySelector(`${this.selector} span[data-value="mins"]`),
+//             secs: document.querySelector(`${this.selector} span[data-value="secs"]`),
+//         };
+//     }
 
-    calcTheTime() {
-        let dateNow = Date.now();
-        let deltaTime = this.targetDate - dateNow;
+//     calcTheTime() {
+//         let dateNow = Date.now();
+//         let deltaTime = this.targetDate - dateNow;
 
-        this.timerReview(deltaTime); // ???
+//         this.timerReview(deltaTime); // ???
 
-        this.getTimeComponents(deltaTime);
-    }
+//         this.getTimeComponents(deltaTime);
+//     }
 
-    // Проверка на время
-    timerReview(time) {
-        // ???
-        if (time < 0) {
-            document.querySelector(`${this.selector}`).innerHTML =
-                'The countdown is over!';
+//     // Проверка на время
+//     timerReview(time) {
+//         // ???
+//         if (time < 0) {
+//             document.querySelector(`${this.selector}`).innerHTML =
+//                 'The countdown is over!';
 
-            clearInterval(intervalId);
-        }
-    }
+//             clearInterval(intervalId);
+//         }
+//     }
 
-    getTimeComponents(time) {
-        let days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
-        let hours = this.pad(
-            Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        );
-        let mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
-        let secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
+//     getTimeComponents(time) {
+//         let days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
+//         let hours = this.pad(
+//             Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+//         );
+//         let mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
+//         let secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
 
-        this.updateComponents(days, hours, mins, secs);
-    }
+//         this.updateComponents(days, hours, mins, secs);
+//     }
 
-    updateComponents(days, hours, mins, secs) {
-        this.refs.days.textContent = days;
-        this.refs.hours.textContent = hours;
-        this.refs.mins.textContent = mins;
-        this.refs.secs.textContent = secs;
-    }
+//     updateComponents(days, hours, mins, secs) {
+//         this.refs.days.textContent = days;
+//         this.refs.hours.textContent = hours;
+//         this.refs.mins.textContent = mins;
+//         this.refs.secs.textContent = secs;
+//     }
 
-    pad(value) {
-        return String(value).padStart(2, '0');
-    }
+//     pad(value) {
+//         return String(value).padStart(2, '0');
+//     }
 
-    start() {
-        this.intervalId = setInterval(() => {
-            this.calcTheTime();
-        }, 1000);
-    }
-}
+//     start() {
+//         this.intervalId = setInterval(() => {
+//             this.calcTheTime();
+//         }, 1000);
+//     }
+// }
 
-const timeToMyBithday = new CountdownTimer({
-    selector: '#timer-1',
-    targetDate: new Date('Apr 23, 2022'),
-});
+// const timeToMyBithday = new CountdownTimer({
+//     selector: '#timer-1',
+//     targetDate: new Date('Apr 23, 2022'),
+// });
 
 // ================================ ТЕКУЩАЯ ДАТА И ВРЕМЯ - В МОДАЛКЕ (БЕЛЫЙ) =================================
 function getCurrentDate() {

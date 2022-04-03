@@ -9,9 +9,9 @@
     // --primary-light-bgColor: rgb(81, 87, 237);
     // --primary-dark-bgColor: rgb(22, 24, 70);
     
---black: #1e1d26af;
---white: #ffffffb3;
-
+ --black: #1e1d26af;
+ --white: #ffffffb3;
+    
     --padding-set: 0px;
     --border: 3px;
     --circle-radius: 160px;
@@ -25,6 +25,9 @@
      0 0 25px 0 rgba(221, 107, 32, 0.6);
      --inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2),
       inset -.2rem -.2rem .5rem var(--white);
+
+    --blur: 0.6px;
+    --shadow-opacity: 0.30;
 
     --greyLight-1: #E4EBF5;
     --greyLight-2: #c8d0e7;

@@ -72,7 +72,7 @@
                     <!-- ------------------------- RIGHT-SIDE -------------------------- -->
                     <div class="right-side">
                         <div class="menu-wrapper">
-                            <form class="search-form_container">
+                            <!-- <form class="search-form_container">
                                 <div>
                                     <button class="search-form_button">
                                             <svg class="header-icon" width="30" height="30">
@@ -88,9 +88,23 @@
                                     aria-label="Search through site content"
                                     class="search-form_input"
                                     />
-                            </form>
+                            </form> -->
 
                             <ul class="autorization-list list">
+                                <li>
+                                    <button title="Добавить таблетку">
+                                        <svg class="header-icon" width="30" height="30">
+                                            <use href="./images/new-icon-sprite.svg#i-plus-square"></use>
+                                        </svg>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button title="Уведомления">
+                                        <svg class="header-icon" width="30" height="30">
+                                            <use href="./images/new-icon-sprite.svg#i-bell-o"></use>
+                                        </svg>
+                                    </button>
+                                </li>
                                 <li class="autorization-item"></li>
                                     <button class="autorization-button" type="button">
                                         <span class="header-icon-wrapper">
@@ -137,23 +151,34 @@
         
         <!-- ========================================== MAIN-CONTENT ========================================== -->
         <main class="main-wrapper">
-            <section class="wrapp-section">
+            <section class="main-section">
                 <h1 class="visually-hidden"></h1>
-                <div class="wrapp-container">
+                <div class="main-container">
                     <div class="main-wrapp-area">
                         <div class="main-content-area">
+
                             <!-- ----------------------- SEARCH-INPUT BY NUMBER ----------------------- -->
-                            <div class="search-container">
-                                <h2 class="main-content-title">Сортировка:
-                                    <span>
-                                        <svg class="header-icon i-filter" wigth="40" height="40">
-                                            <use href="./images/new-icon-sprite.svg#i-filter"></use>
-                                        </svg>
-                                    </span>
-                                </h2>
-                                <div class="search-field__container">
-                                    <input class="search-input" id="search-input" type="text" placeholder="Введите номер..">
-                                    <div class="search-input_wrapp"></div>
+                            <div>
+                                <h2 class="main-content-title">Сортировка:</h2>
+                                <span>
+                                    <svg class="header-icon i-filter" wigth="40" height="40">
+                                        <use href="./images/new-icon-sprite.svg#i-filter"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            
+                            <div class="search-field__wrapper">
+                                <div class="search-form">
+                                    <input 
+                                    class="search-input" 
+                                    id="search-input" 
+                                    type="search" 
+                                    placeholder="Введите номер.." 
+                                    aria-label="Поиск таблетки по номеру"
+                                    required
+                                    />
+                                    <!-- <span class="input-validate"></span> -->
+                                    <div class="input-field"></div>
                                 </div>
                             </div>
                             <!-- ------------------------- FILTERS-CHECKBOX ELEMENTS ------------------------- -->
@@ -197,10 +222,13 @@
                                     </li>
                                 </ul>
                             </div>
+
                             <!-- ----------------------- LIST-ELEMENTS(PILLs) -------------------------- -->
-                            <div class="filter-list__wrapper">
-                                <ul class="filter-list list" id="filterElem"></ul>
+                            <div class="elements-list__wrapper ">
+                                <!-- <div class="list-glass"></div> -->
+                                <ul class="elements-list list" id="filterElem"></ul>
                             </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -255,29 +283,29 @@
                                         </a>
                                     </li>
                                     <li>
-                                                <a aria-current="page" class="sidebar-main__link" href="#/admin/--">
-                                                    <button class="sidebar-main__link-btn">
-                                                        <span class="">
-                                                            <span>
-                                                                <svg class="sidebar-link-btn__logo"></svg>
-                                                            </span>
-                                                            <p class="sidebar-link-btn__text"> ---- </p>
-                                                        </span>
-                                                    </button>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a aria-current="page" class="sidebar-main__link" href="#/admin/--">
-                                                    <button class="sidebar-main__link-btn">
-                                                        <span class="">
-                                                            <span>
-                                                                <svg class="sidebar-link-btn__logo"></svg>
-                                                            </span>
-                                                            <p class="sidebar-link-btn__text"> ---- </p>
-                                                        </span>
-                                                    </button>
-                                                </a>
-                                            </li> 
+                                        <a aria-current="page" class="sidebar-main__link" href="#/admin/--">
+                                            <button class="sidebar-main__link-btn">
+                                                <span class="">
+                                                    <span>
+                                                        <svg class="sidebar-link-btn__logo"></svg>
+                                                    </span>
+                                                    <p class="sidebar-link-btn__text"> ---- </p>
+                                                </span>
+                                            </button>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a aria-current="page" class="sidebar-main__link" href="#/admin/--">
+                                            <button class="sidebar-main__link-btn">
+                                                <span class="">
+                                                    <span>
+                                                        <svg class="sidebar-link-btn__logo"></svg>
+                                                    </span>
+                                                    <p class="sidebar-link-btn__text"> ---- </p>
+                                                </span>
+                                            </button>
+                                        </a>
+                                    </li> 
                                 </ul>
                             </div>
                             
