@@ -12,7 +12,7 @@
 </head>
 <body class="light">
     <div>
-        <!-- ------------- HEADER-BACKGROUND ------------- -->
+        <!-- ================================= HEADER-BACKGROUND =============================== -->
         <div class="head"></div>
         <!-- ====================================== HEADER ========================================= -->
         <div>
@@ -89,24 +89,34 @@
                                     class="search-form_input"
                                     />
                             </form> -->
-
                             <ul class="autorization-list list">
-                                <li>
-                                    <button title="Добавить таблетку">
+                                <li class="autorization-item">
+                                    <button 
+                                        class="autorization-button" 
+                                        title="Добавить таблетку" 
+                                        type="button"
+                                    >
                                         <svg class="header-icon" width="30" height="30">
                                             <use href="./images/new-icon-sprite.svg#i-plus-square"></use>
                                         </svg>
                                     </button>
                                 </li>
-                                <li>
-                                    <button title="Уведомления">
+                                <li class="autorization-item">
+                                    <button 
+                                        class="autorization-button" 
+                                        title="Уведомления" 
+                                        type="button"
+                                    >
                                         <svg class="header-icon" width="30" height="30">
                                             <use href="./images/new-icon-sprite.svg#i-bell-o"></use>
                                         </svg>
                                     </button>
                                 </li>
-                                <li class="autorization-item"></li>
-                                    <button class="autorization-button" type="button">
+                                <li class="autorization-item">
+                                    <button 
+                                        class="autorization-button" 
+                                        type="button"
+                                    >
                                         <span class="header-icon-wrapper">
                                             <svg class="header-icon" width="30" height="30">
                                                 <use href="./images/new-icon-sprite.svg#i-sign-in"></use>
@@ -116,7 +126,10 @@
                                     </button>
                                 </li>
                                 <li class="autorization-item">
-                                   <button class="autorization-button" type="button">
+                                   <button 
+                                        class="autorization-button" 
+                                        type="button"
+                                   >
                                         <span class="header-icon-wrapper">
                                             <svg class="header-icon" width="30" height="30">
                                                 <use href="./images/new-icon-sprite.svg#i-sign-out"></use>
@@ -134,7 +147,12 @@
                                             <use href="./images/new-icon-sprite.svg#i-moon-o"></use>
                                         </svg>
                                     </span>
-                                    <input class="theme-toggle" id="themeToggle" type="checkbox" checked>
+                                    <input 
+                                        class="theme-toggle" 
+                                        id="themeToggle" 
+                                        type="checkbox" 
+                                        checked
+                                    />
                                     <span class="switch-toggle"></span>
                                     <span class="header-icon-wrapper">
                                         <svg class="header-icon" width="30" height="30">
@@ -154,28 +172,29 @@
             <section class="main-section">
                 <h1 class="visually-hidden"></h1>
                 <div class="main-container">
-                    <div class="main-wrapp-area">
-                        <div class="main-content-area">
+                    <div class="main-content">
+                        <div class="main-content__area">
 
                             <!-- ----------------------- SEARCH-INPUT BY NUMBER ----------------------- -->
-                            <div>
-                                <h2 class="main-content-title">Сортировка:</h2>
-                                <span>
-                                    <svg class="header-icon i-filter" wigth="40" height="40">
+                            <div class="main-content__wrapp">
+                                 <span class="content__icon-wrapp">
+                                    <svg class="header-icon icon-filter" wigth="40" height="40">
                                         <use href="./images/new-icon-sprite.svg#i-filter"></use>
                                     </svg>
                                 </span>
+                                <h2 class="main-content__title">Сортировка:</h2>
+                               
                             </div>
                             
                             <div class="search-field__wrapper">
                                 <div class="search-form">
                                     <input 
-                                    class="search-input" 
-                                    id="search-input" 
-                                    type="search" 
-                                    placeholder="Введите номер.." 
-                                    aria-label="Поиск таблетки по номеру"
-                                    required
+                                        class="search-input" 
+                                        id="search-input" 
+                                        type="search" 
+                                        placeholder="Введите номер.." 
+                                        aria-label="Поиск таблетки по номеру"
+                                        required
                                     />
                                     <!-- <span class="input-validate"></span> -->
                                     <div class="input-field"></div>
@@ -186,46 +205,69 @@
                                 <ul class="filter-input__list list" id="filter-options">
                                     <li class="filter-input__item">
                                         <input 
-                                        class="checkbox-alizarin filter-input" 
-                                        value="filter-white" 
-                                        type="checkbox" 
-                                        id="color-white" 
+                                            class="checkbox-white filter-input" 
+                                            value="filter-white" 
+                                            type="checkbox" 
+                                            id="color-1" 
+                                            checked="checked"
                                         />
-                                        <label class="filter-input__placeholder" for="color-white">Белый</label>
+                                        <label class="filter-input__placeholder" for="color-1">Белый</label>
                                     </li>
                                     <li class="filter-input__item">
                                         <input 
-                                        class="checkbox-wisteria filter_input" 
-                                        value="filter-green" 
-                                        type="checkbox" 
-                                        id="color-green" 
+                                            class="checkbox-green filter_input" 
+                                            value="filter-green" 
+                                            type="checkbox" 
+                                            id="color-2"
+                                            checked="checked" 
                                         />
-                                        <label class="filter-input__placeholder" for="color-green">Зеленый</label>
+                                        <label class="filter-input__placeholder" for="color-2">Зеленый</label>
                                     </li>
                                     <li class="filter-input__item">
                                         <input 
-                                        class="checkbox-emerland filter_input" 
-                                        value="filter-orange" 
-                                        type="checkbox" 
-                                        id="color-orange" 
+                                            class="checkbox-orange filter_input" 
+                                            value="filter-orange" 
+                                            type="checkbox" 
+                                            id="color-3" 
+                                            checked="checked"
                                          />
-                                        <label class="filter-input__placeholder" for="color-orange">Оранжевый</label>
+                                        <label class="filter-input__placeholder" for="color-3">Оранжевый</label>
                                     </li>
                                     <li class="filter-input__item">
                                         <input 
-                                        class="checkbox-belizehole filter_input" 
-                                        value="filter-red" 
-                                        type="checkbox" 
-                                        id="color-red" 
+                                            class="checkbox-red filter_input" 
+                                            value="filter-red" 
+                                            type="checkbox" 
+                                            id="color-4" 
+                                            checked="checked"
                                         />
-                                        <label class="filter-input__placeholder" for="color-red">Красный</label>
+                                        <label class="filter-input__placeholder" for="color-4">Красный</label>
                                     </li>
                                 </ul>
                             </div>
 
                             <!-- ----------------------- LIST-ELEMENTS(PILLs) -------------------------- -->
-                            <div class="elements-list__wrapper ">
+                            <div class="elements-list__wrapper">
                                 <!-- <div class="list-glass"></div> -->
+                                <!-- <ul class="checkbox-list list">
+                                    <li>
+                                        <input class="checkbox-alizarin" type="checkbox" id="color-1" checked="checked" />
+                                        <label for="color-1">alizarin</label>
+                                    </li>
+                                    <li>
+                                        <input class="checkbox-wisteria" type="checkbox" id="color-2" checked="checked" />
+                                        <label for="color-2">wisteria</label>
+                                    </li>
+                                    <li>
+                                        <input class="checkbox-emerland" type="checkbox" id="color-3" checked="checked" />
+                                        <label for="color-3">emerland</label>
+                                    </li>
+                                    <li>
+                                        <input class="checkbox-belizehole" type="checkbox" id="color-4" checked="checked" />
+                                        <label for="color-4">belizehole</label>
+                                    </li>
+                                </ul> -->
+
                                 <ul class="elements-list list" id="filterElem"></ul>
                             </div>
                            
@@ -323,10 +365,11 @@
             <div class="modal-window" id="modal"></div>
             
             <button 
-            id="modal-close"
-            data-action="modal-close" 
-            class="modal-button" 
-            type="button">
+                id="modal-close"
+                data-action="modal-close" 
+                class="modal-button" 
+                type="button"
+            >
                 <svg class="modal-button__icon" width="40" height="40">
                     <use href="./images/new-icon-sprite.svg#i-close"></use>
                 </svg>

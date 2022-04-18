@@ -70,7 +70,7 @@ var createItemsMarkup = function createItemsMarkup(items) {
   getDateToDay();
   filterbyNumber();
   items.forEach(function (item, index) {
-    return list.insertAdjacentHTML('beforeend', "<li class=\"elements-list__item\">\n                <div class=\"circle\">\n                    <div class=\"noise animated\"></div>\n                </div>\n\n                <button \n                 id=\"btn-".concat(index + 1, "\"\n                 class=\"elements-button\" \n                 data-action=\"open-modal\" \n                 data-identifier=\"").concat(index + 1, "\"\n                 data-color=\"white\"\n                 type=\"button\">\n                    ").concat(item, "\n                </button>\n            </li>"));
+    return list.insertAdjacentHTML('beforeend', "<li class=\"elements-list__item\">\n                <div class=\"circle\">\n                    <div class=\"noise animated\"></div>\n                </div>\n\n                <button \n                 id=\"btn-".concat(index + 1, "\"\n                 class=\"elements-button\" \n                 data-action=\"open-modal\" \n                 data-identifier=\"").concat(index + 1, "\"\n                 data-color=\"white\"\n                 type=\"button\"\n                >\n                    ").concat(item, "\n                </button>\n            </li>"));
   });
 };
 
@@ -141,7 +141,7 @@ function filterbyNumber() {
 //     }
 // });
 //-------------------------------------------------------------------------------------------
-// ---------------------------- ДАТА/ВРЕМЯ
+// ---------------------------- ДАТА/ВРЕМЯ / ЧАСЫ ---------------------------
 
 
 function getDateToDay() {
@@ -177,8 +177,8 @@ var modalOpenHandler = function modalOpenHandler(_ref) {
     return;
   }
 
-  var color = target.dataset.color;
-  console.log(color);
+  var currentColor = target.dataset.color;
+  console.log(currentColor);
   var id = target.textContent;
   console.log(id);
   var buttonElem = document.querySelector("#".concat(target.id));
@@ -187,7 +187,7 @@ var modalOpenHandler = function modalOpenHandler(_ref) {
   console.log(colt);
   var newColor = buttonElem.dataset['color'] = 'green';
   buttonElem.style.backgroundColor = newColor;
-  modalWindowMarkup(color, id); // image.src = target.dataset.source; //>-Подмена значения атрибута `src` элемента `img.lightbox__image`.
+  modalWindowMarkup(currentColor, id); // image.src = target.dataset.source; //>-Подмена значения атрибута `src` элемента `img.lightbox__image`.
 
   window.addEventListener('keydown', modalCloseByEscHandler);
   container.classList.add('is-open'); // - Открытие модального окна по клику на элементе галереи.

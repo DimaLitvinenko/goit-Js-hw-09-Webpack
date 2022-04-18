@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;700;900&display=swap');
+
 *,
 *::before,
 *::after {
@@ -21,6 +24,14 @@ p {
     padding: 0;
     margin-top: 0;
     margin-bottom: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: 'Bai Jamjuree', sans-serif;
 }
 ul,
 ol {
@@ -51,7 +62,7 @@ body {
     min-height: 100vh;
     margin: 0px;
     padding: 0px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Zen Maru Gothic', sans-serif;
     // font-family: 'Josefin Sans', sans-serif;  // ---+++
     transition-duration: var(--duration-normal);
     transition-property: var(--property-common);
@@ -65,7 +76,7 @@ body {
         --background: var(--white);
         --background-inverse: var(--black);
         // --carousel-background: var(--light-gray);
-        --gradient: radial-gradient(circle, rgba(45, 51, 173, 0.98) 4%, rgba(17, 131, 124, 0.90) 29%, rgba(48, 195, 189, 0.88) 69%, rgba(217, 236, 233, 0.85) 92%, rgba(242, 242, 240, 0.8) 100%);
+        --gradient: radial-gradient(circle, rgba(45, 51, 173, 0.66) 2%, rgba(17, 131, 124, 0.7) 29%, rgba(48, 195, 189, 0.78) 69%, rgba(217, 236, 233, 0.85) 92%, rgba(242, 242, 240, 0.8) 100%);
         --box-shadow: var(--shadow-light-theme);
         --button-background: var(--light-blue);
 
@@ -84,7 +95,7 @@ body {
         --background-inverse: var(--white);
         // --carousel-background: var(--dark-blue);
         // background: rgb(22, 24, 70);
-        --gradient: radial-gradient(circle, rgba(54, 61, 219, 0.98) 4%, rgba(17, 131, 123, 0.90) 29%, rgba(55, 189, 180, 0.88) 69%, rgba(57, 65, 64, 0.85) 92%, rgba(27, 27, 27, 0.8) 100%);
+        --gradient: radial-gradient(circle, rgba(54, 61, 219, 0.3) 2%, rgba(17, 131, 123, 0.60) 29%, rgba(55, 189, 180, 0.78) 69%, rgba(57, 65, 64, 0.85) 92%, rgba(27, 27, 27, 0.8) 100%);
         --box-shadow: var(--shadow-dark-theme);
         --button-background: var(--third-color-gray);
 
@@ -100,7 +111,8 @@ body {
     background-image: var(--gradient);
     background-position: center;
     background-size: cover;
-    box-shadow: var(--shadow)
+    box-shadow: var(--shadow);
+    transition: all 300ms var(--easing-out);
 }
 
 @media (prefers-color-scheme: dark) {

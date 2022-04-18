@@ -84,7 +84,8 @@ const createItemsMarkup = items => {
                  data-action="open-modal" 
                  data-identifier="${index + 1}"
                  data-color="white"
-                 type="button">
+                 type="button"
+                >
                     ${item}
                 </button>
             </li>`,
@@ -167,7 +168,7 @@ function filterbyNumber() {
 // });
 //-------------------------------------------------------------------------------------------
 
-// ---------------------------- ДАТА/ВРЕМЯ
+// ---------------------------- ДАТА/ВРЕМЯ / ЧАСЫ ---------------------------
 function getDateToDay() {
     let monthNames = [
         'Январь',
@@ -224,8 +225,8 @@ const modalOpenHandler = ({ target }) => {
         return;
     }
 
-    const color = target.dataset.color;
-    console.log(color);
+    const currentColor = target.dataset.color;
+    console.log(currentColor);
 
     let id = target.textContent;
     console.log(id);
@@ -239,10 +240,9 @@ const modalOpenHandler = ({ target }) => {
     const newColor = (buttonElem.dataset['color'] = 'green');
     buttonElem.style.backgroundColor = newColor;
 
-    modalWindowMarkup(color, id);
+    modalWindowMarkup(currentColor, id);
 
     // image.src = target.dataset.source; //>-Подмена значения атрибута `src` элемента `img.lightbox__image`.
-
     window.addEventListener('keydown', modalCloseByEscHandler);
     container.classList.add('is-open'); // - Открытие модального окна по клику на элементе галереи.
 };

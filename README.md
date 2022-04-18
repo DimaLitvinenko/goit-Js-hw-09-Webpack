@@ -383,6 +383,7 @@ VK.addCallback('onSubscriptionCancel', function () {
             data-color="white"> <div class="filter-icon">
 <svg class="icon-pills" width="18" height="18">
 <use href="./images/icons_moon.svg#enter"></use> </svg> </div>
+
 <h3 class="filter-title">Step
 ${index + 1}</h3>
                 <div class="filter-descr">${item}</div> </a>
@@ -398,6 +399,77 @@ ${index + 1}</h3>
                 type="button"> ${item} </button>
 
 ===================================================================
+
+## CHECKBOX EVENT-LISTENER
+
+```js
+checkbox = document.getElementById('conducted');
+checkbox.addEventListener('change', e => {
+    if (e.target.checked) {
+        //do something
+    }
+});
+```
+
+=============================================
+
+## Fill CHECKBOX javascript
+
+```js
+document.getElementById('myCheckBoxID').checked = true; // Check
+document.getElementById('myCheckBoxID').checked = false; // Uncheck
+
+// Check
+document.getElementById('checkbox').checked = true;
+
+// Uncheck
+document.getElementById('checkbox').checked = false;
+
+// how to check if input is checked javascript
+const cb = document.getElementById('accept');
+console.log(cb.checked);
+```
+
+==============================================
+
+## CHECK IF NOT CHECKED
+
+```html
+<input type="checkbox" id="check" />
+<a href="#" onclick="check()">click</a>
+<button onclick="check()">button</button>
+```
+
+```js
+function check() {
+    if (document.getElementById('check').checked) {
+        alert('checked');
+    } else {
+        alert('Not checked.');
+    }
+}
+```
+
+=============================================
+
+## HOW to check CHECKBOX IS CHECKED or NOT
+
+```js
+//using plane javascript
+if (document.getElementById('on_or_off_checkbox').checked) {
+    //I am checked
+}
+```
+
+## GET all select options
+
+```js
+var options = document.getElementById('mySelectID').options;
+for (let i = 0; i < options.length; i++) {
+  console.log(options[i].value);//log the value
+```
+
+# }
 
 ## Developing
 
@@ -425,8 +497,8 @@ ${index + 1}</h3>
 глобально поставить дополнительные пакеты, выполнив в терминале следующие команды.
 Пользователям MacOS ничего делать не нужно.
 
-Пользователям **Windows**, в режиме администратора.
-[Как запусттить Powershell](https://youtu.be/p2tFnxcymwk) в режиме администратора.
+Пользователям **Windows**, в режиме администратора. [Как запусттить
+Powershell](https://youtu.be/p2tFnxcymwk) в режиме администратора.
 
 ```shell
 npm install --global --production windows-build-tools
