@@ -271,18 +271,15 @@
 }
 
 .theme-toggle {
-  color: var(--blue);
+  font-family: "Oswald";
+  color: var(--text);
   background-color: var(--background);
   border: 2px solid transparent;
   padding: 8px 10px;
   border-radius: 15px;
-  transition: all 0.3s ease;
   max-width: 150px;
   margin-left: auto;
-}
-.theme-toggle:hover {
-  background-color: #c1c1c1;
-  border: 2px solid #c1c1c1;
+  transition: var(--property-common) 500ms var(--easing-out);
 }
 
 .switch {
@@ -295,8 +292,11 @@
   width: 70px;
   height: 40px;
   border-radius: 20px;
-  background-color: #fdfdfd75;
-  transition: all 600ms var(--easing-out);
+  background-color: var(--background);
+  transition: all 500ms var(--easing-out);
+}
+.switch .switch-toggle:hover {
+  background-color: #d04732f7;
 }
 .switch .switch-toggle::before {
   width: 30px;
@@ -307,16 +307,18 @@
   content: "";
   border-radius: 50%;
   background-color: var(--text);
-  transition: all 600ms var(--easing-out);
+  transition: all 500ms var(--easing-out);
 }
 .switch input[type=checkbox] {
   display: none;
 }
-.switch input[type=checkbox]:checked + .switch-toggle {
-  background-color: #fdfdfdb8;
-}
 .switch input[type=checkbox]:checked + .switch-toggle::before {
   left: 100%;
-  transform: translateX(calc(-100% - 5px));
-  background-color: var(text);
+  transform: translateX(calc(-100% - 4px));
+}
+.switch .switch-dark {
+  margin-right: 5px;
+}
+.switch .switch-light {
+  margin-left: 6px;
 }
