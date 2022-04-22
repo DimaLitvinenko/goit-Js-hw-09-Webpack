@@ -11,7 +11,7 @@
   position: absolute;
   right: 10px;
   top: 20px;
-  max-height: 160px;
+  max-height: 34vh;
   margin-top: 0px;
   margin-left: auto;
   margin-right: auto;
@@ -255,6 +255,7 @@
 .header-icon,
 .search-form__icon {
   display: inline-block;
+  line-height: 1em;
   stroke-width: 0;
   stroke: currentColor;
   fill: currentColor;
@@ -271,20 +272,20 @@
 }
 
 .theme-toggle {
-  font-family: "Oswald";
+  max-width: 150px;
+  margin-left: auto;
+  padding: 8px 10px;
   color: var(--text);
   background-color: var(--background);
   border: 2px solid transparent;
-  padding: 8px 10px;
   border-radius: 15px;
-  max-width: 150px;
-  margin-left: auto;
   transition: var(--property-common) 500ms var(--easing-out);
 }
 
 .switch {
   display: flex;
   align-items: center;
+  position: relative;
   cursor: pointer;
 }
 .switch .switch-toggle {
@@ -295,8 +296,11 @@
   background-color: var(--background);
   transition: all 500ms var(--easing-out);
 }
-.switch .switch-toggle:hover {
-  background-color: #d04732f7;
+.switch .switch-toggle:hover, .switch .switch-toggle:focus {
+  outline: 2px solid #d04732f7;
+}
+.switch .switch-toggle:hover::before, .switch .switch-toggle:focus::before {
+  opacity: 0.78;
 }
 .switch .switch-toggle::before {
   width: 30px;
@@ -316,9 +320,17 @@
   left: 100%;
   transform: translateX(calc(-100% - 4px));
 }
-.switch .switch-dark {
-  margin-right: 5px;
+.switch .switch-theme {
+  position: absolute;
+  left: 105%;
 }
-.switch .switch-light {
-  margin-left: 6px;
+
+label input[type=checkbox] ~ .off,
+label input[type=checkbox]:checked ~ .on {
+  opacity: 1;
+}
+
+label input[type=checkbox] ~ .on,
+label input[type=checkbox]:checked ~ .off {
+  opacity: 0;
 }

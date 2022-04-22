@@ -53,6 +53,8 @@ img {
 html {
     display: block;
     line-height: 1.5;
+    // font-family: 'Zen Maru Gothic', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;  // ---+++
     text-size-adjust: 100%;
     text-rendering: optimizelegibility;
     touch-action: manipulation;
@@ -62,8 +64,6 @@ body {
     min-height: 100vh;
     margin: 0px;
     padding: 0px;
-    font-family: 'Zen Maru Gothic', sans-serif;
-    // font-family: 'Josefin Sans', sans-serif;  // ---+++
     transition-duration: var(--duration-normal);
     transition-property: var(--property-common);
     transition-timing-function: var(--easing-out);
@@ -132,7 +132,6 @@ body {
 .list {
     list-style: none;
 }
-
 .link {
     color: var(--text);
     text-decoration: none;

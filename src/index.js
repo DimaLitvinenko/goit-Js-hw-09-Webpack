@@ -287,19 +287,23 @@ function modalWindowMarkup(currentColor, id) {
                         <p id="datejs">${getCurrentDate()}</p>
                         <div>
                             <form class="modal-form">
-                                <select>
+                                <select id="pet-select" name="pet" size="4">
                                     <optgroup label="Необычные цветы">
-                                        <option>Ангулоя одноцветковая</option>
-                                        <option>Обезьяний дракула</option>
-                                        <option>Пассифлора инкарнатная</option>
+                                        <option value="half-hour">30мин</option>
+                                        <option value="one-hour">1ч.</option>
+                                        <option value="two-hours">2ч.</option>
+                                        <option value="three-hours">3ч.</option>
                                     </optgroup>
                                 </select>
                             
-                                <label>
-                                    <input type="selection">
-                                </label>
+                                <div>
+                                    <label for="appt-time">Choose an appointment time (opening hours 12:00 to 18:00): </label>
+                                    <input id="appt-time" type="time" name="appt-time"
+                                        min="12:00" max="18:00" required>
+                                    <span class="validity"></span>
+                                </div>
 
-                                <button class="modal-form_submit" type="submit" method="GET">
+                                <button class="modal-form__submit" type="submit" method="POST">
                                     <svg class="" width="40" height="40">
                                         <use href="./images/new-icon-sprite.svg#i-wheelchair-alt"></use>
                                     </svg>
@@ -489,6 +493,22 @@ themeToggleButton.addEventListener('click', event => {
     applyTheme(newTheme);
     theme = newTheme;
 });
+
+////////////////////////////////////////////////// ----------------------   ////////////////
+
+// btn.addEventListener('click', () => {
+//     const btnClass = btn.getAttribute('class');
+//     if (btnClass === 'dark') {
+//         btn.setAttribute('class', 'light');
+//         btn.textContent = 'Lighten';
+//         overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
+//     } else {
+//         btn.setAttribute('class', 'dark');
+//         btn.textContent = 'Darken';
+//         overlay.style.backgroundColor = 'rgba(0,0,0,0)';
+//     }
+// });
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 /*
 const scrollGalleryHandler = ({ key }) => {
