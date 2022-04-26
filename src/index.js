@@ -27,6 +27,9 @@ import './images/new-icon-sprite.svg';
 // ============ JavaScript ==============
 // import './js/filter.js';
 
+// ============== Template ==============
+// import btnContent from './templates/index.hbs';
+
 // ===============================================================================================
 
 const refs = {
@@ -77,7 +80,7 @@ const createItemsMarkup = items => {
                 <div class="circle">
                     <div class="noise animated"></div>
                 </div>
-
+    
                 <button 
                  id="btn-${index + 1}"
                  class="elements-button" 
@@ -487,6 +490,13 @@ const themeToggleButton = document.querySelector('.theme-toggle');
 let theme = getTheme();
 applyTheme(theme);
 
+// const detectTheme = () => {
+//     if (theme || colorScheme.matches === 'dark') {
+//         applyTheme(theme);
+//         document.themeToggleButton.removeAttribute(checked);
+//     }
+// };
+// detectTheme();
 themeToggleButton.addEventListener('click', event => {
     console.log(event.target);
     const newTheme = theme === 'light' ? 'dark' : 'light';

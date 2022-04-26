@@ -1,0 +1,18 @@
+{{#each btnContent}}
+  <li class="elements-list__item">
+    <div class="circle">
+        <div class="noise animated"></div>
+    </div>
+
+    <button 
+                 id="btn-${index + 1}"
+                 class="elements-button" 
+                 data-action="open-modal" 
+                 data-identifier="${index + 1}"
+                 data-color="white"
+                 type="button"
+                >
+                    ${item}
+    </button>
+  </li>
+{{/each}}

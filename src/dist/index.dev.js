@@ -32,6 +32,8 @@ require("./images/new-icon-sprite.svg");
 // import './images/background/sky-bg_1280.jpg';
 // ============ JavaScript ==============
 // import './js/filter.js';
+// ============== Template ==============
+// import btnContent from './templates/index.hbs';
 // ===============================================================================================
 var refs = {
   closeModalButton: document.getElementById('modal-close'),
@@ -70,7 +72,7 @@ var createItemsMarkup = function createItemsMarkup(items) {
   getDateToDay();
   filterbyNumber();
   items.forEach(function (item, index) {
-    return list.insertAdjacentHTML('beforeend', "<li class=\"elements-list__item\">\n                <div class=\"circle\">\n                    <div class=\"noise animated\"></div>\n                </div>\n\n                <button \n                 id=\"btn-".concat(index + 1, "\"\n                 class=\"elements-button\" \n                 data-action=\"open-modal\" \n                 data-identifier=\"").concat(index + 1, "\"\n                 data-color=\"white\"\n                 type=\"button\"\n                >\n                    ").concat(item, "\n                </button>\n            </li>"));
+    return list.insertAdjacentHTML('beforeend', "<li class=\"elements-list__item\">\n                <div class=\"circle\">\n                    <div class=\"noise animated\"></div>\n                </div>\n    \n                <button \n                 id=\"btn-".concat(index + 1, "\"\n                 class=\"elements-button\" \n                 data-action=\"open-modal\" \n                 data-identifier=\"").concat(index + 1, "\"\n                 data-color=\"white\"\n                 type=\"button\"\n                >\n                    ").concat(item, "\n                </button>\n            </li>"));
   });
 };
 
@@ -352,7 +354,14 @@ var applyTheme = function applyTheme(theme) {
 
 var themeToggleButton = document.querySelector('.theme-toggle');
 var theme = getTheme();
-applyTheme(theme);
+applyTheme(theme); // const detectTheme = () => {
+//     if (theme || colorScheme.matches === 'dark') {
+//         applyTheme(theme);
+//         document.themeToggleButton.removeAttribute(checked);
+//     }
+// };
+// detectTheme();
+
 themeToggleButton.addEventListener('click', function (event) {
   console.log(event.target);
   var newTheme = theme === 'light' ? 'dark' : 'light';

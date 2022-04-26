@@ -30,9 +30,9 @@ module.exports = {
                 use: ['babel-loader'],
             },
             {
-                test: /\.hbs$/i,
+                test: /\.hbs$/,
                 exclude: /node_modules/,
-                use: ['handlebars-loader'],
+                use: 'handlebars-loader',
             },
             {
                 test: /\.(png|jpg|jpe?g|gif|svg)$/i,
