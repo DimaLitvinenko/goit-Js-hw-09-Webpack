@@ -26,25 +26,12 @@ import './images/new-icon-sprite.svg';
 
 // ============ JavaScript ==============
 // import './js/filter.js';
+import refs from './js/references/refs';
 
 // ============== Template ==============
 // import btnContent from './templates/index.hbs';
 
 // ===============================================================================================
-
-const refs = {
-    closeModalButton: document.getElementById('modal-close'),
-    backdrop: document.querySelector('.js-backdrop'),
-    container: document.querySelector('.js-container'),
-    list: document.getElementById('filterElem'),
-    modal: document.getElementById('modal'),
-    input: document.getElementById('search-input'),
-    // headerInput: document.getElementById('header-input'),
-    // searchInput: document.getElementById('search-input'),
-    MAX_PILLS: 70,
-    idNumbers: [],
-    COLORS: ['white', 'green', 'orange', 'red'],
-};
 
 const {
     closeModalButton,
@@ -216,6 +203,7 @@ function getDateToDay() {
         document.getElementById('day').innerHTML = dayNames[newDate.getDay()];
         document.getElementById('year').innerHTML = newDate.getFullYear();
     }, 1000);
+    clearInterval(function () {});
 }
 
 // ===============================================>> MODAL_WINDOW <<==========================================================
@@ -237,8 +225,7 @@ const modalOpenHandler = ({ target }) => {
     const buttonElem = document.querySelector(`#${target.id}`);
     console.log(buttonElem);
 
-    let colt = buttonElem.dataset['color'];
-    console.log(colt);
+    buttonElem.dataset['color'];
 
     const newColor = (buttonElem.dataset['color'] = 'green');
     buttonElem.style.backgroundColor = newColor;
@@ -274,7 +261,7 @@ function reset() {
 
 // --------------------------- РАЗМЕТКА/ПЕРЕРИСОВКА ЕЛЕМЕНТОВ ДЛЯ МОДАЛЬНОГО ОКНА
 function modalWindowMarkup(currentColor, id) {
-    COLORS.forEach(color => {
+    COLORS.map(color => {
         if (currentColor === 'white' && modalOpenHandler) {
             reset();
             modal.insertAdjacentHTML(
@@ -306,7 +293,11 @@ function modalWindowMarkup(currentColor, id) {
                                     <span class="validity"></span>
                                 </div>
 
-                                <button class="modal-form__submit" type="submit" method="POST">
+                                <button 
+                                    class="modal-form__submit" 
+                                    type="submit" 
+                                    method="POST"
+                                >
                                     <svg class="" width="40" height="40">
                                         <use href="./images/new-icon-sprite.svg#i-wheelchair-alt"></use>
                                     </svg>
@@ -356,6 +347,7 @@ function modalWindowMarkup(currentColor, id) {
         }
     });
 }
+
 // =================================== СПОСОБ №1 ========================================
 // Установка даты окончания
 // const endDate = new Date("Apr 23, 2022 12:00:00").getTime();
