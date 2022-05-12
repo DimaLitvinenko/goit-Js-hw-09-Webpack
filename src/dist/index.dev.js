@@ -45,6 +45,8 @@ var closeModalButton = _refs["default"].closeModalButton,
     list = _refs["default"].list,
     modal = _refs["default"].modal,
     input = _refs["default"].input,
+    modalBtnSubmit = _refs["default"].modalBtnSubmit,
+    modalBtnCancel = _refs["default"].modalBtnCancel,
     MAX_PILLS = _refs["default"].MAX_PILLS,
     idNumbers = _refs["default"].idNumbers,
     COLORS = _refs["default"].COLORS; // ------------------ ПОДСЧЁТ ЕЛЕМЕНТОВ СПИСКА 'MAX_PILLS'
@@ -60,7 +62,7 @@ var countItems = function countItems(length) {
 countItems(MAX_PILLS); // ------------------- РЕНДЕРИТ РАЗМЕТКУ ЕЛЕМЕНТОВ(таблеток) СПИСКА от первого до maxPills
 
 var createItemsMarkup = function createItemsMarkup(items) {
-  getDateToDay();
+  // getDateToDay();
   filterbyNumber();
   items.forEach(function (item, index) {
     return list.insertAdjacentHTML('beforeend', "<li class=\"elements-list__item\">\n                <div class=\"circle\">\n                    <div class=\"noise animated\"></div>\n                </div>\n    \n                <button \n                 id=\"btn-".concat(index + 1, "\"\n                 class=\"elements-button\" \n                 data-action=\"open-modal\" \n                 data-identifier=\"").concat(index + 1, "\"\n                 data-color=\"white\"\n                 type=\"button\"\n                >\n                    ").concat(item, "\n                </button>\n            </li>"));
@@ -135,52 +137,69 @@ function filterbyNumber() {
 // });
 //-------------------------------------------------------------------------------------------
 // ---------------------------- ДАТА/ВРЕМЯ / ЧАСЫ ---------------------------
-
-
-function getDateToDay() {
-  var monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
-  var dayNames = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-  var newDate = new Date();
-  newDate.setDate(newDate.getDate());
-  setInterval(function () {
-    //-Get hours
-    var hours = new Date().getHours();
-    document.getElementById('hours').innerHTML = (hours < 10 ? '0' : '') + hours; //-Get minutes
-
-    var minutes = new Date().getMinutes();
-    document.getElementById('minutes').innerHTML = (minutes < 10 ? '0' : '') + minutes; //-Get seconds
-
-    var seconds = new Date().getSeconds();
-    document.getElementById('seconds').innerHTML = (seconds < 10 ? '0' : '') + seconds;
-    document.getElementById('month').innerHTML = monthNames[newDate.getMonth()];
-    document.getElementById('date').innerHTML = newDate.getDate();
-    document.getElementById('day').innerHTML = dayNames[newDate.getDay()];
-    document.getElementById('year').innerHTML = newDate.getFullYear();
-  }, 1000);
-  clearInterval(function () {});
-} // ===============================================>> MODAL_WINDOW <<==========================================================
+// function getDateToDay() {
+//     let monthNames = [
+//         'Январь',
+//         'Февраль',
+//         'Март',
+//         'Апрель',
+//         'Май',
+//         'Июнь',
+//         'Июль',
+//         'Август',
+//         'Сентябрь',
+//         'Октябрь',
+//         'Ноябрь',
+//         'Декабрь',
+//     ];
+//     let dayNames = [
+//         'Воскресенье',
+//         'Понедельник',
+//         'Вторник',
+//         'Среда',
+//         'Четверг',
+//         'Пятница',
+//         'Суббота',
+//     ];
+//     let newDate = new Date();
+//     newDate.setDate(newDate.getDate());
+//     setInterval(function () {
+//         //-Get hours
+//         let hours = new Date().getHours();
+//         document.getElementById('hours').innerHTML = (hours < 10 ? '0' : '') + hours;
+//         //-Get minutes
+//         let minutes = new Date().getMinutes();
+//         document.getElementById('minutes').innerHTML =
+//             (minutes < 10 ? '0' : '') + minutes;
+//         //-Get seconds
+//         let seconds = new Date().getSeconds();
+//         document.getElementById('seconds').innerHTML =
+//             (seconds < 10 ? '0' : '') + seconds;
+//         document.getElementById('month').innerHTML = monthNames[newDate.getMonth()];
+//         document.getElementById('date').innerHTML = newDate.getDate();
+//         document.getElementById('day').innerHTML = dayNames[newDate.getDay()];
+//         document.getElementById('year').innerHTML = newDate.getFullYear();
+//     }, 1000);
+// }
+// ===============================================>> MODAL_WINDOW <<==========================================================
 // ------------------- ОТКРЫТИЕ МОДАЛЬНОГО ОКНА ПО НАЖАТИЮ НА КНОПКУ 'BUTTON' из списка
 
 
 var modalOpenHandler = function modalOpenHandler(_ref) {
   var target = _ref.target;
 
-  // console.log(target);
   if (target.nodeName !== 'BUTTON') {
     console.log(target.nodeName);
     return;
   }
 
   var currentColor = target.dataset.color;
-  console.log(currentColor);
-  var id = target.textContent;
-  console.log(id);
+  var btnIndex = target.textContent;
+  modalWindowMarkup(currentColor, btnIndex);
   var buttonElem = document.querySelector("#".concat(target.id));
   console.log(buttonElem);
-  buttonElem.dataset['color'];
   var newColor = buttonElem.dataset['color'] = 'green';
-  buttonElem.style.backgroundColor = newColor;
-  modalWindowMarkup(currentColor, id); // image.src = target.dataset.source; //>-Подмена значения атрибута `src` элемента `img.lightbox__image`.
+  buttonElem.style.backgroundColor = newColor; // image.src = target.dataset.source; //>-Подмена значения атрибута `src` элемента `img.lightbox__image`.
 
   window.addEventListener('keydown', modalCloseByEscHandler);
   container.classList.add('is-open'); // - Открытие модального окна по клику на элементе галереи.
@@ -196,16 +215,17 @@ var modalCloseByEscHandler = function modalCloseByEscHandler(_ref2) {
 }; // ЗАКРЫТИЕ МОДЛАЛЬНОГО ОКНА
 
 
-var modalCloseHandler = function modalCloseHandler() {
+function modalCloseHandler() {
   window.removeEventListener('keydown', modalCloseByEscHandler);
   container.classList.remove('is-open');
-};
+}
 
 list.addEventListener('click', modalOpenHandler); //>СПИСОК ИЗ КНОПОК(ТАБЛЕТОК)
 
 closeModalButton.addEventListener('click', modalCloseHandler); //>ЗАКРЫТЬ МОДАЛЬНОЕ ОКНО
 
-backdrop.addEventListener('click', modalCloseHandler); //>ФОН МОДАЛЬНОГО ОКНА
+backdrop.addEventListener('click', modalCloseHandler); //>ЗАКРЫТЬ НАЖАВ НА ФОН МОДАЛЬНОГО ОКНА
+// modalBtnCancel.addEventListener('click', modalCloseHandler); //> ЗАКРЫТЬ НАЖАВ КНОПКУ CANCEL
 // -------------------------------- СБРОС/ОЧИСТИТКА РАЗМЕТКИ
 
 function reset() {
@@ -217,7 +237,7 @@ function modalWindowMarkup(currentColor, id) {
   COLORS.map(function (color) {
     if (currentColor === 'white' && modalOpenHandler) {
       reset();
-      modal.insertAdjacentHTML('beforeend', "\n                    <div>\n                        <h2 class=\"modal-title\">\u0422\u0430\u0431\u043B\u0435\u0442\u043A\u0430 \u2116".concat(id, "</h2>\n                        <span>").concat(currentColor, "</span>\n                        <p> - C\u0432\u043E\u0431\u043E\u0434\u043D\u0430</p>\n                    </div>\n                    <div>\n                        <h3>\u0412\u044B\u0434\u0430\u0447\u0430:</h3>\n                        <p id=\"datejs\">").concat(getCurrentDate(), "</p>\n                        <div>\n                            <form class=\"modal-form\">\n                                <select id=\"pet-select\" name=\"pet\" size=\"4\">\n                                    <optgroup label=\"\u041D\u0435\u043E\u0431\u044B\u0447\u043D\u044B\u0435 \u0446\u0432\u0435\u0442\u044B\">\n                                        <option value=\"half-hour\">30\u043C\u0438\u043D</option>\n                                        <option value=\"one-hour\">1\u0447.</option>\n                                        <option value=\"two-hours\">2\u0447.</option>\n                                        <option value=\"three-hours\">3\u0447.</option>\n                                    </optgroup>\n                                </select>\n                            \n                                <div>\n                                    <label for=\"appt-time\">Choose an appointment time (opening hours 12:00 to 18:00): </label>\n                                    <input id=\"appt-time\" type=\"time\" name=\"appt-time\"\n                                        min=\"12:00\" max=\"18:00\" required>\n                                    <span class=\"validity\"></span>\n                                </div>\n\n                                <button \n                                    class=\"modal-form__submit\" \n                                    type=\"submit\" \n                                    method=\"POST\"\n                                >\n                                    <svg class=\"\" width=\"40\" height=\"40\">\n                                        <use href=\"./images/new-icon-sprite.svg#i-wheelchair-alt\"></use>\n                                    </svg>\n                                    \u0412\u044B\u0434\u0430\u0442\u044C\n                                </button>\n                            </form>\n                        </div>\n                    </div>  \n                "));
+      modal.insertAdjacentHTML('beforeend', "\n                    <div>\n                        <h2 class=\"modal-title\">\u0422\u0430\u0431\u043B\u0435\u0442\u043A\u0430 \u2116".concat(id, "</h2>\n                        <span>").concat(currentColor, "</span>\n                        <p> - C\u0432\u043E\u0431\u043E\u0434\u043D\u0430</p>\n                    </div>\n                    <div>\n                        <h3>\u0412\u044B\u0434\u0430\u0447\u0430:</h3>\n                        <p id=\"datejs\">").concat(getCurrentDate(), "</p>\n                        <div>\n                            <form class=\"modal-form\" id=\"modalForm\">\n                                <select id=\"pet-select\" name=\"pet\" size=\"4\">\n                                    <optgroup label=\"\u041D\u0435\u043E\u0431\u044B\u0447\u043D\u044B\u0435 \u0446\u0432\u0435\u0442\u044B\">\n                                        <option value=\"half-hour\">30\u043C\u0438\u043D</option>\n                                        <option value=\"one-hour\">1\u0447.</option>\n                                        <option value=\"two-hours\">2\u0447.</option>\n                                        <option value=\"three-hours\">3\u0447.</option>\n                                    </optgroup>\n                                </select>\n                            \n                                <div>\n                                    <label for=\"appt-time\">Choose an appointment time (opening hours 12:00 to 18:00): </label>\n                                    <input id=\"appt-time\" type=\"time\" name=\"appt-time\"\n                                        min=\"12:00\" max=\"18:00\">\n                                    <span class=\"validity\"></span>\n                                </div>\n                                \n                                <div class=\"stepper\">\n                                    <!-- Minus button -->\n                                    <button type=\"button\" class=\"stepper__button\">-</button>\n\n                                    <!-- Input container -->\n                                    <div class=\"stepper__content\">\n                                        <input \n                                        type=\"text\" \n                                        name=\"chose-time\" \n                                        class=\"stepper__input\" \n                                        min=\"0:30\" \n                                        max=\"4:00\"\n                                        value=\"0:30\"\n                                        />\n                                    </div>\n\n                                    <!-- Plus button -->\n                                    <button type=\"button\" class=\"stepper__button\">+</button>\n                                </div>\n\n                                <button \n                                    class=\"modal-form__submit\" \n                                    id=\"modalSubmit\"\n                                    data-color=\"").concat(currentColor, "\"\n                                    type=\"submit\" \n                                    method=\"POST\"\n                                >   \n                                    \u0412\u044B\u0434\u0430\u0442\u044C\n                                    <svg class=\"\" width=\"30\" height=\"30\">\n                                        <use href=\"./images/new-icon-sprite.svg#i-wheelchair-alt\"></use>\n                                    </svg>\n                                </button>\n                                <button \n                                    type=\"reset\"\n                                    id=\"cancelBtn\"\n                                >\n                                    \u041E\u0442\u043C\u0435\u043D\u0430\n                                </button>\n                                <input \n                                    type=\"reset\" \n                                    value=\"Reset\"\n                                />\n                            </form>\n                        </div>\n                    </div>  \n                "));
     } else if (currentColor === 'green' && modalOpenHandler) {
       reset();
       modal.insertAdjacentHTML('beforeend', "   \n                    <div>\n                        <h2 class=\"modal-title\">\u0422\u0430\u0431\u043B\u0435\u0442\u043A\u0430 \u2116".concat(id, "</h2>\n                        <p><span>").concat(currentColor, "</span> - \u0417\u0430\u043D\u044F\u0442\u0430</p>\n                    </div>\n                    <div></div>\n                "));

@@ -9,7 +9,7 @@ module.exports = {
     },
     output: {
         filename: 'main.js',
-        path: path.resolve(__dirname, 'dist'), // точка выхода
+        path: path.resolve(__dirname, './dist'), // точка выхода
     },
 
     module: {
@@ -53,6 +53,6 @@ module.exports = {
         new CleanWebpackPlugin(),
     ],
     devServer: {
-        static: 'dist',
+        static: './dist',
     },
 };

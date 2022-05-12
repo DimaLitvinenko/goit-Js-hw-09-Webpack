@@ -40,6 +40,8 @@ const {
     list,
     modal,
     input,
+    modalBtnSubmit,
+    modalBtnCancel,
     // headerInput,
     // searchInput,
     MAX_PILLS,
@@ -58,7 +60,7 @@ countItems(MAX_PILLS);
 
 // ------------------- РЕНДЕРИТ РАЗМЕТКУ ЕЛЕМЕНТОВ(таблеток) СПИСКА от первого до maxPills
 const createItemsMarkup = items => {
-    getDateToDay();
+    // getDateToDay();
     filterbyNumber();
     items.forEach((item, index) => {
         return list.insertAdjacentHTML(
@@ -159,78 +161,70 @@ function filterbyNumber() {
 //-------------------------------------------------------------------------------------------
 
 // ---------------------------- ДАТА/ВРЕМЯ / ЧАСЫ ---------------------------
-function getDateToDay() {
-    let monthNames = [
-        'Январь',
-        'Февраль',
-        'Март',
-        'Апрель',
-        'Май',
-        'Июнь',
-        'Июль',
-        'Август',
-        'Сентябрь',
-        'Октябрь',
-        'Ноябрь',
-        'Декабрь',
-    ];
-    let dayNames = [
-        'Воскресенье',
-        'Понедельник',
-        'Вторник',
-        'Среда',
-        'Четверг',
-        'Пятница',
-        'Суббота',
-    ];
-    let newDate = new Date();
-    newDate.setDate(newDate.getDate());
+// function getDateToDay() {
+//     let monthNames = [
+//         'Январь',
+//         'Февраль',
+//         'Март',
+//         'Апрель',
+//         'Май',
+//         'Июнь',
+//         'Июль',
+//         'Август',
+//         'Сентябрь',
+//         'Октябрь',
+//         'Ноябрь',
+//         'Декабрь',
+//     ];
+//     let dayNames = [
+//         'Воскресенье',
+//         'Понедельник',
+//         'Вторник',
+//         'Среда',
+//         'Четверг',
+//         'Пятница',
+//         'Суббота',
+//     ];
+//     let newDate = new Date();
+//     newDate.setDate(newDate.getDate());
 
-    setInterval(function () {
-        //-Get hours
-        let hours = new Date().getHours();
-        document.getElementById('hours').innerHTML = (hours < 10 ? '0' : '') + hours;
-        //-Get minutes
-        let minutes = new Date().getMinutes();
-        document.getElementById('minutes').innerHTML =
-            (minutes < 10 ? '0' : '') + minutes;
-        //-Get seconds
-        let seconds = new Date().getSeconds();
-        document.getElementById('seconds').innerHTML =
-            (seconds < 10 ? '0' : '') + seconds;
-        document.getElementById('month').innerHTML = monthNames[newDate.getMonth()];
-        document.getElementById('date').innerHTML = newDate.getDate();
-        document.getElementById('day').innerHTML = dayNames[newDate.getDay()];
-        document.getElementById('year').innerHTML = newDate.getFullYear();
-    }, 1000);
-    clearInterval(function () {});
-}
+//     setInterval(function () {
+//         //-Get hours
+//         let hours = new Date().getHours();
+//         document.getElementById('hours').innerHTML = (hours < 10 ? '0' : '') + hours;
+//         //-Get minutes
+//         let minutes = new Date().getMinutes();
+//         document.getElementById('minutes').innerHTML =
+//             (minutes < 10 ? '0' : '') + minutes;
+//         //-Get seconds
+//         let seconds = new Date().getSeconds();
+//         document.getElementById('seconds').innerHTML =
+//             (seconds < 10 ? '0' : '') + seconds;
+//         document.getElementById('month').innerHTML = monthNames[newDate.getMonth()];
+//         document.getElementById('date').innerHTML = newDate.getDate();
+//         document.getElementById('day').innerHTML = dayNames[newDate.getDay()];
+//         document.getElementById('year').innerHTML = newDate.getFullYear();
+//     }, 1000);
+// }
 
 // ===============================================>> MODAL_WINDOW <<==========================================================
 
 // ------------------- ОТКРЫТИЕ МОДАЛЬНОГО ОКНА ПО НАЖАТИЮ НА КНОПКУ 'BUTTON' из списка
 const modalOpenHandler = ({ target }) => {
-    // console.log(target);
     if (target.nodeName !== 'BUTTON') {
         console.log(target.nodeName);
         return;
     }
+    let currentColor = target.dataset.color;
+    let btnIndex = target.textContent;
 
-    const currentColor = target.dataset.color;
-    console.log(currentColor);
-
-    let id = target.textContent;
-    console.log(id);
+    modalWindowMarkup(currentColor, btnIndex);
 
     const buttonElem = document.querySelector(`#${target.id}`);
     console.log(buttonElem);
 
-    buttonElem.dataset['color'];
-
     const newColor = (buttonElem.dataset['color'] = 'green');
     buttonElem.style.backgroundColor = newColor;
-
-    modalWindowMarkup(currentColor, id);
 
     // image.src = target.dataset.source; //>-Подмена значения атрибута `src` элемента `img.lightbox__image`.
     window.addEventListener('keydown', modalCloseByEscHandler);
@@ -245,14 +239,16 @@ const modalCloseByEscHandler = ({ key }) => {
 };
 
 // ЗАКРЫТИЕ МОДЛАЛЬНОГО ОКНА
-const modalCloseHandler = () => {
+function modalCloseHandler() {
     window.removeEventListener('keydown', modalCloseByEscHandler);
+
     container.classList.remove('is-open');
-};
+}
 
 list.addEventListener('click', modalOpenHandler); //>СПИСОК ИЗ КНОПОК(ТАБЛЕТОК)
 closeModalButton.addEventListener('click', modalCloseHandler); //>ЗАКРЫТЬ МОДАЛЬНОЕ ОКНО
-backdrop.addEventListener('click', modalCloseHandler); //>ФОН МОДАЛЬНОГО ОКНА
+backdrop.addEventListener('click', modalCloseHandler); //>ЗАКРЫТЬ НАЖАВ НА ФОН МОДАЛЬНОГО ОКНА
+// modalBtnCancel.addEventListener('click', modalCloseHandler); //> ЗАКРЫТЬ НАЖАВ КНОПКУ CANCEL
 
 // -------------------------------- СБРОС/ОЧИСТИТКА РАЗМЕТКИ
 function reset() {
@@ -276,7 +272,7 @@ function modalWindowMarkup(currentColor, id) {
                         <h3>Выдача:</h3>
                         <p id="datejs">${getCurrentDate()}</p>
                         <div>
-                            <form class="modal-form">
+                            <form class="modal-form" id="modalForm">
                                 <select id="pet-select" name="pet" size="4">
                                     <optgroup label="Необычные цветы">
                                         <option value="half-hour">30мин</option>
@@ -289,20 +285,52 @@ function modalWindowMarkup(currentColor, id) {
                                 <div>
                                     <label for="appt-time">Choose an appointment time (opening hours 12:00 to 18:00): </label>
                                     <input id="appt-time" type="time" name="appt-time"
-                                        min="12:00" max="18:00" required>
+                                        min="12:00" max="18:00">
                                     <span class="validity"></span>
+                                </div>
+                                
+                                <div class="stepper">
+                                    <!-- Minus button -->
+                                    <button type="button" class="stepper__button">-</button>
+
+                                    <!-- Input container -->
+                                    <div class="stepper__content">
+                                        <input 
+                                        type="text" 
+                                        name="chose-time" 
+                                        class="stepper__input" 
+                                        min="0:30" 
+                                        max="4:00"
+                                        value="0:30"
+                                        />
+                                    </div>
+
+                                    <!-- Plus button -->
+                                    <button type="button" class="stepper__button">+</button>
                                 </div>
 
                                 <button 
                                     class="modal-form__submit" 
+                                    id="modalSubmit"
+                                    data-color="${currentColor}"
                                     type="submit" 
                                     method="POST"
-                                >
-                                    <svg class="" width="40" height="40">
+                                >   
+                                    Выдать
+                                    <svg class="" width="30" height="30">
                                         <use href="./images/new-icon-sprite.svg#i-wheelchair-alt"></use>
                                     </svg>
-                                    Выдать
                                 </button>
+                                <button 
+                                    type="reset"
+                                    id="cancelBtn"
+                                >
+                                    Отмена
+                                </button>
+                                <input 
+                                    type="reset" 
+                                    value="Reset"
+                                />
                             </form>
                         </div>
                     </div>  
